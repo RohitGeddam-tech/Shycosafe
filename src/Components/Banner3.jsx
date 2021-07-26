@@ -1,4 +1,5 @@
 import React from "react";
+import { NavHashLink } from "react-router-hash-link";
 import banner from "../images/banner.jpg";
 import banner1 from "../images/banner1.jpg";
 import line from "../images/Rect1.png";
@@ -33,7 +34,7 @@ const Banner1 = ({ image, title, styles, line }) => {
           <img src={line} alt="line" />
         </h1>
         <div className="bottom">
-          <button className="redBtn">KNOW MORE</button>
+          <NavHashLink to='/products' className="redBtn">KNOW MORE</NavHashLink>
         </div>
       </div>
     </div>
