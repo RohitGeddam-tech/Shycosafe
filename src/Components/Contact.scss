@@ -6,7 +6,6 @@
   .container {
     display: flex;
     justify-content: space-between;
-
     .modal {
       width: 100%;
       display: flex;
@@ -235,6 +234,15 @@
           display: flex;
           justify-content: center;
           padding-top: 12px;
+        }
+      }
+      @media(min-width:1020px){
+        .boxShadow{
+          margin: auto;
+        }
+        .alignHeading{
+          width: 93%;
+          margin: auto;
         }
       }
     }

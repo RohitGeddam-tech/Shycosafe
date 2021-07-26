@@ -28,6 +28,11 @@
           img {
             width: 300px;
           }
+          @media(min-width:1020px){
+            img{
+              width: 100%;
+            }
+          }
           .pad {
             padding: 13px;
             .heading {

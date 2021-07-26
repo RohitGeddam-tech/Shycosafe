@@ -16,7 +16,7 @@ const bannerDetails = [
   },
   {
     image: banner,
-    styles: { color: "#e40061" },
+    styles: { color: "#282828" },
     line: line1,
     title: "Get your business back on track",
   },

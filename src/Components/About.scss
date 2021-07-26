@@ -2,6 +2,11 @@
   width: 100%;
   padding: 20px 0 0 0;
   .container {
+    h1{
+      img{
+        width: 70px;
+      }
+    }
     p {
       width: 98%;
       margin: 10px 0 30px 0;
@@ -17,6 +22,24 @@
       display: flex;
       justify-content: flex-start;
       padding: 30px 0 20px 0;
+    }
+  }
+  @media (min-width: 1020px){
+    .container{
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 70px;
+      .desk{
+        width: 40%;
+        // padding-top: 10px;
+        p{
+          width: 85%;
+          padding-top: 40px;
+        }
+      }
+      iframe{
+        width: 680px;
+      }
     }
   }
 }

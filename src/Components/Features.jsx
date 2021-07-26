@@ -17,32 +17,36 @@ const Features = () => {
           <img src={line} alt="line" />
         </h1>
         <div className="featureBox">
-          <div className="shadowBox">
-            <img src={guard} alt="guard" />
-            <div className="detail">
-              <h2>100% Safe</h2>
-              <p>No harmful effects to humans & animals or the environment</p>
+          <div className="box1">
+            <div className="shadowBox">
+              <img src={guard} alt="guard" />
+              <div className="detail">
+                <h2>100% Safe</h2>
+                <p>No harmful effects to humans & animals or the environment</p>
+              </div>
+            </div>
+            <div className="shadowBox">
+              <img src={virus} alt="virus" />
+              <div className="detail">
+                <h2>Effective</h2>
+                <p>Disables corona virus upto 99.9%* in enclosed places</p>
+              </div>
             </div>
           </div>
-          <div className="shadowBox">
-            <img src={virus} alt="virus" />
-            <div className="detail">
-              <h2>Effective</h2>
-              <p>Disables corona virus upto 99.9%* in enclosed places</p>
+          <div className="box1">
+            <div className="shadowBox">
+              <img src={cable} alt="cable" />
+              <div className="detail">
+                <h2>Plug & Play</h2>
+                <p>Easy installations and no consumables required</p>
+              </div>
             </div>
-          </div>
-          <div className="shadowBox">
-            <img src={cable} alt="cable" />
-            <div className="detail">
-              <h2>Plug & Play</h2>
-              <p>Easy installations and no consumables required</p>
-            </div>
-          </div>
-          <div className="shadowBox">
-            <img src={home} alt="home" />
-            <div className="detail">
-              <h2>Protects upto 1000 sq.ft.</h2>
-              <p>Multiple devices can be easily placed for larger spaces</p>
+            <div className="shadowBox">
+              <img src={home} alt="home" />
+              <div className="detail">
+                <h2>Protects upto 1000 sq.ft.</h2>
+                <p>Multiple devices can be easily placed for larger spaces</p>
+              </div>
             </div>
           </div>
         </div>
