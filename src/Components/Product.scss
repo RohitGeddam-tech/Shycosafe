@@ -1,6 +1,6 @@
 .product {
   width: 100%;
-  padding: 20px 0 40px;
+  padding: 20px 0 20px;
   .container {
     h1 {
       margin-bottom: 30px;
@@ -10,6 +10,10 @@
     }
     img {
       width: 100%;
+    }
+    .redBtn{
+      margin-top: 20px;
+      margin-left: 15px;
     }
     .Slider {
       .Slide {
