@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Shycosafe/static/css/main.a1cfe654.chunk.css",
-    "main.js": "/Shycosafe/static/js/main.297d37d2.chunk.js",
-    "main.js.map": "/Shycosafe/static/js/main.297d37d2.chunk.js.map",
-    "runtime-main.js": "/Shycosafe/static/js/runtime-main.dc64d7ea.js",
-    "runtime-main.js.map": "/Shycosafe/static/js/runtime-main.dc64d7ea.js.map",
+    "main.css": "/Shycosafe/static/css/main.3d6ee8c4.chunk.css",
+    "main.js": "/Shycosafe/static/js/main.54cecd11.chunk.js",
+    "main.js.map": "/Shycosafe/static/js/main.54cecd11.chunk.js.map",
+    "runtime-main.js": "/Shycosafe/static/js/runtime-main.3d91a64f.js",
+    "runtime-main.js.map": "/Shycosafe/static/js/runtime-main.3d91a64f.js.map",
     "static/css/2.8037de97.chunk.css": "/Shycosafe/static/css/2.8037de97.chunk.css",
-    "static/js/2.bfa599cd.chunk.js": "/Shycosafe/static/js/2.bfa599cd.chunk.js",
-    "static/js/2.bfa599cd.chunk.js.map": "/Shycosafe/static/js/2.bfa599cd.chunk.js.map",
-    "static/js/3.99ba107b.chunk.js": "/Shycosafe/static/js/3.99ba107b.chunk.js",
-    "static/js/3.99ba107b.chunk.js.map": "/Shycosafe/static/js/3.99ba107b.chunk.js.map",
+    "static/js/2.2782f2dc.chunk.js": "/Shycosafe/static/js/2.2782f2dc.chunk.js",
+    "static/js/2.2782f2dc.chunk.js.map": "/Shycosafe/static/js/2.2782f2dc.chunk.js.map",
+    "static/js/3.63c32437.chunk.js": "/Shycosafe/static/js/3.63c32437.chunk.js",
+    "static/js/3.63c32437.chunk.js.map": "/Shycosafe/static/js/3.63c32437.chunk.js.map",
     "index.html": "/Shycosafe/index.html",
     "static/css/2.8037de97.chunk.css.map": "/Shycosafe/static/css/2.8037de97.chunk.css.map",
-    "static/css/main.a1cfe654.chunk.css.map": "/Shycosafe/static/css/main.a1cfe654.chunk.css.map",
-    "static/js/2.bfa599cd.chunk.js.LICENSE.txt": "/Shycosafe/static/js/2.bfa599cd.chunk.js.LICENSE.txt",
+    "static/css/main.3d6ee8c4.chunk.css.map": "/Shycosafe/static/css/main.3d6ee8c4.chunk.css.map",
+    "static/js/2.2782f2dc.chunk.js.LICENSE.txt": "/Shycosafe/static/js/2.2782f2dc.chunk.js.LICENSE.txt",
     "static/media/index.css": "/Shycosafe/static/media/Metropolis-Thin.13e6128c.woff",
     "static/media/banner.2d81a9b6.jpg": "/Shycosafe/static/media/banner.2d81a9b6.jpg",
     "static/media/banner1.976e6d12.jpg": "/Shycosafe/static/media/banner1.976e6d12.jpg",
@@ -24,10 +24,10 @@
     "static/media/virus.1653b9ec.png": "/Shycosafe/static/media/virus.1653b9ec.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.dc64d7ea.js",
+    "static/js/runtime-main.3d91a64f.js",
     "static/css/2.8037de97.chunk.css",
-    "static/js/2.bfa599cd.chunk.js",
-    "static/css/main.a1cfe654.chunk.css",
-    "static/js/main.297d37d2.chunk.js"
+    "static/js/2.2782f2dc.chunk.js",
+    "static/css/main.3d6ee8c4.chunk.css",
+    "static/js/main.54cecd11.chunk.js"
   ]
 }
