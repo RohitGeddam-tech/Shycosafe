@@ -85,9 +85,9 @@
             transition: 0.5s;
             z-index: 10;
             margin-bottom: 0;
-            font-family: Times;
+            font-family: "Metropolis";
             font-style: normal;
-            font-weight: normal;
+            font-weight: 200;
             font-size: 16px;
             line-height: 18px;
             span {
@@ -105,7 +105,9 @@
             padding: 0 15px;
             font-size: 16px;
             line-height: 18px;
-            font-family: Times;
+            font-family: "Metropolis";
+            font-style: normal;
+            font-weight: 200;
             color: #919eab;
 
             &::-webkit-input-placeholder,
@@ -152,7 +154,9 @@
             padding: 10px 15px;
             font-size: 16px;
             line-height: 18px;
-            font-family: Times;
+            font-family: "Metropolis";
+            font-style: normal;
+            font-weight: 200;
             color: #919eab;
 
             &:focus ~ label {
