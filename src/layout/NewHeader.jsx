@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Nav.scss";
 import { NavHashLink } from "react-router-hash-link";
-import Ham from "./Hamburger";
-import XHam from "./Xham";
+import Ham from "../utils/Hamburger";
+import XHam from "../utils/Xham";
 import logo from "../images/logo.png";
 
 const NewHeader = () => {

@@ -1,5 +1,8 @@
 .bannerSlider {
   padding-bottom: 0;
+  .height{
+    height: 45px !important;
+  }
   .slick-slide {
     height: 570px !important;
     div {

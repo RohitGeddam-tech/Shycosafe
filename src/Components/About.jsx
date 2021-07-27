@@ -1,9 +1,10 @@
 import React from "react";
 // import about from "../images/about.png";
-import useWindowSize from "./useWindowSize";
+import useWindowSize from "../utils/useWindowSize";
 import ReactPlayer from "react-player";
 import line from "../images/Rect2.png";
 import "./About.scss";
+import { NavHashLink } from "react-router-hash-link";
 
 const About = () => {
   const [width] = useWindowSize();
@@ -33,15 +34,14 @@ const About = () => {
           allowFullScreen
         ></iframe> */}
           <div className="bottom">
-            <button className="redBtn">VIEW ALL PRODUCTS</button>
+            <NavHashLink to="/#products" className="redBtn">
+              VIEW ALL PRODUCTS
+            </NavHashLink>
           </div>
         </div>
       ) : (
         <div className="container">
-          <ReactPlayer
-            url="https://youtu.be/nFS_Y9dYHXs"
-            controls={true}
-          />
+          <ReactPlayer url="https://youtu.be/nFS_Y9dYHXs" controls={true} />
           <div className="desk">
             <h1>
               About the product
@@ -53,7 +53,9 @@ const About = () => {
               might not be disturbed.
             </p>
             <div className="bottom">
-              <button className="redBtn">VIEW ALL PRODUCTS</button>
+              <NavHashLink to="/#products" className="redBtn">
+                VIEW ALL PRODUCTS
+              </NavHashLink>
             </div>
           </div>
         </div>

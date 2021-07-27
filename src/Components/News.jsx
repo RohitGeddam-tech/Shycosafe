@@ -3,6 +3,7 @@ import "./News.scss";
 import grey from "../images/profile.jpg";
 import line from "../images/Rect2.png";
 import forward from "../images/forward.png";
+import { NavHashLink } from "react-router-hash-link";
 
 const equipData = [
   {
@@ -52,7 +53,7 @@ const News = () => {
           </div>
         </div>
         <div className="bottom">
-          <button className="redBtn">VIEW ALL ARTICLES</button>
+          <NavHashLink to='/news' className="redBtn">VIEW ALL ARTICLES</NavHashLink>
         </div>
       </div>
     </div>

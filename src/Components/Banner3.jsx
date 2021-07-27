@@ -5,7 +5,7 @@ import banner1 from "../images/banner1.jpg";
 import line from "../images/Rect1.png";
 import line1 from "../images/Rect2.png";
 import "./Banner.scss";
-import CustomSlider from "./Slider";
+import CustomSlider from "../utils/Slider";
 
 const bannerDetails = [
   {
@@ -30,11 +30,13 @@ const Banner1 = ({ image, title, styles, line }) => {
       <img src={image} alt="banner" />
       <div className="bannerBox">
         <h1 style={styles}>
-          {title} 
+          {title}
           <img src={line} alt="line" />
         </h1>
         <div className="bottom">
-          <NavHashLink to='/products' className="redBtn">KNOW MORE</NavHashLink>
+          <NavHashLink to="/#about" className="redBtn">
+            KNOW MORE
+          </NavHashLink>
         </div>
       </div>
     </div>
@@ -51,6 +53,7 @@ const BannerSlider = () => {
           </div>
         ))}
       </CustomSlider>
+      <div id="about" className='height'></div>
     </div>
   );
 };

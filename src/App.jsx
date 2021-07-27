@@ -2,6 +2,7 @@
 import './App.scss';
 import About from './Components/About';
 import Banner from './Components/Banner3';
+import Collection from './Components/Collection';
 import Contact from './Components/Contact';
 import Features from './Components/Features';
 import News from './Components/News';
@@ -24,6 +25,7 @@ function App() {
         <News />
         {/* <Specs /> */}
         <Test />
+        <Collection />
         <Product />
         <Contact />
       </div>

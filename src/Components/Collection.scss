@@ -1,0 +1,42 @@
+td {
+  padding: 16px;
+  font-family: "Metropolis" !important;
+  font-style: normal;
+  font-weight: 200;
+}
+
+.mycolimp {
+  background-color: #e40061;
+  width: 207px;
+  color: white;
+  font-weight: bold;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+tr {
+  border-bottom: 2px solid #e40061;
+}
+
+.collection {
+  width: 100%;
+  padding: 20px 0 0 0;
+  .container {
+    width: 89%;
+  }
+}
+
+.containerdiv {
+  width: 92%;
+  margin: auto;
+  padding: 20px 0 10px;
+  h1 {
+    text-transform: capitalize;
+  }
+  p{
+      margin-top: 20px;
+  }
+}

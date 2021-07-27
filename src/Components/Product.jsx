@@ -1,23 +1,24 @@
 import React from "react";
 import grey from "../images/product.png";
 import "./Product.scss";
-import useWindowSize from "./useWindowSize";
+import useWindowSize from "../utils/useWindowSize";
 import line from "../images/Rect2.png";
+import { NavHashLink } from "react-router-hash-link";
 
 const equipData = [
   {
     image: grey,
-    title: "Machine Name",
+    title: "Product Name",
     para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
   },
   {
     image: grey,
-    title: "Machine Name",
+    title: "Product Name",
     para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
   },
   {
     image: grey,
-    title: "Machine Name",
+    title: "Product Name",
     para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
   },
 ];
@@ -46,8 +47,11 @@ const Product = () => {
             </div>
           </div>
         )}
-        <button className="redBtn">BUY NOW</button>
+        <NavHashLink to="/#contacts" className="redBtn">
+          BUY NOW
+        </NavHashLink>
       </div>
+      <div id="contacts" className='height'></div>
     </div>
   );
 };
