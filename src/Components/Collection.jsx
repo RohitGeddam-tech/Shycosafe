@@ -31,7 +31,7 @@ const Collection = () => {
                   <td style={{ width: "217px", border: "0px #ffffff" }}></td>
                   <td
                     class="mycolimp"
-                    style={{ borderRadius: "8px 8px 0px 0px" }}
+                    style={{ borderRadius: "8px 8px 0px 0px", backgroundColor:"#e40061 !important" }}
                   >
                     <img src="https://shycocancorp.com/wp-content/uploads/2021/06/ic-brand-logo-white.png" alt='logo' />
                   </td>
