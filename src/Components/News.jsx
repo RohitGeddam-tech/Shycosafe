@@ -53,7 +53,7 @@ const News = () => {
           </div>
         </div>
         <div className="bottom">
-          <NavHashLink to='/news' className="redBtn">VIEW ALL ARTICLES</NavHashLink>
+          <NavHashLink to='/news#top' className="redBtn">VIEW ALL ARTICLES</NavHashLink>
         </div>
       </div>
     </div>
