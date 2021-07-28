@@ -34,8 +34,8 @@ const Banner1 = ({ image, title, styles, line }) => {
           <img src={line} alt="line" />
         </h1>
         <div className="bottom">
-          {/* <NavHashLink to="/#about" className="redBtn"> */}
-          <NavHashLink to="/faq#top" className="redBtn">
+          <NavHashLink to="/#about" className="redBtn">
+          {/* <NavHashLink to="/faq#top" className="redBtn"> */}
             KNOW MORE
           </NavHashLink>
         </div>

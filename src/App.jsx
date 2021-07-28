@@ -22,10 +22,10 @@ function App() {
         <Banner />
         <About />
         <Features />
+        <Collection />
         <News />
         {/* <Specs /> */}
         <Test />
-        <Collection />
         <Product />
         <Contact />
       </div>

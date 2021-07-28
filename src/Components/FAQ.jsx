@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import up from "../images/uppink.png";
 import down from "../images/downgrey.png";
 import "./FAQ.scss";
+import NewHeader from "../layout/NewHeader";
 
 const Details = [
   {
@@ -70,7 +71,7 @@ const Details = [
 
 const Faq1 = ({ data, title, num }) => {
   const [state, setState] = useState(false);
-  const color = state ? 'pink' : 'normal'
+  const color = state ? "pink" : "normal";
   return (
     <div onClick={() => setState(!state)} className="faqBox">
       <h1 className={color}>
@@ -84,16 +85,19 @@ const Faq1 = ({ data, title, num }) => {
 
 const FAQ = () => {
   return (
-    <div className="faq">
-      <div className="container">
-        <h1>FAQs</h1>
-        {Details.map((item, index) => (
-          <div key={index}>
-            <Faq1 {...item} num={index} />
-          </div>
-        ))}
+    <>
+      <NewHeader />
+      <div className="faq">
+        <div className="container">
+          <h1>FAQs</h1>
+          {Details.map((item, index) => (
+            <div key={index}>
+              <Faq1 {...item} num={index} />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

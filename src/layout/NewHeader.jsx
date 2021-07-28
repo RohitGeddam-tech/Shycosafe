@@ -49,7 +49,7 @@ const NewHeader = () => {
           </li>
           <li>
             <NavHashLink
-              to="/#top"
+              to="/#products"
               className="navfade"
               onClick={() => setActive(false)}
             >
@@ -58,7 +58,7 @@ const NewHeader = () => {
           </li>
           <li>
             <NavHashLink
-              to="/#top"
+              to="/#about"
               className="navfade"
               onClick={() => setActive(false)}
             >
@@ -67,7 +67,7 @@ const NewHeader = () => {
           </li>
           <li>
             <NavHashLink
-              to="/#top"
+              to="/faq#top"
               className="navfade"
               onClick={() => setActive(false)}
             >
@@ -76,7 +76,7 @@ const NewHeader = () => {
           </li>
           <li>
             <NavHashLink
-              to="/#top"
+              to="/#contacts"
               className="navfade"
               onClick={() => setActive(false)}
             >
