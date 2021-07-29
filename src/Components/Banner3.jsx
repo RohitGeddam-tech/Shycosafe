@@ -1,7 +1,10 @@
 import React from "react";
 import { NavHashLink } from "react-router-hash-link";
+import useWindowSize from "../utils/useWindowSize";
 import banner from "../images/banner.jpg";
 import banner1 from "../images/banner1.jpg";
+import girl from "../images/girl.jpg";
+import man from "../images/man.jpg";
 import line from "../images/Rect1.png";
 import line1 from "../images/Rect2.png";
 import "./Banner.scss";
@@ -22,6 +25,21 @@ const bannerDetails = [
   },
 ];
 
+const bannerDetails1 = [
+  {
+    image: girl,
+    styles: { color: "#282828" },
+    line: line1,
+    title: "Get your business back on track",
+  },
+  {
+    image: man,
+    styles: { color: "#282828" },
+    line: line1,
+    title: "Get your business back on track",
+  },
+];
+
 // Get your business back on track with Shycosafe
 
 const Banner1 = ({ image, title, styles, line }) => {
@@ -35,7 +53,7 @@ const Banner1 = ({ image, title, styles, line }) => {
         </h1>
         <div className="bottom">
           <NavHashLink to="/#about" className="redBtn">
-          {/* <NavHashLink to="/faq#top" className="redBtn"> */}
+            {/* <NavHashLink to="/faq#top" className="redBtn"> */}
             KNOW MORE
           </NavHashLink>
         </div>
@@ -45,15 +63,26 @@ const Banner1 = ({ image, title, styles, line }) => {
 };
 
 const BannerSlider = () => {
+  const [width] = useWindowSize();
   return (
     <div className="bannerSlider">
-      <CustomSlider>
-        {bannerDetails.map((item, index) => (
-          <div key={index}>
-            <Banner1 {...item} />
-          </div>
-        ))}
-      </CustomSlider>
+      {width < 1020 ? (
+        <CustomSlider>
+          {bannerDetails.map((item, index) => (
+            <div key={index}>
+              <Banner1 {...item} />
+            </div>
+          ))}
+        </CustomSlider>
+      ) : (
+        <CustomSlider>
+          {bannerDetails1.map((item, index) => (
+            <div key={index}>
+              <Banner1 {...item} />
+            </div>
+          ))}
+        </CustomSlider>
+      )}
       <div id="about" className="height"></div>
     </div>
   );
