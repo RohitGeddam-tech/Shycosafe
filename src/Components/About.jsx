@@ -18,12 +18,21 @@ const About = () => {
             beside her, while the Lion guarded the door of her room so she might
             not be disturbed.
           </p>
-          <ReactPlayer
-            url="https://youtu.be/nFS_Y9dYHXs"
-            width="100%"
-            height="200px"
-            controls={true}
-          />
+          {width > 600 ? (
+            <ReactPlayer
+              url="https://youtu.be/nFS_Y9dYHXs"
+              width="100%"
+              height="300px"
+              controls={true}
+            />
+          ) : (
+            <ReactPlayer
+              url="https://youtu.be/nFS_Y9dYHXs"
+              width="100%"
+              height="200px"
+              controls={true}
+            />
+          )}
           {/* <iframe
           width="100%"
           height="193"
