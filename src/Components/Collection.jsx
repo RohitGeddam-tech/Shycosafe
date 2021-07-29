@@ -30,10 +30,16 @@ const Collection = () => {
                 <tr style={{ textAlign: "center" }}>
                   <td style={{ width: "217px", border: "0px #ffffff" }}></td>
                   <td
-                    class="mycolimp"
-                    style={{ borderRadius: "8px 8px 0px 0px", backgroundColor:"#e40061" }}
+                    className="mycolimp"
+                    style={{
+                      borderRadius: "8px 8px 0px 0px",
+                      backgroundColor: "#e40061",
+                    }}
                   >
-                    <img src="https://shycocancorp.com/wp-content/uploads/2021/06/ic-brand-logo-white.png" alt='logo' />
+                    <img
+                      src="https://shycocancorp.com/wp-content/uploads/2021/06/ic-brand-logo-white.png"
+                      alt="logo"
+                    />
                   </td>
                   <td style={{ width: "208px" }}>
                     <strong>Air Ionizers</strong>
@@ -49,7 +55,7 @@ const Collection = () => {
                   <td style={{ width: "217px" }}>
                     <strong>Effectiveness</strong>
                   </td>
-                  <td class="mycolimp">
+                  <td className="mycolimp">
                     Up to 99.9% effective against Coronavirus
                   </td>
                   <td style={{ width: "208px" }}>Not-effective</td>
@@ -64,7 +70,7 @@ const Collection = () => {
                   <td style={{ width: "217px" }}>
                     <strong>Utility</strong>
                   </td>
-                  <td class="mycolimp">Continuous functioning</td>
+                  <td className="mycolimp">Continuous functioning</td>
                   <td style={{ width: "208px" }}>Continuous functioning</td>
                   <td style={{ width: "213px" }}>Disinfecting per use</td>
                   <td style={{ width: "231px" }}>Disinfecting per use</td>
@@ -73,7 +79,7 @@ const Collection = () => {
                   <td style={{ width: "217px" }}>
                     <strong>Side Effects</strong>
                   </td>
-                  <td class="mycolimp">No side effects</td>
+                  <td className="mycolimp">No side effects</td>
                   <td style={{ width: "208px" }}>
                     Produces Ozone that is harmful to lung tissues
                   </td>
@@ -86,7 +92,7 @@ const Collection = () => {
                   <td style={{ width: "217px" }}>
                     <strong>Effect</strong>
                   </td>
-                  <td class="mycolimp">Both Air Borne and Surface</td>
+                  <td className="mycolimp">Both Air Borne and Surface</td>
                   <td style={{ width: "208px" }}>Only Airborne</td>
                   <td style={{ width: "213px" }}>Both Air Borne and Surface</td>
                   <td style={{ width: "231px" }}>Only for Surface</td>
@@ -95,7 +101,7 @@ const Collection = () => {
                   <td style={{ width: "217px" }}>
                     <strong>Conditions</strong>
                   </td>
-                  <td class="mycolimp">All conditions</td>
+                  <td className="mycolimp">All conditions</td>
                   <td style={{ width: "208px" }}>Only for small rooms</td>
                   <td style={{ width: "217px" }}>
                     Only empty areas using robots
@@ -108,7 +114,9 @@ const Collection = () => {
                   <td style={{ width: "217px" }}>
                     <strong>Sizes</strong>
                   </td>
-                  <td class="mycolimp">Multiple products for large spaces</td>
+                  <td className="mycolimp">
+                    Multiple products for large spaces
+                  </td>
                   <td style={{ width: "208px" }}>Only for small spaces</td>
                   <td style={{ width: "217px" }}>Only for empty spaces</td>
                   <td style={{ width: "231px" }}>Used across sizes</td>
@@ -118,7 +126,7 @@ const Collection = () => {
                     <strong>Consumables</strong>
                   </td>
                   <td
-                    class="mycolimp"
+                    className="mycolimp"
                     style={{ borderRadius: "0px 0px 8px 8px" }}
                   >
                     One-time installation, no consumables

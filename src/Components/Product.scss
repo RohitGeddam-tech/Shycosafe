@@ -11,7 +11,7 @@
     img {
       width: 100%;
     }
-    .redBtn{
+    .redBtn {
       margin-left: 15px;
     }
     .Slider {
@@ -19,8 +19,9 @@
       .Slide {
         .equipCard {
           margin: 15px;
+          height: fit-content !important;
           box-shadow: 1px 0 10px 1px rgb(0 0 0 / 25%);
-          padding: 10px 0;
+          padding: 10px 0 !important;
           img {
             width: 380px;
             // box-shadow: 1px 1px 0px 1px rgb(0 0 0 / 25%);
@@ -34,9 +35,28 @@
           .para {
             width: 95%;
             font-size: 16px;
-            margin-top: 0;
-            color: #919eab;
-            padding: 0 10px;
+            margin: 0;
+            // color: #919eab;
+            padding: 0 10px 15px;
+          }
+          .bottom {
+            padding: 0 0 10px;
+            margin-left: 10px;
+            .redBtn{
+              margin: 0;
+            }
+          }
+        }
+      }
+      @media(min-width: 450px){
+        .Slide{
+          .equipCard{
+            &:first-child{
+              margin-left: 5px;
+            }
+            img{
+              width: 330px;
+            }
           }
         }
       }

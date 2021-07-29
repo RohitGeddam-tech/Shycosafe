@@ -1,7 +1,12 @@
 .bannerSlider {
   padding-bottom: 0;
-  .height{
-    height: 45px !important;
+  position: relative;
+  .height {
+    height: 15px !important;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    bottom: 0;
   }
   .slick-slide {
     height: 570px !important;
@@ -48,6 +53,7 @@
             padding: 10px 80px;
             display: flex;
             align-items: center;
+            z-index: 88;
           }
         }
       }
@@ -66,11 +72,11 @@
           // width: 45%;
           height: fit-content;
           top: 20%;
-          h1{
+          h1 {
             font-size: 50px;
             line-height: 54px;
             margin-bottom: 30px;
-            img{
+            img {
               width: 90px;
               margin-left: 10px;
               height: 5px !important;

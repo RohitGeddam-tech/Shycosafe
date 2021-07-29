@@ -12,7 +12,7 @@ const NewsShy = () => {
       <div className="newshy">
         <div className="container">
           <h1>
-            News from Shycosafe
+            News from Shycocan
             <img src={line} alt="line" />
           </h1>
           <div className="newsgrid">

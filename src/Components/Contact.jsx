@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Contact.scss";
 import line from "../images/Rect2.png";
+import { getUtmSerializedString } from "../utils/common";
 
 const defaultFormState = {
   fname: "",
@@ -57,7 +58,13 @@ const Contact = ({ className = "" }) => {
     setError({});
     const errorExist = validateForm();
     if (!errorExist) {
-      console.log(details);
+      const data = {
+        ...details,
+        type:"Shycocan",
+        description: getUtmSerializedString(),
+      }
+      console.log(data);
+      // console.log(details);
     } else {
       console.log(error);
     }

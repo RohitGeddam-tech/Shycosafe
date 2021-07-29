@@ -1,7 +1,7 @@
 import React from "react";
 import grey from "../images/product.png";
 import "./Product.scss";
-import useWindowSize from "../utils/useWindowSize";
+// import useWindowSize from "../utils/useWindowSize";
 import line from "../images/Rect2.png";
 import { NavHashLink } from "react-router-hash-link";
 
@@ -24,7 +24,7 @@ const equipData = [
 ];
 
 const Product = () => {
-  const [width] = useWindowSize();
+  // const [width] = useWindowSize();
   return (
     <div className="product">
       <div className="container">
@@ -32,9 +32,9 @@ const Product = () => {
           Products
           <img src={line} alt="line" />
         </h1>
-        {width < 1020 ? (
+        {/* {width < 1020 ? (
           <img src={grey} alt="product" />
-        ) : (
+        ) : ( */}
           <div className="Slider">
             <div className="Slide">
               {equipData.map((doc, index) => (
@@ -42,16 +42,27 @@ const Product = () => {
                   <img src={doc.image} alt="cardImg" />
                   <h1 className="heading">{doc.title}</h1>
                   <p className="para">{doc.para}</p>
+                  <div className="bottom">
+                    <NavHashLink
+                      to="/#contacts"
+                      className="redBtn"
+                      onClick={() =>
+                        sessionStorage.setItem(
+                          "utm_content",
+                          `product${index + 1}`
+                        )
+                      }
+                    >
+                      BUY NOW
+                    </NavHashLink>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
-        )}
-        <NavHashLink to="/#contacts" className="redBtn">
-          BUY NOW
-        </NavHashLink>
+        {/* )} */}
       </div>
-      <div id="contacts" className='height'></div>
+      <div id="contacts" className="height"></div>
     </div>
   );
 };

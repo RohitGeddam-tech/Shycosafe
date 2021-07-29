@@ -166,7 +166,7 @@ img {
 p {
   font-family: "Metropolis" !important;
   font-style: normal;
-  font-weight: 200;
+  font-weight: normal;
   font-size: 18px;
   line-height: 21px;
   margin: 10px 0;
@@ -239,4 +239,10 @@ p {
   height: 0;
   width: 30px;
   border: 1px solid #fff;
+}
+
+@media (min-width: 1500px){
+  .container{
+    width: 1440px;
+  }
 }

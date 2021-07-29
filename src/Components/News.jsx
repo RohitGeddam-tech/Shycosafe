@@ -2,7 +2,7 @@ import React from "react";
 import "./News.scss";
 import grey from "../images/profile.jpg";
 import line from "../images/Rect2.png";
-import forward from "../images/forward.png";
+import forward from "../images/rightpink.png";
 import { NavHashLink } from "react-router-hash-link";
 
 const equipData = [

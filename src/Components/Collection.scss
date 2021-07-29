@@ -36,7 +36,18 @@ tr {
   h1 {
     text-transform: capitalize;
   }
-  p{
-      margin-top: 20px;
+  p {
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .containerdiv {
+    width: 1440px;
+  }
+  .collection {
+    .container {
+      width: 1430px;
+    }
   }
 }
