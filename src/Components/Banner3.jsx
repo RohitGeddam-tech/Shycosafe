@@ -27,13 +27,13 @@ const bannerDetails = [
 
 const bannerDetails1 = [
   {
-    image: girl,
+    image: man,
     styles: { color: "#282828" },
     line: line1,
     title: "Get your business back on track",
   },
   {
-    image: man,
+    image: girl,
     styles: { color: "#282828" },
     line: line1,
     title: "Get your business back on track",
