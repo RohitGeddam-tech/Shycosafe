@@ -48,11 +48,15 @@
           }
         }
       }
-      @media(min-width: 450px){
+    }
+  }
+  @media(max-width: 450px){
+    .container{
+      .Slider{
         .Slide{
           .equipCard{
             &:first-child{
-              margin-left: 5px;
+              margin-left: 5px !important;
             }
             img{
               width: 330px;
