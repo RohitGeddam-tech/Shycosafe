@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 // import about from "../images/about.png";
 import useWindowSize from "../utils/useWindowSize";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/lazy";
 import line from "../images/Rect2.png";
 import "./About.scss";
 import { NavHashLink } from "react-router-hash-link";
 
 const About = () => {
   const [width] = useWindowSize();
-  const [src, setSrc] = useState("");
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setSrc("https://youtu.be/nFS_Y9dYHXs");
-      console.log(src)
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
+  const [src, setSrc] = useState("https://youtu.be/nFS_Y9dYHXs");
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setSrc("https://youtu.be/nFS_Y9dYHXs");
+  //     console.log(src)
+  //   }, 2000);
+  //   return () => clearTimeout(timer);
+  // }, []);
   return (
     <div className="about">
       {width < 1020 ? (
