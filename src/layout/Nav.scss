@@ -143,6 +143,22 @@
       }
     }
   }
+  @media(min-width:1200px){
+    .container{
+      width: 96%;
+      // .navDetails{
+      //   margin-right: -45px;
+      // }
+    }
+  }
+  @media(min-width:1400px){
+    .container{
+      width: 1200px !important;
+      .navDetails{
+        margin-right: -15px;
+      }
+    }
+  }
 
   .header {
     width: 95%;

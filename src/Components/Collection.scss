@@ -41,9 +41,20 @@ tr {
   }
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1200px) {
   .containerdiv {
-    width: 1440px;
+    width: 85%;
+  }
+  .collection {
+    .container {
+      width: 85%;
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .containerdiv {
+    width: 1161px;
   }
   .collection {
     .container {

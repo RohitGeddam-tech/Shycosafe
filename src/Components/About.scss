@@ -62,8 +62,13 @@
   @media (min-width: 1290px) {
     .container {
       iframe {
-        width: 680px;
+        width: 630px;
       }
+    }
+  }
+  @media (min-width: 1400px){
+    .container{
+      width: 1161px !important;
     }
   }
 }

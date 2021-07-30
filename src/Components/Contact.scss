@@ -236,13 +236,39 @@
           padding-top: 12px;
         }
       }
-      @media(min-width:1020px){
-        .boxShadow{
+      @media (min-width: 1020px) {
+        .boxShadow {
           margin: auto;
         }
-        .alignHeading{
+        .alignHeading {
           width: 93%;
           margin: auto;
+        }
+      }
+    }
+  }
+  @media (min-width: 1200px) {
+    .container {
+      width: 85%;
+      .modal {
+        .alignHeading {
+          width: 100% !important;
+        }
+        .boxShadow {
+          width: 1125px !important;
+        }
+      }
+    }
+  }
+  @media (min-width: 1400px) {
+    .container {
+      width: 1161px;
+      .modal {
+        .alignHeading {
+          width: 100% !important;
+        }
+        .boxShadow {
+          width: 100%;
         }
       }
     }
