@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import { useState } from "react";
 // import banner from "../images/Oval.png";
 import "./Test.scss";
 // import Modal from "../../Utils/Modal";
 import line from "../images/Rect2.png";
 import CustomSlider from "../utils/CustomSlider";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const bannerDetails = [
   {
@@ -47,16 +49,19 @@ const Banner1 = ({ word, title, para, info, id }) => {
 };
 
 const Test = () => {
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  });
   return (
     <div className="BannerSlider">
       <div className="container">
-        <h1>
+        <h1 data-aos="fade-up" data-aos-duration="1000">
           Our Customer Testimonials
           <img src={line} alt="line" />
         </h1>
         <CustomSlider>
           {bannerDetails.map((item, index) => (
-            <div key={index}>
+            <div key={index} data-aos="fade-up" data-aos-duration="1500">
               <Banner1 {...item} />
             </div>
           ))}

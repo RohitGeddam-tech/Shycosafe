@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Contact.scss";
 import line from "../images/Rect2.png";
 import { getUtmSerializedString } from "../utils/common";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const defaultFormState = {
   fname: "",
@@ -70,6 +72,10 @@ const Contact = ({ className = "" }) => {
     }
   };
 
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  });
+
   const [clicked, setClicked] = useState(false);
 
   className += ` textfield ${details.text ? "has-value" : ""}`;
@@ -78,7 +84,7 @@ const Contact = ({ className = "" }) => {
     <div className="contact">
       <div className="container">
         <form className="modal" onSubmit={handleSubmit}>
-          <div className="alignHeading">
+          <div className="alignHeading" data-aos="fade-up" data-aos-duration="1500">
             <h1>
               Contact Us
               <img src={line} alt="line" />
@@ -88,7 +94,7 @@ const Contact = ({ className = "" }) => {
               with us
             </p>
           </div>
-          <div className="boxShadow">
+          <div className="boxShadow" data-aos="fade-up" data-aos-duration="2000">
             <div className="inputFlex">
               <div className="text-input">
                 <input

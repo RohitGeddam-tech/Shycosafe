@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import cable from "../images/cable.png";
 import guard from "../images/guard.png";
 import home from "../images/home.png";
@@ -6,18 +6,23 @@ import virus from "../images/virus.png";
 import line from "../images/Rect2.png";
 import "./Features.scss";
 import Specs from "./Specs";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Features = () => {
   const [open, setOpen] = useState(false);
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  });
   return (
     <div className="feature">
       <div className="container">
-        <h1>
+        <h1 data-aos="fade-up" data-aos-duration="1000">
           Features Of Shycocan
           <img src={line} alt="line" />
         </h1>
         <div className="featureBox">
-          <div className="box1">
+          <div className="box1" data-aos="fade-up" data-aos-duration="1500">
             <div className="shadowBox">
               <img src={guard} alt="guard" />
               <div className="detail">
@@ -33,7 +38,7 @@ const Features = () => {
               </div>
             </div>
           </div>
-          <div className="box1">
+          <div className="box1" data-aos="fade-up" data-aos-duration="1800">
             <div className="shadowBox">
               <img src={cable} alt="cable" />
               <div className="detail">
@@ -50,7 +55,7 @@ const Features = () => {
             </div>
           </div>
         </div>
-        <div className="bottom">
+        <div className="bottom" data-aos="fade-up" data-aos-duration="2000">
           <button className="redBtn" onClick={() => setOpen(true)}>
             READ SPECIFICATIONS
           </button>

@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Collection.scss";
 import line from "../images/Rect2.png";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Collection = () => {
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  });
   return (
     <div className="collection">
-      <div className="containerdiv">
+      <div className="containerdiv" data-aos="fade-up" data-aos-duration="1000">
         <h1>
           Shycosafe Comparison
           <img src={line} alt="line" />
@@ -15,7 +20,7 @@ const Collection = () => {
           methods. Shycocan outperforms on all parameters.
         </p>
       </div>
-      <div className="container">
+      <div className="container" data-aos="fade-up" data-aos-duration="1500">
         <div className="Slider">
           <div className="Slide">
             <table

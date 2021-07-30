@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavHashLink } from "react-router-hash-link";
 import useWindowSize from "../utils/useWindowSize";
 import banner from "../images/banner.jpg";
@@ -9,6 +9,8 @@ import line from "../images/Rect1.png";
 import line1 from "../images/Rect2.png";
 import "./Banner.scss";
 import CustomSlider from "../utils/Slider";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const bannerDetails = [
   {
@@ -45,8 +47,8 @@ const bannerDetails1 = [
 const Banner1 = ({ image, title, styles, line }) => {
   return (
     <div className="banner">
-      <img src={image} alt="banner" loading='lazy' />
-      <div className="bannerBox">
+      <img src={image} alt="banner" loading="lazy" />
+      <div className="bannerBox" data-aos="fade-up" data-aos-duration="1500">
         <h1 style={styles}>
           {title}
           <img src={line} alt="line" />
@@ -64,6 +66,9 @@ const Banner1 = ({ image, title, styles, line }) => {
 
 const BannerSlider = () => {
   const [width] = useWindowSize();
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  });
   return (
     <div className="bannerSlider">
       {width < 1020 ? (

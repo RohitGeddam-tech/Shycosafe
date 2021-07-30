@@ -1,22 +1,27 @@
-import React from "react";
+import React,{useEffect} from "react";
 // import Footer from "../layout/Footer";
 import NewHeader from "../layout/NewHeader";
 import "./NewsShy.scss";
 import line from "../images/Rect2.png";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const NewsShy = () => {
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  });
   return (
     <>
       <NewHeader />
       <div style={{ paddingTop: "70px" }}></div>
       <div className="newshy">
         <div className="container">
-          <h1>
+          <h1 data-aos="fade-up" data-aos-duration="1000">
             News from Shycocan
             <img src={line} alt="line" />
           </h1>
           <div className="newsgrid">
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Noida Factory With 600+ Staff Installs Unique Virus Attenuation
                 Devices To Curb Coronavirus
@@ -45,13 +50,13 @@ const NewsShy = () => {
                 Matrubhasa – Bhubaneshwar
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>How Polluted Indoor Air Causes Respiratory Infections</h1>
               <a href="https://gulfnews.com/uae/health/how-polluted-indoor-air-causes-respiratory-infections-1.78899655">
                 Gulf News
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Shycocan | Indian Express Article – Understanding The Truth
               </h1>
@@ -59,7 +64,7 @@ const NewsShy = () => {
                 Shycocan – Understanding The Truth
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Ingram Micro Signs Agreement With Shycocan To Distribute Virus
                 Attenuation Device
@@ -85,7 +90,7 @@ const NewsShy = () => {
               </a>
               <br />
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Indian-Built Device To Contain Covid Infectivity Gets US, EU Nod
               </h1>
@@ -93,7 +98,7 @@ const NewsShy = () => {
                 Times Of India
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Corona Cannon: This Made-In-India Device Can Neutralise
                 Coronavirus, Make Public Places Safer
@@ -102,7 +107,7 @@ const NewsShy = () => {
                 Deccan Herald
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Device To Prevent Coronavirus! USFDA Clears Shycocan Which
                 Neutralises 99.9% Virus Floating In Closed Spaces
@@ -111,7 +116,7 @@ const NewsShy = () => {
                 Financial Express
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Shycocan, World’s First Virus Attenuation Device Developed In
                 India, Gets Businesses Back On Track In Pandemic Times
@@ -166,7 +171,7 @@ const NewsShy = () => {
                 Chennai Press News
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Noida Factory With 600+ Staff Installs Unique Virus Attenuation
                 Devices To Curb Coronavirus
@@ -219,7 +224,7 @@ const NewsShy = () => {
                 News Views Network
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Indian-Made Device That Can ‘Neutralise Covid’ Gets US FDA & EU
                 Nod; It’s Called Shycocan
@@ -228,13 +233,13 @@ const NewsShy = () => {
                 Republic World
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>New Device To Combat Covid-19</h1>
               <a href="https://telanganatoday.com/new-device-to-combat-covid-19">
                 Telangana Today
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Bengaluru Organisation Gets US FDA, EU Nod For Device That Can
                 Kill COVID-19 Virus
@@ -243,7 +248,7 @@ const NewsShy = () => {
                 Business World
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Made In India: World’s First Virus Attenuation Device Now In
                 Kolkata
@@ -252,7 +257,7 @@ const NewsShy = () => {
                 Dailyhunt.In
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Bengaluru Organisation Gets US FDA, EU Approval For Medical
                 Device That Can Neutralise Coronavirus
@@ -261,7 +266,7 @@ const NewsShy = () => {
                 News18
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 There Is A Growing Demand For Shycocan Device In Kolkata:
                 Shycocan Corporation CEO
@@ -278,13 +283,13 @@ const NewsShy = () => {
                 Gotravelblogger.Com
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>Shycocan A Virus Attenuation Device Developed In India</h1>
               <a href="https://www.gizmotech.in/shycocan-a-virus-attenuation-device-developed-in-india">
                 Gizmotech
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Demand For Coronavirus Disabling Device Strong Across Markets:
                 Shycocan Corp
@@ -301,7 +306,7 @@ const NewsShy = () => {
                 Outlook
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Disable The Coronavirus And Influenza Virus Families In Indoor
                 Spaces With 99.994% Efficacy
@@ -310,7 +315,7 @@ const NewsShy = () => {
                 Online And You
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Bengaluru Scientist Develops Device To Disable Coronavirus
               </h1>
@@ -318,7 +323,7 @@ const NewsShy = () => {
                 BioSpectrum
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Vaccine Plus Technology: What We Need To Combat Covid 2.0 – Dr.
                 Ajai Chowdhry
@@ -327,7 +332,7 @@ const NewsShy = () => {
                 Financial Express
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Coronavirus-Busting Device To Be Manufactured In India From Sept
               </h1>
@@ -335,7 +340,7 @@ const NewsShy = () => {
                 The New Indian Express
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 SHYCOCAN — A Canon To Kill Coronavirus Manufactured In Bengaluru
                 — Here’s How It Works
@@ -344,7 +349,7 @@ const NewsShy = () => {
                 India TV
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 SHYCOCAN – A Device To Disable Coronaviruses – To Be Marketed
                 Under US-FDA’s Enforcement Discretion During The COVID-19 Public
@@ -354,7 +359,7 @@ const NewsShy = () => {
                 Pharmiweb
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Meet The Innovator Who Claims His Device Can Kill The
                 Coronavirus
@@ -363,7 +368,7 @@ const NewsShy = () => {
                 Business Standard
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Shycocan, Virus Attenuation Device Launched At UAE’s ICPM
                 Healthcare Conference & Exhibition
@@ -372,7 +377,7 @@ const NewsShy = () => {
                 Logistics Middle East
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Virus Attenuation In Companies To Protect Against Corona – Noida
                 News
@@ -381,7 +386,7 @@ const NewsShy = () => {
                 Amar Ujala
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Agility, Innovation, Safety Key To Success In Post-Pandemic Era
               </h1>
@@ -389,7 +394,7 @@ const NewsShy = () => {
                 Bizness Transform
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Shycocan | Facts Vs. Misrepresentation In Media | The Wire
               </h1>
@@ -397,7 +402,7 @@ const NewsShy = () => {
                 Shycocan – Facts Vs. Misrepresentation In Media
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Now, A Device To Kill Coronavirus? Bengaluru Firm Gets US FDA,
                 EU Nod
@@ -406,7 +411,7 @@ const NewsShy = () => {
                 Mint
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 Bengaluru-Based Firm Comes Up With Device That Can Kill
                 Coronavirus, To Be Manufactured And Marketed In US, EU
@@ -415,7 +420,7 @@ const NewsShy = () => {
                 Times Now News
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 This Made In India Device Claims To Help Curb Spread Of COVID-19
                 In Indoor Spaces
@@ -424,7 +429,7 @@ const NewsShy = () => {
                 Mumbai Live
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>
                 NEW EMERGING TECHNOLOGY TO BREAK THE PANDEMIC CHAIN Introducing
                 SHYCOCAN By Scalene Cybernetics Limited
@@ -433,7 +438,7 @@ const NewsShy = () => {
                 Daily Hunt
               </a>
             </div>
-            <div className="newsbox">
+            <div className="newsbox" data-aos="fade-up" data-aos-duration="1000">
               <h1>Shycocan Developers Hold A Webinar To Showcase Its Device</h1>
               <a href="https://www.dqweek.com/shycocan-developers-hold-webinar-showcase-device/">
                 Dataquest

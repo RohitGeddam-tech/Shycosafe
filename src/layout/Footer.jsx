@@ -1,13 +1,18 @@
-import React from "react";
+import React, {useEffect} from "react";
 import address from "../images/map.png";
 import mail from "../images/mail.png";
 import call from "../images/call.png";
 import './Footer.scss'
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Footer = () => {
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  });
   return (
     <div className="footer">
-      <div className="container">
+      <div className="container" data-aos="fade-up" data-aos-duration="1500">
         <div className="box">
           <img src={mail} alt="mail" />
           <div className="data">

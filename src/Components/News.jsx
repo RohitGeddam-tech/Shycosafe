@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./News.scss";
 import grey from "../images/profile.jpg";
 import line from "../images/Rect2.png";
 import forward from "../images/rightpink.png";
 import { NavHashLink } from "react-router-hash-link";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const equipData = [
   {
@@ -24,18 +26,21 @@ const equipData = [
 ];
 
 const News = () => {
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  });
   return (
     <div className="equipments">
       <div className="container">
-        <h1>
+        <h1 data-aos="fade-up" data-aos-duration="1000">
           News & Media
           <img src={line} alt="line" />
         </h1>
-        <div className="Slider">
+        <div className="Slider" data-aos="fade-up" data-aos-duration="1500">
           <div className="Slide">
             {equipData.map((doc, index) => (
               <div className="equipCard" key={index}>
-                <img src={doc.image} alt="cardImg" loading='lazy' />
+                <img src={doc.image} alt="cardImg" loading="lazy" />
                 <div className="pad">
                   <h1 className="heading">{doc.title}</h1>
                   <p>{doc.para}</p>
@@ -52,8 +57,10 @@ const News = () => {
             ))}
           </div>
         </div>
-        <div className="bottom">
-          <NavHashLink to='/news#top' className="redBtn">VIEW ALL ARTICLES</NavHashLink>
+        <div className="bottom" data-aos="fade-up" data-aos-duration="2000">
+          <NavHashLink to="/news#top" className="redBtn">
+            VIEW ALL ARTICLES
+          </NavHashLink>
         </div>
       </div>
     </div>

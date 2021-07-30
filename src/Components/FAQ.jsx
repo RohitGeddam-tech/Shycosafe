@@ -35,7 +35,7 @@ const FAQ = () => {
       <NewHeader />
       <div className="faqs">
         <div className="container">
-          <h1>FAQs</h1>
+          <h1 className='head'>FAQs</h1>
           <div
             onClick={() => setOne(!one)}
             className={`faqBin${one ? " open" : ""}`}
