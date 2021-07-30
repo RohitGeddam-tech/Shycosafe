@@ -13,7 +13,7 @@ const About = () => {
     const timer = setTimeout(() => {
       setSrc("https://youtu.be/nFS_Y9dYHXs");
       console.log(src)
-    }, 4000);
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
   return (
