@@ -93,7 +93,9 @@ const NewHeader = () => {
       ) : (
         <>
           <div className="container">
-            <img src={logo} alt="logo" />
+            <NavHashLink to="/#top">
+              <img src={logo} alt="logo" />
+            </NavHashLink>
             <div className="navDetails">
               <NavHashLink
                 to="/#top"
