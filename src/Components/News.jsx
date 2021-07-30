@@ -57,7 +57,7 @@ const News = () => {
             ))}
           </div>
         </div>
-        <div className="bottom" data-aos="fade-up" data-aos-duration="2000">
+        <div className="bottom">
           <NavHashLink to="/news#top" className="redBtn">
             VIEW ALL ARTICLES
           </NavHashLink>
