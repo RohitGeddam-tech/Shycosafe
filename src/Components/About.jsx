@@ -22,7 +22,7 @@ const About = () => {
     const timer = setTimeout(() => {
       setSrc("https://youtu.be/nFS_Y9dYHXs");
       console.log(src)
-    }, 3000);
+    }, 4000);
     return () => clearTimeout(timer);
   }, []);
   return (
