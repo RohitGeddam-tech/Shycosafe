@@ -45,7 +45,7 @@ const bannerDetails1 = [
 const Banner1 = ({ image, title, styles, line }) => {
   return (
     <div className="banner">
-      <img src={image} alt="banner" />
+      <img src={image} alt="banner" loading='lazy' />
       <div className="bannerBox">
         <h1 style={styles}>
           {title}
