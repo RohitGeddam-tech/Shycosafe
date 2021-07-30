@@ -2,11 +2,17 @@
   padding-bottom: 0;
   position: relative;
   .height {
-    height: 15px !important;
+    height: 70px !important;
     position: absolute;
     width: 100%;
     z-index: 1;
-    bottom: 0;
+    bottom: 12%;
+  }
+  @media(min-width: 1020px){
+    .height{
+      height: 70px !important;
+      bottom: 0 !important;
+    }
   }
   .slick-slide {
     height: 570px !important;

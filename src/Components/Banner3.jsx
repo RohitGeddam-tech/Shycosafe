@@ -18,12 +18,14 @@ const bannerDetails = [
     styles: { color: "white" },
     line: line,
     title: "Get your business back on track",
+    id:'about'
   },
   {
     image: banner,
     styles: { color: "#282828" },
     line: line1,
     title: "Get your business back on track",
+    id:'about'
   },
 ];
 
@@ -33,18 +35,20 @@ const bannerDetails1 = [
     styles: { color: "#282828" },
     line: line1,
     title: "Get your business back on track",
+    id:"banner"
   },
   {
     image: girl,
     styles: { color: "#282828" },
     line: line1,
     title: "Get your business back on track",
+    id:"banner"
   },
 ];
 
 // Get your business back on track with Shycosafe
 
-const Banner1 = ({ image, title, styles, line }) => {
+const Banner1 = ({ image, title, styles, line, id }) => {
   return (
     <div className="banner">
       <img src={image} alt="banner" loading="lazy" />
@@ -53,7 +57,7 @@ const Banner1 = ({ image, title, styles, line }) => {
           {title}
           <img src={line} alt="line" />
         </h1>
-        <div className="bottom">
+        <div className="bottom" id={id}>
           <NavHashLink to="/#about" className="redBtn">
             {/* <NavHashLink to="/faq#top" className="redBtn"> */}
             KNOW MORE
@@ -88,7 +92,7 @@ const BannerSlider = () => {
           ))}
         </CustomSlider>
       )}
-      <div id="about" className="height"></div>
+      {width < 1020 ? null : <div id="about" className="height"></div> }
     </div>
   );
 };

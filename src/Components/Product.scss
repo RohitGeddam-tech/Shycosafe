@@ -1,7 +1,12 @@
 .product {
   width: 100%;
-  padding: 20px 0 20px;
+  padding: 20px 0 0px;
+  .height {
+    width: 100% !important;
+    height: 50px;
+  }
   .container {
+    padding-bottom: 0;
     h1 {
       margin-bottom: 30px;
       img {
@@ -15,7 +20,7 @@
       margin-left: 15px;
     }
     .Slider {
-      margin-bottom: 20px;
+      margin-bottom: 0;
       .Slide {
         .equipCard {
           margin: 15px;
@@ -42,7 +47,7 @@
           .bottom {
             padding: 0 0 10px;
             margin-left: 10px;
-            .redBtn{
+            .redBtn {
               margin: 0;
             }
           }
@@ -50,16 +55,16 @@
       }
     }
   }
-  @media(min-width: 1200px){
-    .container{
+  @media (min-width: 1200px) {
+    .container {
       width: 85%;
-      .Slider{
-        .Slide{
-          .equipCard{
-            &:first-child{
+      .Slider {
+        .Slide {
+          .equipCard {
+            &:first-child {
               margin-left: 5px !important;
             }
-            img{
+            img {
               width: 330px;
             }
           }
@@ -67,15 +72,15 @@
       }
     }
   }
-  @media(max-width: 450px){
-    .container{
-      .Slider{
-        .Slide{
-          .equipCard{
-            &:first-child{
+  @media (max-width: 450px) {
+    .container {
+      .Slider {
+        .Slide {
+          .equipCard {
+            &:first-child {
               margin-left: 5px !important;
             }
-            img{
+            img {
               width: 330px;
             }
           }
