@@ -99,6 +99,7 @@ const NewHeader = () => {
             <div className="navDetails">
               <NavHashLink
                 to="/#top"
+                activeStyle={{ color: "#e40061", fontWeight: "bold" }}
                 className="navfade"
                 onClick={() => setActive(false)}
               >
@@ -106,6 +107,7 @@ const NewHeader = () => {
               </NavHashLink>
               <NavHashLink
                 to="/#products"
+                activeStyle={{ color: "#e40061", fontWeight: "bold" }}
                 className="navfade"
                 onClick={() => setActive(false)}
               >
@@ -113,6 +115,7 @@ const NewHeader = () => {
               </NavHashLink>
               <NavHashLink
                 to="/#about"
+                activeStyle={{ color: "#e40061", fontWeight: "bold" }}
                 className="navfade"
                 onClick={() => setActive(false)}
               >
@@ -120,6 +123,7 @@ const NewHeader = () => {
               </NavHashLink>
               <NavHashLink
                 to="/faq#top"
+                activeStyle={{ color: "#e40061", fontWeight: "bold" }}
                 className="navfade"
                 onClick={() => setActive(false)}
               >
@@ -127,6 +131,7 @@ const NewHeader = () => {
               </NavHashLink>
               <NavHashLink
                 to="/#contacts"
+                activeStyle={{ color: "#e40061", fontWeight: "bold" }}
                 className="navfade"
                 onClick={() => setActive(false)}
               >
