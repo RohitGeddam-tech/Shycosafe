@@ -5,7 +5,7 @@ import "./Banner.scss";
 const Banner = () => {
   return (
     <div className="banner">
-      <img src={banner} alt="banner" />
+      <img src={banner} alt="banner" loading='lazy' />
       <div className="bannerBox">
         <div className="top">
           <h1>
