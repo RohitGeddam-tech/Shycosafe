@@ -39,7 +39,7 @@ const Product = () => {
             <div className="Slide">
               {equipData.map((doc, index) => (
                 <div className="equipCard" key={index}>
-                  <img src={doc.image} alt="cardImg" />
+                  <img src={doc.image} alt="cardImg" loading='lazy' />
                   <h1 className="heading">{doc.title}</h1>
                   <p className="para">{doc.para}</p>
                   <div className="bottom">

@@ -35,7 +35,7 @@ const News = () => {
           <div className="Slide">
             {equipData.map((doc, index) => (
               <div className="equipCard" key={index}>
-                <img src={doc.image} alt="cardImg" />
+                <img src={doc.image} alt="cardImg" loading='lazy' />
                 <div className="pad">
                   <h1 className="heading">{doc.title}</h1>
                   <p>{doc.para}</p>
