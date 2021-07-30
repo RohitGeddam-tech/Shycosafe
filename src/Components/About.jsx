@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 // import about from "../images/about.png";
 import useWindowSize from "../utils/useWindowSize";
 // import ReactPlayer from "react-player";
