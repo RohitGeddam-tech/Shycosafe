@@ -112,6 +112,35 @@
   margin-top: -3px;
   /* height: 50px; */
 
+  .container {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    img {
+      width: auto;
+      height: auto;
+    }
+    .navDetails {
+      display: flex;
+      align-items: center;
+      // padding-right: 3%;
+      .navfade {
+        // font-family: Times;
+        // font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 24px;
+        margin: 0 10px;
+        margin-top: 5px;
+        color: #8892a0;
+        text-transform: capitalize;
+        // text-align: center;
+      }
+    }
+  }
+
   .header {
     width: 95%;
     margin: auto;

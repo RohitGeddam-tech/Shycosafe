@@ -14,11 +14,27 @@ const CustomSlider = ({children}) => {
     arrows:false,
     responsive: [
       {
-        breakpoint: 750,
+        breakpoint: 1065,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 1,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 710,
+        settings: {
+          slidesToShow: 1.5,
+          slidesToScroll: 1,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 355,
+        settings: {
+          slidesToShow: 0.8,
+          slidesToScroll: 1,
           arrows: false,
         },
       },
