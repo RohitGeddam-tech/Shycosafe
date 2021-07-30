@@ -16,15 +16,15 @@ const About = () => {
     Aos.init({ duration: 500 });
   });
 
-  const src = "https://youtu.be/nFS_Y9dYHXs";
-  // const [src, setSrc] = useState("https://youtu.be/nFS_Y9dYHXs");
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setSrc("https://youtu.be/nFS_Y9dYHXs");
-  //     console.log(src)
-  //   }, 3000);
-  //   return () => clearTimeout(timer);
-  // }, []);
+  // const src = "https://youtu.be/nFS_Y9dYHXs";
+  const [src, setSrc] = useState("https://youtu.be/nFS_Y9dYHXs");
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSrc("https://youtu.be/nFS_Y9dYHXs");
+      console.log(src)
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div className="about">
       {width < 1020 ? (
@@ -35,7 +35,7 @@ const About = () => {
             beside her, while the Lion guarded the door of her room so she might
             not be disturbed.
           </p>
-          {/* {width > 600 ? (
+          {width > 600 ? (
             <ReactPlayer
               url={src}
               width="100%"
@@ -50,16 +50,16 @@ const About = () => {
               height="200px"
               controls={true}
             />
-          )} */}
-          <iframe
+          )}
+          {/* <iframe
           width="100%"
-          height="300px"
+          height="193"
           src="https://www.youtube.com/embed/nFS_Y9dYHXs"
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-        ></iframe>
+        ></iframe> */}
           <div className="bottom">
             <NavHashLink to="/#products" className="redBtn">
               VIEW ALL PRODUCTS
