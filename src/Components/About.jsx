@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import about from "../images/about.png";
 import useWindowSize from "../utils/useWindowSize";
 import ReactPlayer from "react-player";
@@ -8,6 +8,14 @@ import { NavHashLink } from "react-router-hash-link";
 
 const About = () => {
   const [width] = useWindowSize();
+  const [src, setSrc] = useState("");
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSrc("https://youtu.be/nFS_Y9dYHXs");
+      console.log(src)
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div className="about">
       {width < 1020 ? (
@@ -20,14 +28,14 @@ const About = () => {
           </p>
           {width > 600 ? (
             <ReactPlayer
-              url="https://youtu.be/nFS_Y9dYHXs"
+              url={src}
               width="100%"
               height="300px"
               controls={true}
             />
           ) : (
             <ReactPlayer
-              url="https://youtu.be/nFS_Y9dYHXs"
+              url={src}
               width="100%"
               height="200px"
               controls={true}
@@ -50,7 +58,7 @@ const About = () => {
         </div>
       ) : (
         <div className="container">
-          <ReactPlayer url="https://youtu.be/nFS_Y9dYHXs" controls={true} />
+          <ReactPlayer url={src} controls={true} />
           <div className="desk">
             <h1>
               About the product
