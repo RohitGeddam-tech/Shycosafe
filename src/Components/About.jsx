@@ -21,7 +21,7 @@ const About = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setSrc("https://youtu.be/nFS_Y9dYHXs");
-      console.log(src)
+      console.log("src",src)
     }, 4000);
     return () => clearTimeout(timer);
   }, []);
