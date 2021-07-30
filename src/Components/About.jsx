@@ -2,10 +2,10 @@ import React, { Suspense, lazy, useEffect, useState } from "react";
 // import about from "../images/about.png";
 import useWindowSize from "../utils/useWindowSize";
 // import ReactPlayer from "react-player";
-const ReactPlayer = lazy(() => import("react-player"));
 import line from "../images/Rect2.png";
 import "./About.scss";
 import { NavHashLink } from "react-router-hash-link";
+const ReactPlayer = lazy(() => import("react-player"));
 
 const About = () => {
   const [width] = useWindowSize();
