@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 // import about from "../images/about.png";
 import useWindowSize from "../utils/useWindowSize";
-import ReactPlayer from "react-player/lazy";
+// import ReactPlayer from "react-player";
+const ReactPlayer = lazy(() => import("react-player"));
 import line from "../images/Rect2.png";
 import "./About.scss";
 import { NavHashLink } from "react-router-hash-link";
@@ -13,7 +14,7 @@ const About = () => {
   //   const timer = setTimeout(() => {
   //     setSrc("https://youtu.be/nFS_Y9dYHXs");
   //     console.log(src)
-  //   }, 2000);
+  //   }, 3000);
   //   return () => clearTimeout(timer);
   // }, []);
   return (
@@ -27,19 +28,24 @@ const About = () => {
             not be disturbed.
           </p>
           {width > 600 ? (
-            <ReactPlayer
-              url={src}
-              width="100%"
-              height="300px"
-              controls={true}
-            />
+            <Suspense fallback={<div>Loading...</div>}>
+              <ReactPlayer
+                url={src}
+                width="100%"
+                height="300px"
+                u
+                controls={true}
+              />
+            </Suspense>
           ) : (
-            <ReactPlayer
-              url={src}
-              width="100%"
-              height="200px"
-              controls={true}
-            />
+            <Suspense fallback={<div>Loading...</div>}>
+              <ReactPlayer
+                url={src}
+                width="100%"
+                height="200px"
+                controls={true}
+              />
+            </Suspense>
           )}
           {/* <iframe
           width="100%"
