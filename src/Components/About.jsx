@@ -17,7 +17,7 @@ const About = () => {
   });
 
   // const src = "https://youtu.be/nFS_Y9dYHXs";
-  const [src, setSrc] = useState("https://youtu.be/nFS_Y9dYHXs");
+  const [src, setSrc] = useState("");
   useEffect(() => {
     const timer = setTimeout(() => {
       setSrc("https://youtu.be/nFS_Y9dYHXs");
