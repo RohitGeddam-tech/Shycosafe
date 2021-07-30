@@ -8,45 +8,50 @@ import Details from "../utils/Details";
 
 const Faq1 = ({ data, title, id }) => {
   const [state, setState] = useState(false);
-  const color = state ? "pink" : "normal";
-  // console.log(JSON.stringify(data))
-  // const para = JSON.stringify(data)
   return (
-    <div onClick={() => setState(!state)} className="faqBox">
-      <h1 className={color}>
-        {id}. {title}{" "}
-        {state ? <img src={up} alt="up" /> : <img src={down} alt="down" />}
-      </h1>
-      {state ? <p>{data}</p> : null}
+    <div
+      onClick={() => setState(!state)}
+      className={`faqBin${state ? " open" : ""}`}
+    >
+      <div className="question">
+        <div className="id">{id}.</div>{" "}
+        <div className="title">
+          {title}{" "}
+          {state ? <img src={up} alt="up" /> : <img src={down} alt="down" />}
+        </div>
+      </div>
+      <div className="answer">{data}</div>
     </div>
   );
 };
 
 const FAQ = () => {
   const [one, setOne] = useState(false);
-  const color = one ? "pink" : "normal";
-  const disp = one ? "back" : "disp";
   const [two, setTwo] = useState(false);
-  const color2 = two ? "pink" : "normal";
-  const disp2 = two ? "back" : "disp";
   const [six, setSix] = useState(false);
-  const color6 = six ? "pink" : "normal";
-  const disp6 = six ? "back" : "disp";
   const [nine, setNine] = useState(false);
-  const color9 = nine ? "pink" : "normal";
-  const disp9 = nine ? "back" : "disp";
   return (
     <>
       <NewHeader />
-      <div className="faq">
+      <div className="faqs">
         <div className="container">
           <h1>FAQs</h1>
-          <div onClick={() => setOne(!one)} className="faqBox">
-            <h1 className={color}>
-              1. Who has invented the Shycocan device?
-              {one ? <img src={up} alt="up" /> : <img src={down} alt="down" />}
-            </h1>
-            <div className={disp}>
+          <div
+            onClick={() => setOne(!one)}
+            className={`faqBin${one ? " open" : ""}`}
+          >
+            <div className="question">
+              <div className="id">1.</div>{" "}
+              <div className="title">
+                Who has invented the Shycocan device?{" "}
+                {one ? (
+                  <img src={up} alt="up" />
+                ) : (
+                  <img src={down} alt="down" />
+                )}
+              </div>
+            </div>
+            <div className="answer">
               Shycocan has been invented by Dr. Rajah Vijaykumar, a prolific
               Indian Scientist with over 15 multi- disciplinary patents. He is
               the inventor of Cytotron, a device for degenerative and
@@ -81,13 +86,23 @@ const FAQ = () => {
               the living cell”.
             </div>
           </div>
-          <div onClick={() => setTwo(!two)} className="faqBox">
-            <h1 className={color2}>
-              2. How long did it take to design the Shycocan device and when was
-              it built?
-              {two ? <img src={up} alt="up" /> : <img src={down} alt="down" />}
-            </h1>
-            <div className={disp2}>
+          <div
+            onClick={() => setTwo(!two)}
+            className={`faqBin${two ? " open" : ""}`}
+          >
+            <div className="question">
+              <div className="id">2.</div>{" "}
+              <div className="title">
+                How long did it take to design the Shycocan device and when was
+                it built?
+                {two ? (
+                  <img src={up} alt="up" />
+                ) : (
+                  <img src={down} alt="down" />
+                )}
+              </div>
+            </div>
+            <div className="answer">
               The Shycocan device was built in early 2018, nearly two years
               prior to the CORONAVIRUS pandemic. While working for over five
               years on another patent, Dr. Kumar developed a highly specialized
@@ -115,12 +130,22 @@ const FAQ = () => {
               <Faq1 {...item} num={index} />
             </div>
           ))}
-          <div onClick={() => setSix(!six)} className="faqBox">
-            <h1 className={color6}>
-              16. How do I know if my Shycocan is working effectively?
-              {six ? <img src={up} alt="up" /> : <img src={down} alt="down" />}
-            </h1>
-            <div className={disp6}>
+          <div
+            onClick={() => setSix(!six)}
+            className={`faqBin${six ? " open" : ""}`}
+          >
+            <div className="question">
+              <div className="id">16.</div>{" "}
+              <div className="title">
+                How do I know if my Shycocan is working effectively?
+                {six ? (
+                  <img src={up} alt="up" />
+                ) : (
+                  <img src={down} alt="down" />
+                )}
+              </div>
+            </div>
+            <div className="answer">
               There are multiple ways to find out if the Shycocan device is
               working.
               <ul>
@@ -149,13 +174,23 @@ const FAQ = () => {
               <Faq1 {...item} num={index} />
             </div>
           ))}
-          <div onClick={() => setNine(!nine)} className="faqBox">
-            <h1 className={color9}>
-              19. Are there any side-effects of Shycocan on humans, other living
-              beings, or the environment?
-              {nine ? <img src={up} alt="up" /> : <img src={down} alt="down" />}
-            </h1>
-            <div className={disp9}>
+          <div
+            onClick={() => setNine(!nine)}
+            className={`faqBin${nine ? " open" : ""}`}
+          >
+            <div className="question">
+              <div className="id">19.</div>{" "}
+              <div className="title">
+                Are there any side-effects of Shycocan on humans, other living
+                beings, or the environment?
+                {nine ? (
+                  <img src={up} alt="up" />
+                ) : (
+                  <img src={down} alt="down" />
+                )}
+              </div>
+            </div>
+            <div className="answer">
               Shycocan does not have any side effects on humans, living
               organisms, plants, or the environment. All the relevant tests
               related to the environmental safety as prescribed by CE
