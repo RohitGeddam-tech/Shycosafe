@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Shycosafe/static/css/main.5403562d.chunk.css",
+    "main.css": "/Shycosafe/static/css/main.97a8362a.chunk.css",
     "main.js": "/Shycosafe/static/js/main.6d72907d.chunk.js",
     "main.js.map": "/Shycosafe/static/js/main.6d72907d.chunk.js.map",
     "runtime-main.js": "/Shycosafe/static/js/runtime-main.43d2ce7d.js",
@@ -12,7 +12,7 @@
     "static/js/3.d6dd030f.chunk.js.map": "/Shycosafe/static/js/3.d6dd030f.chunk.js.map",
     "index.html": "/Shycosafe/index.html",
     "static/css/2.1ee5e8a2.chunk.css.map": "/Shycosafe/static/css/2.1ee5e8a2.chunk.css.map",
-    "static/css/main.5403562d.chunk.css.map": "/Shycosafe/static/css/main.5403562d.chunk.css.map",
+    "static/css/main.97a8362a.chunk.css.map": "/Shycosafe/static/css/main.97a8362a.chunk.css.map",
     "static/js/2.ab5fde85.chunk.js.LICENSE.txt": "/Shycosafe/static/js/2.ab5fde85.chunk.js.LICENSE.txt",
     "static/media/index.css": "/Shycosafe/static/media/Metropolis-Thin.13e6128c.woff",
     "static/media/banner.2d81a9b6.jpg": "/Shycosafe/static/media/banner.2d81a9b6.jpg",
@@ -29,7 +29,7 @@
     "static/js/runtime-main.43d2ce7d.js",
     "static/css/2.1ee5e8a2.chunk.css",
     "static/js/2.ab5fde85.chunk.js",
-    "static/css/main.5403562d.chunk.css",
+    "static/css/main.97a8362a.chunk.css",
     "static/js/main.6d72907d.chunk.js"
   ]
 }
