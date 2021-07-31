@@ -1,4 +1,4 @@
-import React, { lazy, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 // import about from "../images/about.png";
 import useWindowSize from "../utils/useWindowSize";
 import ReactPlayer from "react-player";
@@ -16,12 +16,12 @@ const About = () => {
     Aos.init({ duration: 500 });
   });
 
-  // const src = "https://youtu.be/nFS_Y9dYHXs";
+  // const src = "https://www.youtube.com/embed/nFS_Y9dYHXs";
   const [src, setSrc] = useState("");
   useEffect(() => {
     const timer = setTimeout(() => {
-      setSrc("https://youtu.be/nFS_Y9dYHXs");
-      console.log("src",src)
+      setSrc("https://www.youtube.com/embed/nFS_Y9dYHXs");
+      // console.log("src",src)
     }, 4000);
     return () => clearTimeout(timer);
   }, []);
@@ -35,22 +35,24 @@ const About = () => {
             beside her, while the Lion guarded the door of her room so she might
             not be disturbed.
           </p>
-          {width > 600 ? (
-            <ReactPlayer
-              url={src}
-              width="100%"
-              height="300px"
-              u
-              controls={true}
-            />
-          ) : (
-            <ReactPlayer
-              url={src}
-              width="100%"
-              height="200px"
-              controls={true}
-            />
-          )}
+          <div className="shadowPlay">
+            {width > 600 ? (
+              <ReactPlayer
+                url={src}
+                width="100%"
+                height="300px"
+                u
+                controls={true}
+              />
+            ) : (
+              <ReactPlayer
+                url={src}
+                width="100%"
+                height="200px"
+                controls={true}
+              />
+            )}
+          </div>
           {/* <iframe
           width="100%"
           height="193"
