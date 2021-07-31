@@ -16,15 +16,15 @@ const About = () => {
     Aos.init({ duration: 500 });
   });
 
-  // const src = "https://www.youtube.com/embed/nFS_Y9dYHXs";
-  const [src, setSrc] = useState("");
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setSrc("https://www.youtube.com/embed/nFS_Y9dYHXs");
-      // console.log("src",src)
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
+  const src = "https://www.youtube.com/embed/nFS_Y9dYHXs";
+  // const [src, setSrc] = useState("");
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setSrc("https://www.youtube.com/embed/nFS_Y9dYHXs");
+  //     // console.log("src",src)
+  //   }, 1000);
+  //   return () => clearTimeout(timer);
+  // }, []);
   return (
     <div className="about">
       {width < 1020 ? (
