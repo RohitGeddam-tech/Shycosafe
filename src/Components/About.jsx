@@ -22,7 +22,7 @@ const About = () => {
     const timer = setTimeout(() => {
       setSrc("https://www.youtube.com/embed/nFS_Y9dYHXs");
       // console.log("src",src)
-    }, 4000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
   return (
