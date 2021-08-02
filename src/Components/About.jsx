@@ -43,6 +43,7 @@ const About = () => {
                 height="300px"
                 playing={true}
                 controls={true}
+                muted={true}
               />
             ) : (
               <ReactPlayer
@@ -51,6 +52,7 @@ const About = () => {
                 height="200px"
                 playing={true}
                 controls={true}
+                muted={true}
               />
             )}
           </div>
@@ -72,7 +74,12 @@ const About = () => {
       ) : (
         <div className="container">
           <div data-aos="fade-up" data-aos-duration="1000">
-            <ReactPlayer url={src} playing={true} controls={true} />
+            <ReactPlayer
+              url={src}
+              // muted={true}
+              playing={true}
+              controls={true}
+            />
           </div>
           <div className="desk" data-aos="fade-up" data-aos-duration="1200">
             <h1>

@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { NavHashLink } from "react-router-hash-link";
 import useWindowSize from "../utils/useWindowSize";
 import banner from "../images/banner.jpg";
-import banner1 from "../images/banner1.jpg";
+import banner1 from "../images/banner1.jpeg";
 import girl from "../images/girl.jpg";
 import man from "../images/man.jpg";
-import line from "../images/Rect1.png";
+// import line from "../images/Rect1.png";
 import line1 from "../images/Rect2.png";
 import "./Banner.scss";
 import CustomSlider from "../utils/Slider";
@@ -23,7 +23,7 @@ const bannerDetails = [
   {
     image: banner1,
     styles: { color: "white" },
-    line: line,
+    line: line1,
     title: "Get your business back on track",
     id:'about'
   },
