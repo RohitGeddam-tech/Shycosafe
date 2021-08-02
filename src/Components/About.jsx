@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // import about from "../images/about.png";
 import useWindowSize from "../utils/useWindowSize";
 import ReactPlayer from "react-player";
 import line from "../images/Rect2.png";
+import vid from "../images/aboutVid.jpeg";
 import "./About.scss";
 import { NavHashLink } from "react-router-hash-link";
 import Aos from "aos";
@@ -17,7 +18,7 @@ const About = () => {
   });
 
   const src = "https://www.youtube.com/embed/nFS_Y9dYHXs";
-  // const [src, setSrc] = useState("");
+  const [state, setState] = useState(false);
   // useEffect(() => {
   //   const timer = setTimeout(() => {
   //     setSrc("https://www.youtube.com/embed/nFS_Y9dYHXs");
@@ -29,31 +30,46 @@ const About = () => {
     <div className="about">
       {width < 1020 ? (
         <div className="container" data-aos="fade-up" data-aos-duration="1000">
-          <h1>About the product</h1>
+          <h1>
+            About the product
+            {/* <img src={line} alt="line" /> */}
+          </h1>
           <p>
             The woman now gave Dorothy a bed to sleep in, and Toto lay down
             beside her, while the Lion guarded the door of her room so she might
             not be disturbed.
           </p>
           <div className="shadowPlay">
-            {width > 600 ? (
-              <ReactPlayer
-                url={src}
-                width="100%"
-                height="300px"
-                playing={true}
-                controls={true}
-                muted={true}
-              />
+            {state ? (
+              <>
+                {width > 600 ? (
+                  <ReactPlayer
+                    url={src}
+                    width="100%"
+                    height="300px"
+                    playing={true}
+                    controls={true}
+                    muted={true}
+                  />
+                ) : (
+                  <ReactPlayer
+                    url={src}
+                    width="100%"
+                    height="200px"
+                    playing={true}
+                    controls={true}
+                    muted={true}
+                  />
+                )}
+              </>
             ) : (
-              <ReactPlayer
-                url={src}
-                width="100%"
-                height="200px"
-                playing={true}
-                controls={true}
-                muted={true}
-              />
+              <>
+                {width > 600 ? (
+                  <img src={vid} width="100%" height="360px" alt="video" onClick={()=>setState(true)} />
+                ) : (
+                  <img src={vid} width="100%" height="200px" alt="video" onClick={()=>setState(true)} />
+                )}
+              </>
             )}
           </div>
           {/* <iframe
@@ -77,7 +93,7 @@ const About = () => {
             <ReactPlayer
               url={src}
               // muted={true}
-              playing={true}
+              // playing={true}
               controls={true}
             />
           </div>
