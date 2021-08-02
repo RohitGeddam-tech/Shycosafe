@@ -1,8 +1,8 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import address from "../images/map.png";
 import mail from "../images/mail.png";
 import call from "../images/call.png";
-import './Footer.scss'
+import "./Footer.scss";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
@@ -32,8 +32,7 @@ const Footer = () => {
           <div className="data">
             <p>Address</p>
             <a href="/">
-              The woman now gave Dorothy a bed to sleep in, and Toto lay down
-              beside her, while the Lion guarded the door of her room
+              802, Corner View, 15th Road, Bandra ( West) Mumbai - 400 050.
             </a>
           </div>
         </div>
