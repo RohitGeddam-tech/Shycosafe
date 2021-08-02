@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 // import Products from "./Components/Products";
 import NewsShy from "./Components/NewsShy";
 import FAQ from "./Components/FAQ";
+import AboutPage from "./Components/AboutPage";
 
 const Routing = () => {
   return (
@@ -14,6 +15,7 @@ const Routing = () => {
           <Route path="/Shycosafe" exact component={App} />
           <Route path="/news" exact component={NewsShy} />
           <Route path="/faq" exact component={FAQ} />
+          <Route path="/about" exact component={AboutPage} />
         </Switch>
       </>
     </Router>

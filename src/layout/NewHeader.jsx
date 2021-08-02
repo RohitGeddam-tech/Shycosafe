@@ -97,24 +97,24 @@ const NewHeader = () => {
               <img src={logo} alt="logo" />
             </NavHashLink>
             <div className="navDetails">
-              <NavHashLink
+              {/* <NavHashLink
                 to="/#top"
                 activeStyle={{ color: "#e40061", fontWeight: "bold" }}
                 className="navfade"
                 onClick={() => setActive(false)}
               >
                 Home
-              </NavHashLink>
+              </NavHashLink> */}
               <NavHashLink
                 to="/#products"
-                activeStyle={{ color: "#e40061", fontWeight: "bold" }}
+                // activeStyle={{ color: "#e40061", fontWeight: "bold" }}
                 className="navfade"
                 onClick={() => setActive(false)}
               >
                 Products & Accessories
               </NavHashLink>
               <NavHashLink
-                to="/#about"
+                to="/about"
                 activeStyle={{ color: "#e40061", fontWeight: "bold" }}
                 className="navfade"
                 onClick={() => setActive(false)}
@@ -131,7 +131,7 @@ const NewHeader = () => {
               </NavHashLink>
               <NavHashLink
                 to="/#contacts"
-                activeStyle={{ color: "#e40061", fontWeight: "bold" }}
+                // activeStyle={{ color: "#e40061", fontWeight: "bold" }}
                 className="navfade"
                 onClick={() => setActive(false)}
               >
