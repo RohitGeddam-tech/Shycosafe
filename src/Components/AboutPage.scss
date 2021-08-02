@@ -4,9 +4,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-flow: column;
+  h1{
+      margin-bottom: 5px;
+  }
+  a{
+      text-decoration: underline;
+      color: blue($color: #585858);
+  }
 }
 @media (max-width: 450px) {
   .progress {
-    align-items: flex-start;
+    // align-items: flex-start;
+    justify-content: flex-start;
   }
 }
