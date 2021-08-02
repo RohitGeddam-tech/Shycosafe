@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 // import about from "../images/about.png";
 import useWindowSize from "../utils/useWindowSize";
 import ReactPlayer from "react-player";
@@ -41,7 +41,7 @@ const About = () => {
                 url={src}
                 width="100%"
                 height="300px"
-                u
+                playing={true}
                 controls={true}
               />
             ) : (
@@ -49,6 +49,7 @@ const About = () => {
                 url={src}
                 width="100%"
                 height="200px"
+                playing={true}
                 controls={true}
               />
             )}
@@ -71,7 +72,7 @@ const About = () => {
       ) : (
         <div className="container">
           <div data-aos="fade-up" data-aos-duration="1000">
-            <ReactPlayer url={src} controls={true} />
+            <ReactPlayer url={src} playing={true} controls={true} />
           </div>
           <div className="desk" data-aos="fade-up" data-aos-duration="1200">
             <h1>
