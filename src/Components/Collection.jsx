@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./Collection.scss";
 import line from "../images/Rect2.png";
+import brand from "../images/brand.png";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
@@ -42,7 +43,8 @@ const Collection = () => {
                     }}
                   >
                     <img
-                      src="https://shycocancorp.com/wp-content/uploads/2021/06/ic-brand-logo-white.png"
+                      // src="https://shycocancorp.com/wp-content/uploads/2021/06/ic-brand-logo-white.png"
+                      src={brand}
                       alt="logo"
                     />
                   </td>
