@@ -15,15 +15,15 @@ import "aos/dist/aos.css";
 const bannerDetails = [
   {
     image: banner,
-    styles: { color: "white" },
-    line: line,
+    styles: { color: "#282828" },
+    line: line1,
     title: "Get your business back on track",
     id:'about'
   },
   {
     image: banner1,
-    styles: { color: "#282828" },
-    line: line1,
+    styles: { color: "white" },
+    line: line,
     title: "Get your business back on track",
     id:'about'
   },
