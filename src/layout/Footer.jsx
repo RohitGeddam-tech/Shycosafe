@@ -31,7 +31,7 @@ const Footer = () => {
           <img src={address} alt="address" />
           <div className="data">
             <p>Address</p>
-            <a href="/">
+            <a href="https://goo.gl/maps/cMDFYUvGfRDm8Pej7">
               802, Corner View, 15th Road, Bandra ( West) Mumbai - 400 050.
             </a>
           </div>
