@@ -35,9 +35,9 @@ const About = () => {
             {/* <img src={line} alt="line" /> */}
           </h1>
           <p>
-            The woman now gave Dorothy a bed to sleep in, and Toto lay down
-            beside her, while the Lion guarded the door of her room so she might
-            not be disturbed.
+            Introducing the Shycocan - The world‘s 1st virus attenuation device
+            that can disable the coronavirus with up to 99.9%* efficacy in
+            enclosed spaces
           </p>
           <div className="shadowPlay">
             {state ? (
@@ -65,9 +65,21 @@ const About = () => {
             ) : (
               <>
                 {width > 600 ? (
-                  <img src={vid} width="100%" height="360px" alt="video" onClick={()=>setState(true)} />
+                  <img
+                    src={vid}
+                    width="100%"
+                    height="360px"
+                    alt="video"
+                    onClick={() => setState(true)}
+                  />
                 ) : (
-                  <img src={vid} width="100%" height="200px" alt="video" onClick={()=>setState(true)} />
+                  <img
+                    src={vid}
+                    width="100%"
+                    height="200px"
+                    alt="video"
+                    onClick={() => setState(true)}
+                  />
                 )}
               </>
             )}
@@ -103,9 +115,9 @@ const About = () => {
               <img src={line} alt="line" />
             </h1>
             <p>
-              The woman now gave Dorothy a bed to sleep in, and Toto lay down
-              beside her, while the Lion guarded the door of her room so she
-              might not be disturbed.
+              Introducing the Shycocan - The world‘s 1st virus attenuation
+              device that can disable the coronavirus with up to 99.9%* efficacy
+              in enclosed spaces
             </p>
             <div className="bottom">
               <NavHashLink to="/#products" className="redBtn">
