@@ -96,6 +96,11 @@
         flex-flow: column;
         .aboutDetail{
           width: 100%;
+          p{
+            &.para{
+              margin-bottom: 20px;
+            }
+          }
         }
         .aboutImg{
           width: 100%;

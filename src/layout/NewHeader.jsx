@@ -17,7 +17,7 @@ const NewHeader = () => {
           <div className="header">
             <nav className="container-fullnav">
               <div className="nav-image">
-                <NavHashLink to="/#top">
+                <NavHashLink to="/#top" onClick={() => setActive(false)}>
                   <img src={logo} alt="logo" />
                 </NavHashLink>
               </div>
@@ -42,7 +42,7 @@ const NewHeader = () => {
           </div>
           <div className={side}>
             <div className="container">
-              <li>
+              {/* <li>
                 <NavHashLink
                   to="/#top"
                   className="navfade"
@@ -50,7 +50,7 @@ const NewHeader = () => {
                 >
                   Home
                 </NavHashLink>
-              </li>
+              </li> */}
               <li>
                 <NavHashLink
                   to="/#products"
@@ -62,7 +62,7 @@ const NewHeader = () => {
               </li>
               <li>
                 <NavHashLink
-                  to="/#about"
+                  to="/about#top"
                   className="navfade"
                   onClick={() => setActive(false)}
                 >
@@ -94,7 +94,7 @@ const NewHeader = () => {
         <>
           <div className="container">
             <NavHashLink to="/#top">
-              <img src={logo} alt="logo" />
+              <img src={logo} alt="logo" onClick={() => setActive(false)} />
             </NavHashLink>
             <div className="navDetails">
               {/* <NavHashLink
