@@ -53,12 +53,12 @@ const News = () => {
                     <p>{doc.para}</p>
                   </div>
                   <div className="bottom">
-                    <NavHashLink to={doc.link} className="noOutline">
+                    <a href={`${doc.link}`} className="noOutline">
                       READ MORE{" "}
                       <span>
                         <img src={forward} alt="forward" />
                       </span>
-                    </NavHashLink>
+                    </a>
                   </div>
                 </div>
               </div>
