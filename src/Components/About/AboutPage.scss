@@ -40,6 +40,9 @@
       padding-top: 0;
       display: flex;
       justify-content: space-between;
+      .noDisp{
+        display: none;
+      }
       .aboutImg {
         width: 35%;
         display: flex;
@@ -100,9 +103,16 @@
     .About1 {
       .container {
         flex-flow: column;
+        // .noDisp{
+        //   display: block;
+        //   img {
+        //     display: none !important;
+        //   }
+        // }
         .aboutDetail {
           width: 100%;
           h1 {
+            // display: none !important;
             img {
               display: none !important;
             }

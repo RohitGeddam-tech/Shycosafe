@@ -24,7 +24,9 @@ const AboutPage = () => {
       <NewHeader />
       <div style={{ paddingTop: "67px" }}>
         <div className="aboutHeader">
-          <h1 data-aos="fade-up" data-aos-duration="1000">About Shycosafe</h1>
+          <h1 data-aos="fade-up" data-aos-duration="1000">
+            About Shycosafe
+          </h1>
         </div>
         <div className="vision">
           <div className="container">
@@ -32,7 +34,11 @@ const AboutPage = () => {
               Vision and Mission
               <img src={line} alt="line" />
             </h1>
-            <p style={{ paddingTop: "20px" }} data-aos="fade-up" data-aos-duration="2000">
+            <p
+              style={{ paddingTop: "20px" }}
+              data-aos="fade-up"
+              data-aos-duration="2000"
+            >
               The past year has changed our perception of normalcy. We no longer
               meet in person, go to office or even shake hands. <br />
               <br /> We at Shycosafe stepped into this new normal with the
@@ -44,29 +50,38 @@ const AboutPage = () => {
               premises safe and thereby ensuring the continuity of livelihood
               all around.
               <br />
-              <br /> Shycosafe is the human connect you need. 
-              The safe way.
+              <br /> Shycosafe is the human connect you need. The safe way.
             </p>
           </div>
         </div>
         <div className="About1">
           <div className="container">
-            <div className="aboutImg" data-aos="fade-up" data-aos-duration="2000">
+            <h1 className="noDisp" data-aos="fade-up" data-aos-duration="1500">
+              About the CEO <img src={line} alt="line" />
+            </h1>
+            <div
+              className="aboutImg"
+              data-aos="fade-up"
+              data-aos-duration="2000"
+            >
               <img src={banner} alt="about" />
               <p>Vishal Sharma</p>
               <p className="para">CEO, Shycosafe</p>
             </div>
-            <div className="aboutDetail" data-aos="fade-up" data-aos-duration="1500">
+            <div
+              className="aboutDetail"
+              data-aos="fade-up"
+              data-aos-duration="1500"
+            >
               <h1 className="heading">
                 About the CEO <img src={line} alt="line" />
               </h1>
               <p>
                 {/* Dear All, */}
-                {/* <br /> */}
-                A passionate entrepreneur, Vishal began his career with
-                the Birla group. He has also worked with industry giants like
-                the Times of India group, Videocon, Tata Teleservices and Santo
-                Enterprises.
+                {/* <br /> */}A passionate entrepreneur, Vishal began his career
+                with the Birla group. He has also worked with industry giants
+                like the Times of India group, Videocon, Tata Teleservices and
+                Santo Enterprises.
                 {/* <br /> */}
                 <br /> With the rich background of 19yrs in corporate world,
                 Vishal chose to carve his own path as an entrepreneur in 2008.
