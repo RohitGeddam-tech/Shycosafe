@@ -3,8 +3,8 @@ import React, { useEffect } from "react";
 import Footer from "../../layout/Footer";
 import NewHeader from "../../layout/NewHeader";
 // import aboutImg from "../../images/about-us-hero.svg";
-// import banner from "./grey.png";
-import banner from "./white.png";
+import banner from "./grey.png";
+// import banner from "./white.png";
 import line from "../../images/Rect2.png";
 import Contact from "../Contact";
 import Aos from "aos";
@@ -44,41 +44,40 @@ const AboutPage = () => {
               premises safe and thereby ensuring the continuity of livelihood
               all around.
               <br />
-              <br /> Shycosafe is the human connect you need. <br />
-              <br />
+              <br /> Shycosafe is the human connect you need. 
               The safe way.
             </p>
           </div>
         </div>
         <div className="About1">
           <div className="container">
-            <div className="aboutDetail" data-aos="fade-up" data-aos-duration="1500">
-              <h1 className="heading">
-                About the CEO <img src={line} alt="line" />
-              </h1>
-              <p className="para">
-                Dear All,
-                <br />
-                <br /> A passionate entrepreneur, Vishal began his career with
-                the Birla group. He has also worked with industry giants like
-                the Times of India group, Videocon, Tata Teleservices and Santo
-                Enterprises.
-                <br />
-                <br /> With the rich background of 19yrs in corporate world,
-                Vishal chose to carve his own path as an entrepreneur in 2008.
-                And has never looked back.
-                <br />
-                <br /> With a 360 degree experience attribute in Accounts,
-                Finance and Sales, Vishal brings a lot more to the table with
-                innovative techniques in entrepreneurship.
-                <br />
-                <br /> Shycosafe Mission and Vision
-              </p>
-            </div>
             <div className="aboutImg" data-aos="fade-up" data-aos-duration="2000">
               <img src={banner} alt="about" />
               <p>Vishal Sharma</p>
               <p className="para">CEO, Shycosafe</p>
+            </div>
+            <div className="aboutDetail" data-aos="fade-up" data-aos-duration="1500">
+              <h1 className="heading">
+                About the CEO <img src={line} alt="line" />
+              </h1>
+              <p>
+                {/* Dear All, */}
+                {/* <br /> */}
+                A passionate entrepreneur, Vishal began his career with
+                the Birla group. He has also worked with industry giants like
+                the Times of India group, Videocon, Tata Teleservices and Santo
+                Enterprises.
+                {/* <br /> */}
+                <br /> With the rich background of 19yrs in corporate world,
+                Vishal chose to carve his own path as an entrepreneur in 2008.
+                And has never looked back.
+                {/* <br /> */}
+                <br /> With a 360 degree experience attribute in Accounts,
+                Finance and Sales, Vishal brings a lot more to the table with
+                innovative techniques in entrepreneurship.
+                {/* <br />
+                <br /> Shycosafe Mission and Vision */}
+              </p>
             </div>
           </div>
         </div>
