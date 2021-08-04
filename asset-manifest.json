@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/Shycosafe/static/css/main.cad219aa.chunk.css",
-    "main.js": "/Shycosafe/static/js/main.3967d8ff.chunk.js",
-    "main.js.map": "/Shycosafe/static/js/main.3967d8ff.chunk.js.map",
+    "main.css": "/Shycosafe/static/css/main.6dc6ea66.chunk.css",
+    "main.js": "/Shycosafe/static/js/main.1abe1b20.chunk.js",
+    "main.js.map": "/Shycosafe/static/js/main.1abe1b20.chunk.js.map",
     "runtime-main.js": "/Shycosafe/static/js/runtime-main.cbc61330.js",
     "runtime-main.js.map": "/Shycosafe/static/js/runtime-main.cbc61330.js.map",
     "static/css/2.1ee5e8a2.chunk.css": "/Shycosafe/static/css/2.1ee5e8a2.chunk.css",
-    "static/js/2.9b6aea1d.chunk.js": "/Shycosafe/static/js/2.9b6aea1d.chunk.js",
-    "static/js/2.9b6aea1d.chunk.js.map": "/Shycosafe/static/js/2.9b6aea1d.chunk.js.map",
+    "static/js/2.cd3263a9.chunk.js": "/Shycosafe/static/js/2.cd3263a9.chunk.js",
+    "static/js/2.cd3263a9.chunk.js.map": "/Shycosafe/static/js/2.cd3263a9.chunk.js.map",
     "static/js/3.a0c7ef93.chunk.js": "/Shycosafe/static/js/3.a0c7ef93.chunk.js",
     "static/js/3.a0c7ef93.chunk.js.map": "/Shycosafe/static/js/3.a0c7ef93.chunk.js.map",
     "index.html": "/Shycosafe/index.html",
     "static/css/2.1ee5e8a2.chunk.css.map": "/Shycosafe/static/css/2.1ee5e8a2.chunk.css.map",
-    "static/css/main.cad219aa.chunk.css.map": "/Shycosafe/static/css/main.cad219aa.chunk.css.map",
-    "static/js/2.9b6aea1d.chunk.js.LICENSE.txt": "/Shycosafe/static/js/2.9b6aea1d.chunk.js.LICENSE.txt",
+    "static/css/main.6dc6ea66.chunk.css.map": "/Shycosafe/static/css/main.6dc6ea66.chunk.css.map",
+    "static/js/2.cd3263a9.chunk.js.LICENSE.txt": "/Shycosafe/static/js/2.cd3263a9.chunk.js.LICENSE.txt",
     "static/media/index.css": "/Shycosafe/static/media/Metropolis-Thin.13e6128c.woff",
+    "static/media/AboutPage.scss": "/Shycosafe/static/media/about-us-mobile.9d90679a.jpg",
     "static/media/aboutVid.fa9496c4.jpeg": "/Shycosafe/static/media/aboutVid.fa9496c4.jpeg",
     "static/media/banner.2d81a9b6.jpg": "/Shycosafe/static/media/banner.2d81a9b6.jpg",
     "static/media/banner1.4f62ac78.jpeg": "/Shycosafe/static/media/banner1.4f62ac78.jpeg",
@@ -29,8 +30,8 @@
   "entrypoints": [
     "static/js/runtime-main.cbc61330.js",
     "static/css/2.1ee5e8a2.chunk.css",
-    "static/js/2.9b6aea1d.chunk.js",
-    "static/css/main.cad219aa.chunk.css",
-    "static/js/main.3967d8ff.chunk.js"
+    "static/js/2.cd3263a9.chunk.js",
+    "static/css/main.6dc6ea66.chunk.css",
+    "static/js/main.1abe1b20.chunk.js"
   ]
 }
