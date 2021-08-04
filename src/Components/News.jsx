@@ -54,7 +54,7 @@ const News = () => {
                   </div>
                   <div className="bottom">
                     <NavHashLink to={doc.link} className="noOutline">
-                      READ MORE
+                      READ MORE{" "}
                       <span>
                         <img src={forward} alt="forward" />
                       </span>
