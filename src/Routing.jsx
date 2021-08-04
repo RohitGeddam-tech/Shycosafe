@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 // import Products from "./Components/Products";
 import NewsShy from "./Components/NewsShy";
 import FAQ from "./Components/FAQ";
-import AboutPage from "./Components/AboutPage";
+import AboutPage from "./Components/About/AboutPage";
 
 const Routing = () => {
   return (

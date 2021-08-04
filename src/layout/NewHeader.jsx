@@ -114,7 +114,7 @@ const NewHeader = () => {
                 Products & Accessories
               </NavHashLink>
               <NavHashLink
-                to="/about"
+                to="/about#top"
                 activeStyle={{ color: "#e40061", fontWeight: "bold" }}
                 className="navfade"
                 onClick={() => setActive(false)}
