@@ -2,6 +2,8 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import SliderNextArrow from "../utils/NextArrow";
+import SliderPrevArrow from "../utils/PrevArrow";
 
 const CustomSlider = ({children}) => {
   const settings = {
@@ -11,10 +13,12 @@ const CustomSlider = ({children}) => {
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
-    arrows:false,
+    arrows:true,
+    nextArrow: <SliderNextArrow />,
+    prevArrow: <SliderPrevArrow />,
     responsive: [
       {
-        breakpoint: 1065,
+        breakpoint: 1205,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
