@@ -11,12 +11,15 @@
       padding-top: 30px;
     }
     .slick-track {
-      height: 630px;
+      height: 570px;
       margin-bottom: 20px;
       outline: none;
       &:focus {
         outline: none !important;
       }
+    }
+    .slick-dots{
+      bottom: -40px;
     }
     .slick-slide {
       div {
@@ -27,7 +30,7 @@
     }
     .Banner1 {
       width: 95%;
-      height: 600px;
+      height: 570px;
       outline: none;
       padding: 15px 0px;
       background: #ffffff;
@@ -89,6 +92,13 @@
         width: 90%;
         margin: auto;
         padding: 0 10px;
+      }
+    }
+  }
+  @media(max-width:1205px){
+    .container{
+      .banner1{
+        height: 540px;
       }
     }
   }
