@@ -24,8 +24,6 @@ function App() {
         <Features />
         <Collection />
         <News />
-        {/* <Specs /> */}
-        news
         <Test />
         <Product />
         <Contact />

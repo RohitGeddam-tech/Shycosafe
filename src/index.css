@@ -185,6 +185,7 @@ p {
   line-height: 20px;
   color: #ffffff;
   background: #e40061;
+  cursor: pointer;
 }
 
 .blueBtn {
