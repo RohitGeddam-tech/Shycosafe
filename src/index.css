@@ -247,6 +247,7 @@ p {
     width: 1161px !important;
   }
 }
+
 @media (min-width: 1200px){
   .container{
     width: 85%;
