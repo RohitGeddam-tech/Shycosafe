@@ -13,7 +13,7 @@ const Collection = () => {
     <div className="collection">
       <div className="containerdiv" data-aos="fade-up" data-aos-duration="1000">
         <h1>
-          Shycosafe Comparison
+          Shycocan Comparison
           <img src={line} alt="line" />
         </h1>
         <p>
