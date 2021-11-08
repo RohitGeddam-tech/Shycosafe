@@ -9,7 +9,8 @@
   .container {
     padding-bottom: 0;
     h1 {
-      margin-bottom: 30px;
+      margin-top: 10px;
+      margin-bottom: 20px;
       img {
         width: 70px !important;
       }
@@ -47,7 +48,7 @@
                 height: fit-content !important;
                 box-shadow: 1px 0 10px 1px rgb(0 0 0 / 25%);
                 padding: 10px 0 !important;
-                border: 1px solid #e40051;
+                // border: 1px solid #e40051;
                 display: flex !important;
                 align-items: center;
                 justify-content: space-between;

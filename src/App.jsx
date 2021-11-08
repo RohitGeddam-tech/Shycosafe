@@ -25,34 +25,33 @@ function App() {
             <h1 data-aos="fade-up" data-aos-duration="1000">
               About Shycosafe
             </h1>
-            <p data-aos="fade-up" data-aos-duration="1000">
-              Shycosafe is a start-up making headway into an unstructured market
-              of stands. Lead by a team of designers, we are creating and
-              manufacturing high end stands of great quality and finesse, one
-              you would be pleased to keep at your office or home. Currently
-              these include floor stands and table tops with more category
-              launches planned in the future. <br />
-              Shycosafe has started its journey by making stands for Shycocan (a
-              virus attenuation device) that promises to bring back life to
-              normal. After hearing about the product, our team at Shycosafe was
-              extremely impressed and passionate to design stands for helping
-              alleviate the suffering caused by the pandemic and that's how our
-              journey has started. <br />
-              These stands are designed and manufactured keeping in mind not
-              only the sturdiness and safety but also the aesthetics.
-            </p>
-            <NavHashLink
-              className="redBtn"
-              to="/about#top"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-              id='products'
-            >
-              READ MORE
-            </NavHashLink>
+            <div data-aos="fade-up" data-aos-duration="1000">
+              <p>
+                Shycosafe is a start-up making headway into an unstructured
+                market of stands. Lead by a team of designers, we are creating
+                and manufacturing high end stands of great quality and finesse,
+                one you would be pleased to keep at your office or home.
+                Currently these include floor stands and table tops with more
+                category launches planned in the future. <br />
+                Shycosafe has started its journey by making stands for Shycocan
+                (a virus attenuation device) that promises to bring back life to
+                normal. After hearing about the product, our team at Shycosafe
+                was extremely impressed and passionate to design stands for
+                helping alleviate the suffering caused by the pandemic and
+                that's how our journey has started. <br />
+                These stands are designed and manufactured keeping in mind not
+                only the sturdiness and safety but also the aesthetics.
+              </p>
+              <NavHashLink className="redBtn" to="/about#top">
+                READ MORE
+              </NavHashLink>
+            </div>
           </div>
         </div>
-        <Product />
+        <div style={{ position: "relative" }} className="shyContact">
+          <div id="products" className="height"></div>
+          <Product />
+        </div>
         <div className="we">
           <div
             className="container"
@@ -67,7 +66,7 @@ function App() {
             </NavHashLink>
           </div>
         </div>
-        <div style={{ position: "relative" }} className='shyContact'>
+        <div style={{ position: "relative" }} className="shyContact">
           <div id="contacts" className="height"></div>
           <Contact />
         </div>
