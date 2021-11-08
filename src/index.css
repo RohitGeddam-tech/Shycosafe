@@ -254,6 +254,10 @@ p {
   cursor: pointer;
 }
 
+a:hover{
+  color: white !important;
+}
+
 .container {
   width: 92%;
   margin: auto;

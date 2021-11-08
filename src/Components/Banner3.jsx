@@ -3,6 +3,8 @@ import { NavHashLink } from "react-router-hash-link";
 import useWindowSize from "../utils/useWindowSize";
 import banner from "../images/banner.jpg";
 import banner1 from "../images/banner1.jpeg";
+import lap from "../images/lap.png";
+import mobile2 from "../images/mobile2.png";
 import girl from "../images/girl.jpg";
 import man from "../images/man.jpg";
 import line from "../images/Rect1.png";
@@ -18,14 +20,14 @@ const bannerDetails = [
     styles: { color: "#282828" },
     line: line1,
     title: "Get your business back on track",
-    id:'about'
+    id: "about",
   },
   {
     image: banner1,
     styles: { color: "white" },
     line: line,
     title: "Get your business back on track",
-    id:'about'
+    id: "about",
   },
 ];
 
@@ -35,14 +37,14 @@ const bannerDetails1 = [
     styles: { color: "#282828" },
     line: line1,
     title: "Get your business back on track",
-    id:"banner"
+    id: "banner",
   },
   {
     image: girl,
     styles: { color: "#282828" },
     line: line1,
     title: "Get your business back on track",
-    id:"banner"
+    id: "banner",
   },
 ];
 
@@ -75,8 +77,28 @@ const BannerSlider = () => {
   });
   return (
     <div className="bannerSlider">
-      {width < 1020 ? (
+      {width < 920 ? (
         <CustomSlider>
+          <div>
+            <div className="banner">
+              <img src={mobile2} alt="banner" loading="lazy" />
+              <div
+                className="bannerBox third"
+                data-aos="fade-up"
+                data-aos-duration="1500"
+              >
+                <h1 style={{ color: "#282828" }}>At Shycosafe, we care</h1>
+                <p>The new normal was never normal.</p>
+                <p>We're making the world safe again.</p>
+                <div className="bottom" id={`bottom`}>
+                  <NavHashLink to="/#about" className="redBtn">
+                    {/* <NavHashLink to="/faq#top" className="redBtn"> */}
+                    KNOW MORE
+                  </NavHashLink>
+                </div>
+              </div>
+            </div>
+          </div>
           {bannerDetails.map((item, index) => (
             <div key={index}>
               <Banner1 {...item} />
@@ -85,6 +107,26 @@ const BannerSlider = () => {
         </CustomSlider>
       ) : (
         <CustomSlider>
+          <div>
+            <div className="banner">
+              <img src={lap} alt="banner" loading="lazy" />
+              <div
+                className="bannerBox third"
+                data-aos="fade-up"
+                data-aos-duration="1500"
+              >
+                <h1 style={{ color: "#282828" }}>At Shycosafe, we care</h1>
+                <p>The new normal was never normal.</p>
+                <p>We're making the world safe again.</p>
+                <div className="bottom" id={`bottom`}>
+                  <NavHashLink to="/#about" className="redBtn">
+                    {/* <NavHashLink to="/faq#top" className="redBtn"> */}
+                    KNOW MORE
+                  </NavHashLink>
+                </div>
+              </div>
+            </div>
+          </div>
           {bannerDetails1.map((item, index) => (
             <div key={index}>
               <Banner1 {...item} />
@@ -92,7 +134,7 @@ const BannerSlider = () => {
           ))}
         </CustomSlider>
       )}
-      {width < 1020 ? null : <div id="about" className="height"></div> }
+      {width < 1020 ? null : <div id="about" className="height"></div>}
     </div>
   );
 };

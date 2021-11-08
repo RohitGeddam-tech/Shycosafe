@@ -47,6 +47,9 @@
       &.book {
         display: none;
       }
+      &:hover{
+        color: #e40055 !important;
+      }
       &.active {
         display: block;
         background: rgba(228, 0, 85, 0.1);

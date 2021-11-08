@@ -53,20 +53,29 @@ const NewHeader = () => {
               </li> */}
               <li>
                 <NavHashLink
-                  to="/#products"
-                  className="navfade"
-                  onClick={() => setActive(false)}
-                >
-                  Products & Accessories
-                </NavHashLink>
-              </li>
-              <li>
-                <NavHashLink
                   to="/about#top"
                   className="navfade"
                   onClick={() => setActive(false)}
                 >
-                  About Us
+                  About Shycosafe
+                </NavHashLink>
+              </li>
+              <li>
+                <NavHashLink
+                  to="/#products"
+                  className="navfade"
+                  onClick={() => setActive(false)}
+                >
+                  Products
+                </NavHashLink>
+              </li>
+              <li>
+                <NavHashLink
+                  to="/Shycocan#top"
+                  className="navfade"
+                  onClick={() => setActive(false)}
+                >
+                  About Shycocan
                 </NavHashLink>
               </li>
               <li>
@@ -106,20 +115,28 @@ const NewHeader = () => {
                 Home
               </NavHashLink> */}
               <NavHashLink
-                to="/#products"
-                // activeStyle={{ color: "#e40061", fontWeight: "bold" }}
-                className="navfade"
-                onClick={() => setActive(false)}
-              >
-                Products & Accessories
-              </NavHashLink>
-              <NavHashLink
                 to="/about#top"
                 activeStyle={{ color: "#e40061", fontWeight: "bold" }}
                 className="navfade"
                 onClick={() => setActive(false)}
               >
-                About Us
+                About Shycosafe
+              </NavHashLink>
+              <NavHashLink
+                to="/#products"
+                // activeStyle={{ color: "#e40061", fontWeight: "bold" }}
+                className="navfade"
+                onClick={() => setActive(false)}
+              >
+                Products
+              </NavHashLink>
+              <NavHashLink
+                to="/Shycocan#top"
+                activeStyle={{ color: "#e40061", fontWeight: "bold" }}
+                className="navfade"
+                onClick={() => setActive(false)}
+              >
+                About Shycocan
               </NavHashLink>
               <NavHashLink
                 to="/faq#top"

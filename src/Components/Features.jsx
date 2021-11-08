@@ -55,7 +55,7 @@ const Features = () => {
             </div>
           </div>
         </div>
-        <div className="bottom">
+        <div className="bottom" data-aos="fade-up" data-aos-duration="1500">
           <button className="redBtn" onClick={() => setOpen(true)}>
             READ SPECIFICATIONS
           </button>

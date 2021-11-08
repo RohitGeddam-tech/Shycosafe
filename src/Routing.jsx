@@ -4,8 +4,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 // import Products from "./Components/Products";
 import NewsShy from "./Components/NewsShy";
 import FAQ from "./Components/FAQ";
-import AboutPage from "./Components/AboutPage";
 import BookBack from "./Backend/BookBack";
+import AboutPage from "./Components/About/AboutPage";
+import Shycocan from "./Shyocan";
+import User from "./Backend/User";
 
 const Routing = () => {
   return (
@@ -18,6 +20,8 @@ const Routing = () => {
           <Route path="/faq" exact component={FAQ} />
           <Route path="/about" exact component={AboutPage} />
           <Route path="/backend" exact component={BookBack} />
+          <Route path="/user" exact component={User} />
+          <Route path="/Shycocan" exact component={Shycocan} />
         </Switch>
       </>
     </Router>

@@ -1,4 +1,69 @@
-.App{
+.App {
+  width: 100%;
+  overflow: hidden;
+  h1 {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 46px;
+  }
+  p {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+  }
+  .we {
     width: 100%;
-    overflow: hidden;
+    padding-top: 30px;
+    padding-bottom: 0;
+    .container {
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-bottom: 0;
+      .redBtn{
+        top: -40px;
+        position: relative;
+        z-index: 100;
+      }
+      p {
+        margin-bottom: 30px;
+      }
+      .height {
+        width: 100% !important;
+        height: 50px;
+      }
+    }
+  }
+  .shycoAbout {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    .container {
+      flex-flow: column;
+      width: 60%;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      p {
+        width: 80%;
+        line-height: 30px;
+        margin: auto;
+        margin-bottom: 20px;
+      }
+    }
+    @media (max-width: 900px) {
+      .container {
+        width: 70%;
+      }
+    }
+    @media (max-width: 700px) {
+      .container {
+        width: 95%;
+        p {
+          width: 95%;
+        }
+      }
+    }
+  }
 }

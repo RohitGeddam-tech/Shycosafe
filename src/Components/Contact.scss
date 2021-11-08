@@ -44,6 +44,9 @@
         background-color: white;
         padding-bottom: 40px;
         box-shadow: 1px 0 10px 1px rgb(0 0 0 / 25%);
+        @media (max-width: 800px) {
+          width: 98%;
+        }
         .error-text {
           text-align: center;
           color: red;

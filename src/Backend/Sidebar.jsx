@@ -16,7 +16,7 @@ const Sidebar = () => {
           Lead Management
         </NavHashLink>
         <NavHashLink
-          to="/backend"
+          to="/user#top"
           className="backLinks"
           activeClassName="active"
         >
