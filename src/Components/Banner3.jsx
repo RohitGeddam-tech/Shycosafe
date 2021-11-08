@@ -96,7 +96,7 @@ const BannerSlider = () => {
                 data-aos="fade-up"
                 data-aos-duration="1500"
               >
-                <h1 style={{ color: "#282828" }}>At Shycosafe, we care</h1>
+                <h1 style={{ color: "#282828" }}>At Shycosafe,<br /> we care</h1>
                 <p>The new normal was never normal.</p>
                 <p>We're making the world safe again.</p>
                 <div className="bottom" id={`bottom`}>
@@ -125,7 +125,7 @@ const BannerSlider = () => {
                   data-aos="fade-up"
                   data-aos-duration="1500"
                 >
-                  <h1 style={{ color: "#282828" }}>At Shycosafe, we care</h1>
+                  <h1 style={{ color: "#282828" }}>At Shycosafe, <br /> We Care</h1>
                   <p>The new normal was never normal.</p>
                   <p>We're making the world safe again.</p>
                   <div className="bottom" id={`bottom`}>
