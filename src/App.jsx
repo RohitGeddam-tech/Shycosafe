@@ -23,7 +23,7 @@ function App() {
         <div className="shycoAbout">
           <div className="container">
             <h1 data-aos="fade-up" data-aos-duration="1000">
-              About Shcosafe
+              About Shycosafe
             </h1>
             <p data-aos="fade-up" data-aos-duration="1000">
               Shycosafe is a start-up making headway into an unstructured market

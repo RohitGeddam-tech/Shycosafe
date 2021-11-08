@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { NavHashLink } from "react-router-hash-link";
 import useWindowSize from "../utils/useWindowSize";
 import banner from "../images/banner.jpg";
 import banner1 from "../images/banner1.jpeg";
-import lap from "../images/lap.png";
+// import lap from "../images/lap.png";
+import lap from "../images/Banner.gif";
 import mobile2 from "../images/mobile2.png";
 import girl from "../images/girl.jpg";
 import man from "../images/man.jpg";
@@ -71,10 +72,18 @@ const Banner1 = ({ image, title, styles, line, id }) => {
 };
 
 const BannerSlider = () => {
+  const [state, setState] = useState(false);
   const [width] = useWindowSize();
   useEffect(() => {
     Aos.init({ duration: 500 });
   });
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setState(true);
+      // console.log("src",src)
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div className="bannerSlider">
       {width < 920 ? (
@@ -110,21 +119,23 @@ const BannerSlider = () => {
           <div>
             <div className="banner">
               <img src={lap} alt="banner" loading="lazy" />
-              <div
-                className="bannerBox third"
-                data-aos="fade-up"
-                data-aos-duration="1500"
-              >
-                <h1 style={{ color: "#282828" }}>At Shycosafe, we care</h1>
-                <p>The new normal was never normal.</p>
-                <p>We're making the world safe again.</p>
-                <div className="bottom" id={`bottom`}>
-                  <NavHashLink to="/#about" className="redBtn">
-                    {/* <NavHashLink to="/faq#top" className="redBtn"> */}
-                    KNOW MORE
-                  </NavHashLink>
+              {state ? (
+                <div
+                  className="bannerBox third"
+                  data-aos="fade-up"
+                  data-aos-duration="1500"
+                >
+                  <h1 style={{ color: "#282828" }}>At Shycosafe, we care</h1>
+                  <p>The new normal was never normal.</p>
+                  <p>We're making the world safe again.</p>
+                  <div className="bottom" id={`bottom`}>
+                    <NavHashLink to="/#about" className="redBtn">
+                      {/* <NavHashLink to="/faq#top" className="redBtn"> */}
+                      KNOW MORE
+                    </NavHashLink>
+                  </div>
                 </div>
-              </div>
+              ) : null}
             </div>
           </div>
           {bannerDetails1.map((item, index) => (
