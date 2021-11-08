@@ -46,6 +46,7 @@ function App() {
               to="/about#top"
               data-aos="fade-up"
               data-aos-duration="1000"
+              id='products'
             >
               READ MORE
             </NavHashLink>
@@ -60,13 +61,16 @@ function App() {
           >
             <h1>We're on a mission to make you safe.</h1>
             <p>Take the first step to a safer tomorrow.</p>
-            <div id="contacts" className="height"></div>
+            {/* <div id="contacts" className="height"></div> */}
             <NavHashLink to="/#contacts" className="redBtn">
               GET IN TOUCH
             </NavHashLink>
           </div>
         </div>
-        <Contact />
+        <div style={{ position: "relative" }} className='shyContact'>
+          <div id="contacts" className="height"></div>
+          <Contact />
+        </div>
       </div>
       <Footer />
     </div>
