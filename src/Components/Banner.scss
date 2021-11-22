@@ -44,7 +44,7 @@
         display: flex;
         flex-flow: column;
         justify-content: space-between;
-        height: 530px;
+        height: 550px;
         &.third {
           justify-content: flex-start;
           align-items: center;
@@ -54,6 +54,7 @@
           }
           @media (max-width: 500px) {
             align-items: flex-start;
+            top: 20px;
             .bottom{
               justify-content: flex-start;
             }

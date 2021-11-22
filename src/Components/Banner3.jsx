@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { NavHashLink } from "react-router-hash-link";
 import useWindowSize from "../utils/useWindowSize";
-import banner from "../images/banner.jpg";
+import banner from "../images/mobileGraph.gif";
 import banner1 from "../images/banner1.jpeg";
 // import lap from "../images/lap.png";
 import lap from "../images/Banner.gif";
 import banner2 from "../images/Graph.gif";
-import mobile2 from "../images/mobile2.png";
+import mobile2 from "../images/mobile.gif";
 import girl from "../images/girl.jpg";
 import man from "../images/man.jpg";
 import line from "../images/Rect1.png";
@@ -24,13 +24,13 @@ const bannerDetails = [
     title: "Get your business back on track",
     id: "about",
   },
-  {
-    image: banner1,
-    styles: { color: "white" },
-    line: line,
-    title: "Get your business back on track",
-    id: "about",
-  },
+  // {
+  //   image: banner1,
+  //   styles: { color: "white" },
+  //   line: line,
+  //   title: "Get your business back on track",
+  //   id: "about",
+  // },
 ];
 
 const bannerDetails1 = [
@@ -92,35 +92,37 @@ const BannerSlider = () => {
           <div>
             <div className="banner">
               <img src={mobile2} alt="banner" loading="lazy" />
-              <div
-                className="bannerBox third"
-                data-aos="fade-up"
-                data-aos-duration="1500"
-              >
-                {width < 500 ? (
-                  <h1 style={{ color: "#282828" }}>
-                    At Shycosafe,
-                    <br /> We Care
-                  </h1>
-                ) : (
-                  <h1 style={{ color: "#282828" }}>At Shycosafe, We Care</h1>
-                )}
-                <p>The new normal was never normal.</p>
-                <p>We're making the world safe again.</p>
-                <div className="bottom" id={`bottom`}>
-                  <NavHashLink to="/#about" className="redBtn">
-                    {/* <NavHashLink to="/faq#top" className="redBtn"> */}
-                    KNOW MORE
-                  </NavHashLink>
+              {state ? (
+                <div
+                  className="bannerBox third"
+                  data-aos="fade-up"
+                  data-aos-duration="1500"
+                >
+                  {width < 500 ? (
+                    <h1 style={{ color: "#282828" }}>
+                      At Shycosafe,
+                      <br /> We Care
+                    </h1>
+                  ) : (
+                    <h1 style={{ color: "#282828" }}>At Shycosafe, We Care</h1>
+                  )}
+                  <p>The new normal was never normal.</p>
+                  <p>We're making the world safe again.</p>
+                  <div className="bottom" id={`bottom`}>
+                    <NavHashLink to="/#about" className="redBtn">
+                      {/* <NavHashLink to="/faq#top" className="redBtn"> */}
+                      KNOW MORE
+                    </NavHashLink>
+                  </div>
                 </div>
-              </div>
+              ) : null}
             </div>
           </div>
-          {/* {bannerDetails.map((item, index) => (
+          {bannerDetails.map((item, index) => (
             <div key={index}>
               <Banner1 {...item} />
             </div>
-          ))} */}
+          ))}
         </CustomSlider>
       ) : (
         <CustomSlider>
