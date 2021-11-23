@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Shycosafe/static/css/main.af667385.chunk.css",
-    "main.js": "/Shycosafe/static/js/main.368e3e75.chunk.js",
-    "main.js.map": "/Shycosafe/static/js/main.368e3e75.chunk.js.map",
+    "main.css": "/Shycosafe/static/css/main.d94ee52e.chunk.css",
+    "main.js": "/Shycosafe/static/js/main.b8ce490a.chunk.js",
+    "main.js.map": "/Shycosafe/static/js/main.b8ce490a.chunk.js.map",
     "runtime-main.js": "/Shycosafe/static/js/runtime-main.5804d214.js",
     "runtime-main.js.map": "/Shycosafe/static/js/runtime-main.5804d214.js.map",
     "static/css/2.f0584eb9.chunk.css": "/Shycosafe/static/css/2.f0584eb9.chunk.css",
@@ -12,20 +12,20 @@
     "static/js/3.8f3b989f.chunk.js.map": "/Shycosafe/static/js/3.8f3b989f.chunk.js.map",
     "index.html": "/Shycosafe/index.html",
     "static/css/2.f0584eb9.chunk.css.map": "/Shycosafe/static/css/2.f0584eb9.chunk.css.map",
-    "static/css/main.af667385.chunk.css.map": "/Shycosafe/static/css/main.af667385.chunk.css.map",
+    "static/css/main.d94ee52e.chunk.css.map": "/Shycosafe/static/css/main.d94ee52e.chunk.css.map",
     "static/js/2.fbd9eb91.chunk.js.LICENSE.txt": "/Shycosafe/static/js/2.fbd9eb91.chunk.js.LICENSE.txt",
     "static/media/Banner.93abc15a.gif": "/Shycosafe/static/media/Banner.93abc15a.gif",
     "static/media/Graph.55dd7e9a.gif": "/Shycosafe/static/media/Graph.55dd7e9a.gif",
     "static/media/index.css": "/Shycosafe/static/media/Metropolis-Thin.13e6128c.woff",
     "static/media/AboutPage.scss": "/Shycosafe/static/media/about-us-mobile.9d90679a.jpg",
     "static/media/aboutVid.fa9496c4.jpeg": "/Shycosafe/static/media/aboutVid.fa9496c4.jpeg",
-    "static/media/banner.2d81a9b6.jpg": "/Shycosafe/static/media/banner.2d81a9b6.jpg",
     "static/media/banner1.4f62ac78.jpeg": "/Shycosafe/static/media/banner1.4f62ac78.jpeg",
     "static/media/semantic.min.css": "/Shycosafe/static/media/outline-icons.ddae9b1b.woff",
     "static/media/girl.c2ff6d30.jpg": "/Shycosafe/static/media/girl.c2ff6d30.jpg",
     "static/media/guard.c62a7232.png": "/Shycosafe/static/media/guard.c62a7232.png",
     "static/media/man.f7ecf425.jpg": "/Shycosafe/static/media/man.f7ecf425.jpg",
-    "static/media/mobile2.d72b060f.png": "/Shycosafe/static/media/mobile2.d72b060f.png",
+    "static/media/mobile.fd55ff0b.gif": "/Shycosafe/static/media/mobile.fd55ff0b.gif",
+    "static/media/mobileGraph.328449a3.gif": "/Shycosafe/static/media/mobileGraph.328449a3.gif",
     "static/media/new3.16a05b09.jpg": "/Shycosafe/static/media/new3.16a05b09.jpg",
     "static/media/news2.182472b0.jpg": "/Shycosafe/static/media/news2.182472b0.jpg",
     "static/media/product.192b6802.png": "/Shycosafe/static/media/product.192b6802.png",
@@ -37,7 +37,7 @@
     "static/js/runtime-main.5804d214.js",
     "static/css/2.f0584eb9.chunk.css",
     "static/js/2.fbd9eb91.chunk.js",
-    "static/css/main.af667385.chunk.css",
-    "static/js/main.368e3e75.chunk.js"
+    "static/css/main.d94ee52e.chunk.css",
+    "static/js/main.b8ce490a.chunk.js"
   ]
 }
