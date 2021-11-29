@@ -35,8 +35,8 @@
       }
     }
   }
-  .shyContact{
-    .height{
+  .shyContact {
+    .height {
       position: absolute;
       top: -60px;
     }
@@ -67,10 +67,51 @@
     @media (max-width: 700px) {
       .container {
         width: 95%;
-        text-align:start;
+        text-align: start;
         p {
           width: 95%;
           margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+.login {
+  width: 100%;
+  overflow-x: hidden;
+  padding-top: 67px;
+  background-color: #eeeeee;
+  .container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 67px);
+    img {
+      width: 120px;
+    }
+    .loginForm {
+      margin-top: 30px;
+      width: 300px;
+      .redBtn {
+        padding: 10px 30px;
+      }
+      .otp {
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        margin-bottom: 10px;
+        .textInput {
+          width: 100%;
+        }
+        .resend {
+          color: #e40051;
+          background-color: transparent;
+          border: none;
+          border-bottom: 1px solid #e40051;
+          padding: 3px;
         }
       }
     }

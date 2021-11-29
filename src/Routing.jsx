@@ -8,6 +8,7 @@ import BookBack from "./Backend/BookBack";
 import AboutPage from "./Components/About/AboutPage";
 import Shycocan from "./Shyocan";
 import User from "./Backend/User";
+import Login from "./layout/Login";
 
 const Routing = () => {
   return (
@@ -22,6 +23,7 @@ const Routing = () => {
           <Route path="/backend" exact component={BookBack} />
           <Route path="/user" exact component={User} />
           <Route path="/Shycocan" exact component={Shycocan} />
+          <Route path="/login" exact component={Login} />
         </Switch>
       </>
     </Router>

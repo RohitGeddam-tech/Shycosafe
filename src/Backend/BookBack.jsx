@@ -17,9 +17,18 @@ import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 import moment from "moment";
 import { Dropdown, DropdownItem, DropdownMenu } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
+import axios from "axios";
 import { NavHashLink } from "react-router-hash-link";
 import Settings from "./Settings";
 import NewMember from "./NewMember";
+import { addDays } from "date-fns";
+// import { useState } from "react";
+import { DateRangePicker } from "react-date-range";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+// import { LinkedCalendar } from "rb-datepicker";
+// import "bootstrap/dist/css/bootstrap.css";
+// import "bootstrap-daterangepicker/daterangepicker.css";
 
 const data = [
   {
@@ -29,7 +38,10 @@ const data = [
     date: "2021-10-21",
     click: "Table Top Stand",
     Attended: "Vishal Sharma",
+    city: "Lucknow",
     status: "Ongoing",
+    message:
+      "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used before final copy is available",
   },
   {
     name: "Kiran Patil",
@@ -39,6 +51,9 @@ const data = [
     click: "The Floor Stand - Black",
     Attended: "Rahul Jain",
     status: "Pending",
+    city: "Pune",
+    message:
+      "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used before final copy is available",
   },
   {
     name: "Rohit Geddam",
@@ -48,6 +63,9 @@ const data = [
     click: "Contact Form",
     Attended: "Jeet Khandelwal",
     status: "Closed",
+    city: "Mumbai",
+    message:
+      "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used before final copy is available",
   },
 ];
 
@@ -78,62 +96,29 @@ const statusData = [
   },
 ];
 
-const Status = ({
-  status,
-  handleSelect,
-  room,
-  handleSettings,
-  handleCheck,
-}) => {
-  const dotData = [
-    {
-      key: "1",
-      text: "Edit Product",
-      value: "Edit Product",
-      icon: "pencil alternate",
-      handle: handleSettings,
-    },
-    {
-      key: "2",
-      text: "Checkout",
-      value: "Checkout",
-      icon: "check",
-      handle: handleCheck,
-    },
-  ];
+const Status = ({ status, handleSelect }) => {
   return (
     <div className="select">
       <Dropdown
         selection
         defaultValue={status}
-        onChange={(event) => handleSelect(event, room)}
+        onChange={(e) => handleSelect(e)}
         button
         fluid
         className="p"
         options={statusData}
       ></Dropdown>
-      <Dropdown icon="ellipsis vertical" className="dots">
-        <Dropdown.Menu>
-          {dotData.map((doc) => (
-            <Dropdown.Item
-              text={doc.text}
-              icon={doc.icon}
-              onClick={() => doc.handle(room)}
-            />
-          ))}
-        </Dropdown.Menu>
-      </Dropdown>
     </div>
   );
 };
 
-const BookBack = () => {
+const BookBack = (className = "") => {
   const [open, setOpen] = useState(false);
-  const [down, setDown] = useState(false);
-  const [modal, setModal] = useState(false);
+  // const [down, setDown] = useState(false);
+  // const [modal, setModal] = useState(false);
   const [search, setSearch] = useState("");
   const [sel, setSel] = useState("");
-  const [selected, setSelected] = useState("");
+  // const [selected, setSelected] = useState("");
   const [door, setDoor] = useState();
   const [array, setArray] = useState([...data]);
   const [form, setForm] = useState([]);
@@ -141,19 +126,18 @@ const BookBack = () => {
   const [error, setError] = useState({});
   const [date1, setDate1] = useState(new Date());
   const [date2, setDate2] = useState(new Date());
-  const [stat, setStat] = useState(false);
-  const [number, setNumber] = useState("");
   const [num, setNum] = useState(false);
-  const [name, setName] = useState("");
-  const [mail, setMail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [nameInvalid, setNameInvalid] = useState(false);
-  const [phoneInvalid, setPhoneInvalid] = useState(false);
-  const [mailInvalid, setMailInvalid] = useState(false);
   const [right, setRight] = useState(false);
   const [draw, setDraw] = useState(false);
-  const [attend, setAttend] = useState("");
-  const [attendInvalid, setAttendInvalid] = useState(false);
+  const [text, setText] = useState("");
+  const [clicked, setClicked] = useState(false);
+  const [state, setState] = useState([
+    {
+      startDate: new Date(),
+      endDate: addDays(new Date(), 7),
+      key: "selection",
+    },
+  ]);
 
   const handleSearch = (e) => {
     // console.log("e value", e);
@@ -161,31 +145,50 @@ const BookBack = () => {
   };
 
   const handleSelect = (e, room) => {
-    // console.log(e);
     setSel(e.target.innerText);
-    setDoor(room);
   };
 
-  // React.useEffect(() => {
-  //   console.log(sel);
-  // }, [handleSelect]);
-
-  React.useEffect(() => {
-    array.forEach((members) => {
-      if (members.room === door) {
-        members.status = sel ? sel : members.status;
-        // console.log({ message: "member array updated", members });
+  React.useEffect(async () => {
+    console.log(sel);
+    console.log(door);
+    const form = {
+      status: sel,
+      note: "note",
+    };
+    const tokenData = localStorage.getItem("accessToken");
+    const token = JSON.stringify(tokenData);
+    // console.log(token.slice(1, -1));
+    const headers = {
+      Authorization: `Bearer ${token.slice(1, -1)}`,
+    };
+    if (right) {
+      // console.log(form);
+      try {
+        const res = await axios.put(
+          `${process.env.REACT_APP_PUBLIC_URL}admin/packages/${num}`,
+          form,
+          {
+            headers: headers,
+          }
+        );
+        if (res) {
+          console.log(res.data.data);
+          // setStart(false);
+          console.log(popup);
+          // window.location.reload();
+          // setForm({});
+        }
+      } catch (err) {
+        // console.log(name);
+        console.log(err);
       }
-    });
-    // console.log("handleSelect useEffect is running");
-    setArray(array);
-    // console.log("after change: ", array);
-    return array;
+    }
   }, [handleSelect]);
 
   const handleSettings = (room) => {
-    array.forEach((members) => {
-      if (members.phone === room) {
+    setNum(room);
+    array.forEach((members, i) => {
+      if (i === room) {
         setForm({
           name: members.name,
           phone: members.phone,
@@ -194,7 +197,10 @@ const BookBack = () => {
           click: members.click,
           Attended: members.Attended,
           status: members.status,
+          city: members.city,
+          msg: members.message,
         });
+        setSel(members.status);
         // console.log({ message: "form array deployed", form });
         // setModal(true);
         setOpen(true);
@@ -202,160 +208,90 @@ const BookBack = () => {
     });
   };
 
-  const handleCheck = (room) => {
-    array.forEach((members) => {
-      if (members.phone === room) {
-        setForm({
-          name: members.name,
-          phone: members.phone,
-          mail: members.mail,
-          date: members.date,
-          click: members.click,
-          Attended: members.Attended,
-          status: members.status,
-        });
-        // console.log({ message: "form array deployed", form });
-        setModal(true);
-        // setOpen(true);
-      }
-    });
-  };
-
-  // React.useEffect(() => {
-  //   console.log({ message: "form array deployed", form });
-  // }, [handleSettings, modal]);
-
-  Date.prototype.addDays = function (days) {
-    const date = new Date(this.valueOf());
-    date.setDate(date.getDate() + days);
-    return date;
-  };
-  const handleDate = (e) => {
-    setDate1(e);
-  };
-
-  React.useEffect(() => {
-    setDate1(new Date(`${form.date}`));
-    // console.log(date1);
-    // setDate2(new Date(`${form.check_out}`));
-    // console.log(date2);
-  }, []);
-
-  React.useEffect(() => {
-    // if (popup === []) {
-    // console.log(date1);
-    // setDate2(new Date(`${form.check_out}`));
-    // console.log(date2);
-    setDate1(new Date(`${form.date}`));
-    setSelected(form.click);
-    setName(form.name);
-    setAttend(form.Attended);
-    setPhone(form.phone);
-    setMail(form.mail);
-    // }
-  }, [form]);
-
-  React.useEffect(() => {
-    if (
-      date1.getTime() === date2.getTime() ||
-      date1.getTime() >= date2.getTime() ||
-      date1.getDate() === date2.getDate()
-    ) {
-      setDate2(date1.addDays(1));
-    }
-  }, [handleDate, date1, date2, setDate2, setDate1]);
-
-  const handleChange = (e) => {
-    switch (e.target.name) {
-      case "name":
-        setName(e.target.value);
-        setNameInvalid(!e.target.validity.valid);
-        break;
-      case "phone":
-        setPhone(e.target.value);
-        break;
-      case "mail":
-        setMail(e.target.value);
-        setMailInvalid(!e.target.validity.valid);
-        break;
-      case "attend":
-        setAttend(e.target.value);
-        setAttendInvalid(!e.target.validity.valid);
-        break;
-      default:
-        break;
-    }
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(phone);
-    // console.log('phone number : ', form.phone);
-    // console.log(phone === form.phone);
-    // console.log("phoneInvalid", phone.length === 10 || phone === form.phone);
-    if (
-      (!(nameInvalid && mailInvalid) && phone.length === 10) ||
-      phone === form.phone
-    ) {
+    if (sel !== "" && text !== "") {
       setRight(true);
       setPopup({
-        name: name,
-        phone: phone,
-        mail: mail,
-        date: date1,
-        click: selected,
-        Attended: attend,
-        status: form.status,
+        status: sel,
+        note: text,
       });
       setOpen(false);
+      setText("");
     } else {
       setRight(false);
       console.log("error submit: ", error);
     }
   };
 
-  React.useEffect(() => {
+  React.useEffect(async () => {
+    console.log("onForm submit: ", popup);
+    const tokenData = localStorage.getItem("accessToken");
+    const token = JSON.stringify(tokenData);
+    // console.log(token.slice(1, -1));
+    const headers = {
+      Authorization: `Bearer ${token.slice(1, -1)}`,
+    };
     if (right) {
-      console.log("onForm submit: ", popup);
+      // console.log(form);
+      try {
+        const res = await axios.put(
+          `${process.env.REACT_APP_PUBLIC_URL}leads/${num}`,
+          popup,
+          {
+            headers: headers,
+          }
+        );
+        if (res) {
+          console.log(res.data.data);
+          // setStart(false);
+          console.log(popup);
+          // window.location.reload();
+          // setForm({});
+        }
+      } catch (err) {
+        // console.log(name);
+        console.log(err);
+      }
     }
   }, [handleSubmit]);
 
-  const checkout = () => {
-    setDate1(new Date(`${form.check_in}`));
-    setDate2(new Date(`${form.check_out}`));
-    // setSelected(form.pack);
-    setName(form.name);
-    setNumber(form.room);
-    setPhone(form.phone);
-    setMail(form.mail);
-    setModal(false);
-  };
+  React.useEffect(async () => {
+    const tokenData = localStorage.getItem("accessToken");
+    const token = JSON.stringify(tokenData);
+    // console.log(token.slice(1, -1));
+    const headers = {
+      Authorization: `Bearer ${token.slice(1, -1)}`,
+    };
+    if (
+      localStorage.getItem("role") !== null &&
+      localStorage.getItem("role") === "admin"
+    ) {
+      axios
+        .get(`${process.env.REACT_APP_PUBLIC_URL}leads`, {
+          headers: headers,
+        })
+        .then((res) => {
+          if (res) {
+            const info = res.data.data;
+            console.log("response user profile msg", info);
+            // console.log("file array state1: ", packed.length);
+            // setArray([...info]);
+            // console.log("file array state2: ", packed.length);
+            console.log("array state: ", array);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
 
-  // const roomArray = [
-  //   { key: "1", text: 101, value: 101 },
-  //   { key: "2", text: 102, value: 102 },
-  //   { key: "3", text: 103, value: 103 },
-  //   { key: "4", text: 104, value: 104 },
-  //   { key: "5", text: 105, value: 105 },
-  //   { key: "6", text: 201, value: 201 },
-  //   { key: "7", text: 202, value: 202 },
-  //   { key: "8", text: 203, value: 203 },
-  //   { key: "9", text: 204, value: 204 },
-  //   { key: "10", text: 205, value: 205 },
-  // ];
+  React.useEffect(() => {
+    console.log(state);
+  }, [state]);
 
-  const selectedArray = [
-    { key: "1", text: "Table Top Stand", value: "Table Top Stand" },
-    { key: "2", text: "Contact Form", value: "Contact Form" },
-    {
-      key: "3",
-      text: "The Floor Stand - Black",
-      value: "The Floor Stand - Black",
-    },
-    { key: "4", text: "Know More", value: "Know More" },
-    { key: "5", text: "Product 3", value: "Product 3" },
-    { key: "6", text: "Product 4", value: "Product 4" },
-  ];
+  className += ` textfield ${text ? "has-value" : ""}`;
 
   return (
     <>
@@ -364,6 +300,7 @@ const BookBack = () => {
         <Settings />
         <div className="contain">
           <h1>Leads Manangement</h1>
+          {/* <LinkedCalendar onDatesChange={onDatesChange} showDropdowns={true} /> */}
           <div className="Navigation">
             <div className="links">
               <div className="searchBox">
@@ -389,11 +326,23 @@ const BookBack = () => {
           </div>
           <table className="mainData">
             <tr>
-              <th>Date</th>
+              <th>
+                Date
+                {/* <DateRangePicker
+                  onChange={(item) => {
+                    setState([item.selection]);
+                  }}
+                  showSelectionPreview={true}
+                  moveRangeOnFirstSelection={false}
+                  months={2}
+                  ranges={state}
+                  direction="horizontal"
+                /> */}
+              </th>
               <th>Name</th>
               <th>Mobile No.</th>
               <th>Email</th>
-              <th>Click from</th>
+              <th>Source</th>
               <th>Attended by</th>
               <th>Status</th>
             </tr>
@@ -406,7 +355,7 @@ const BookBack = () => {
                 <td>{doc.click}</td>
                 <td>{doc.Attended}</td>
                 <td>
-                  <Status
+                  {/* <Status
                     // setOpen={setOpen}
                     status={doc.status}
                     // open={open}
@@ -414,7 +363,36 @@ const BookBack = () => {
                     handleSelect={handleSelect}
                     handleCheck={handleCheck}
                     room={doc.phone}
-                  />
+                  /> */}
+                  <div className="select">
+                    <p className="stat">
+                      <span
+                        className={
+                          doc.status === "Unable to contact" ? "black" : "nill"
+                        }
+                      ></span>
+                      <span
+                        className={doc.status === "Pending" ? "red" : "nill"}
+                      ></span>
+                      <span
+                        className={doc.status === "Closed" ? "blue" : "nill"}
+                      ></span>
+                      <span
+                        className={doc.status === "Ongoing" ? "green" : "nill"}
+                      ></span>
+                      {doc.status}
+                    </p>
+                    <Dropdown icon="ellipsis vertical" className="dots">
+                      <Dropdown.Menu>
+                        <Dropdown.Item
+                          key={1}
+                          text="View All Details"
+                          value="View All Details"
+                          onClick={() => handleSettings(i)}
+                        />
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </div>
                 </td>
               </tr>
             ))}
@@ -426,9 +404,9 @@ const BookBack = () => {
               setOpen(false);
             }}
           >
-            <div className="box">
+            <div className="box details">
               <div className="head">
-                <p>Edit Product</p>
+                <p>Lead Details</p>
                 <img
                   className="img"
                   src={clear}
@@ -437,151 +415,58 @@ const BookBack = () => {
                 />
               </div>
               <form className="enterData" onSubmit={handleSubmit}>
-                <div className="text-input">
-                  <input
-                    value={name}
-                    className="input"
-                    name="name"
-                    pattern="^([A-Za-z ,.'`-]{2,30})$"
-                    onChange={handleChange}
-                    type="text"
-                    required
-                  />
-                  <label htmlFor="name" className="input-placeholder">
-                    Name
-                  </label>
+                <div className="textData">
+                  <p className="label">Date :</p>
+                  <p className="value">{form.date}</p>
                 </div>
-                <div className="text-input">
-                  <input
-                    value={phone}
-                    type="number"
-                    className="input"
-                    name="phone"
-                    onChange={handleChange}
-                    pattern="^([0-9]{10})$"
-                    required
-                  />
-                  <label htmlFor="phone" className="input-placeholder">
-                    Mobile No.
-                  </label>
+                <div className="textData">
+                  <p className="label">Name :</p>
+                  <p className="value">{form.name}</p>
                 </div>
-                <div className="text-input">
-                  <input
-                    className="input"
-                    value={mail}
-                    name="mail"
-                    onChange={handleChange}
-                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$"
-                    type="email"
-                    required
-                  />
-                  <label htmlFor="mail" className="input-placeholder">
-                    Email
-                  </label>
+                <div className="textData">
+                  <p className="label">Mobile No. :</p>
+                  <p className="value">{form.phone}</p>
                 </div>
-                <div className="date">
-                  <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <DatePicker
-                      disablePast={true}
-                      label={`Check-in date`}
-                      clearable
-                      // minDate={date1}
-                      value={date1}
-                      onChange={handleDate}
-                      inputVariant="outlined"
-                      format="E, dd MMM"
-                      animateYearScrolling
+                <div className="textData">
+                  <p className="label">Email :</p>
+                  <p className="value">{form.mail}</p>
+                </div>
+                <div className="textData">
+                  <p className="label">City :</p>
+                  <p className="value">{form.city}</p>
+                </div>
+                <div className="textData">
+                  <p className="label">Source :</p>
+                  <p className="value">{form.click}</p>
+                </div>
+                <div className="textData">
+                  <p className="label">Message :</p>
+                  <p className="value">{form.msg}</p>
+                </div>
+                <div className="textData">
+                  <p className="label">Status: </p>
+                  <Status status={form.status} handleSelect={handleSelect} />
+                </div>
+                <div className="textData">
+                  <p className="label">Attended by :</p>
+                  <p className="value">{form.Attended}</p>
+                </div>
+                <div className="textData">
+                  <p className="label">Note :</p>
+                  <div className="text-input">
+                    <textarea
+                      className={className}
+                      value={text}
+                      name="text"
+                      onChange={(e) => setText(e.target.value)}
+                      onClick={() => setClicked(!clicked)}
                     />
-                  </MuiPickersUtilsProvider>
-                </div>
-                <div className="select">
-                  {selected === "" ? null : <h5>Clicked from</h5>}
-                  <Dropdown
-                    selection
-                    defaultValue={selected}
-                    placeholder="Clicked from"
-                    onChange={(e) => setSelected(e.target.innerText)}
-                    button
-                    fluid
-                    className="d"
-                    options={selectedArray}
-                  ></Dropdown>
-                </div>
-                <div className="text-input">
-                  <input
-                    value={attend}
-                    className="input"
-                    name="attended"
-                    pattern="^([A-Za-z ,.'`-]{2,30})$"
-                    onChange={handleChange}
-                    type="text"
-                    required
-                  />
-                  <label htmlFor="name" className="input-placeholder">
-                    Attended
-                  </label>
+                  </div>
                 </div>
                 <button className="redBtn" type="submit">
                   Save Changes
                 </button>
               </form>
-            </div>
-          </Modal>
-          <Modal
-            className="modalBack"
-            open={modal}
-            onClose={() => {
-              setModal(false);
-            }}
-          >
-            <div className="box">
-              <div className="head">
-                <p>Confirmation for checkout</p>
-                <img
-                  className="img"
-                  src={clear}
-                  alt="cancel"
-                  onClick={() => setModal(false)}
-                />
-              </div>
-              <div className="checkInfo">
-                <div className="top">
-                  <div className="internal">
-                    <p>Name:</p>
-                    <h5>{form.name}</h5>
-                  </div>
-                  <div className="internal">
-                    <p>Clicked from:</p>
-                    <h5>{form.click}</h5>
-                  </div>
-                </div>
-                <div className="top">
-                  <div className="internal">
-                    <p>Mobile No.:</p>
-                    <h5>{form.phone}</h5>
-                  </div>
-                  <div className="internal">
-                    <p>Status: </p>
-                    <Dropdown
-                      selection
-                      defaultValue={form.status}
-                      onChange={(e) => setSel(e.target.value)}
-                      button
-                      fluid
-                      className="p"
-                      options={statusData}
-                    ></Dropdown>
-                  </div>
-                </div>
-                <div className="bottom">
-                  <button className="loginBtn" onClick={() => setModal(false)}>
-                    cancel
-                  </button>
-                  <button className="redBtn" onClick={checkout}>
-                    Checkout
-                  </button>
-                </div>
-              </div>
             </div>
           </Modal>
         </div>

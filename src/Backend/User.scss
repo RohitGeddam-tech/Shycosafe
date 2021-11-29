@@ -569,160 +569,6 @@ input:-webkit-autofill:focus {
     padding-bottom: 5px;
     padding-left: 5px;
   }
-  label {
-    position: absolute;
-    top: 19px;
-    left: 15px;
-    padding: 0;
-    color: #919eab;
-    pointer-events: none;
-    transition: 0.5s;
-    z-index: 10;
-    margin-bottom: 0;
-    font-family: "Metropolis";
-    font-style: normal;
-    font-weight: 200;
-    font-size: 16px;
-    line-height: 18px;
-    span {
-      color: #e40055;
-    }
-  }
-  .input {
-    width: 100%;
-    height: 40px;
-    border: 1px solid #919eab;
-    outline: none;
-    box-sizing: border-box;
-    border-radius: 0;
-    margin: 8px 0;
-    padding: 0 15px;
-    font-size: 16px;
-    line-height: 18px;
-    font-family: "Metropolis";
-    font-style: normal;
-    font-weight: 200;
-    color: #919eab;
-
-    &::-webkit-input-placeholder,
-    &:-moz-placeholder,
-    &:-ms-input-placeholder {
-      color: #919eab;
-      font-size: 14px;
-    }
-
-    &:focus ~ label,
-    &:not([value=""]) ~ label {
-      top: 0px;
-      left: 8px;
-      font-size: 12px;
-      background-color: white;
-      padding-left: 5px;
-      padding-right: 5px;
-      height: none;
-      color: #919eab;
-    }
-
-    &:focus ~ label {
-      color: #e40055;
-    }
-
-    &:focus,
-    &:valid ~ label,
-    &:not([value=""]) ~ label {
-      outline: none;
-      border-color: #e40055;
-      box-shadow: none;
-    }
-  }
-
-  textarea.textfield {
-    height: 150px;
-    width: 100%;
-    outline: none;
-    border: 1px solid #919eab;
-    box-sizing: border-box;
-    border-radius: 0;
-    margin: 8px 0;
-    resize: none;
-    padding: 10px 15px;
-    font-size: 16px;
-    line-height: 18px;
-    font-family: "Metropolis";
-    font-style: normal;
-    font-weight: 200;
-    color: #919eab;
-
-    &:focus ~ label {
-      color: #e40055 !important;
-    }
-
-    &:focus ~ label {
-      color: #e40055;
-      top: 0px;
-      left: 8px;
-      font-size: 12px;
-      background-color: white;
-      padding-left: 5px;
-      padding-right: 5px;
-      height: none;
-      color: #919eab;
-    }
-
-    &:focus,
-    &:valid ~ label,
-    &:not([value=""]) ~ label {
-      outline: none;
-      border-color: #e40055;
-      box-shadow: none;
-    }
-
-    &.has-value ~ label {
-      top: 0px;
-      left: 8px;
-      font-size: 12px;
-      background-color: white;
-      padding-left: 5px;
-      padding-right: 5px;
-      color: #919eab;
-      outline: none;
-      border-color: #e40055;
-      box-shadow: none;
-    }
-    &.has-value:focus ~ label {
-      color: #e40055;
-    }
-  }
-}
-
-.input {
-  height: 40px;
-  border: 1px solid #919eab;
-  outline: none;
-  box-sizing: border-box;
-  border-radius: 4px;
-  margin: 8px 0;
-  padding: 0 10px;
-  font-size: 14px;
-  line-height: 16px;
-  color: #919eab;
-}
-textarea {
-  height: 150px;
-  width: 100%;
-  outline: none;
-  border: 1px solid #919eab;
-  box-sizing: border-box;
-  border-radius: 4px;
-  margin: 8px 0;
-  resize: none;
-  padding: 10px;
-  font-size: 14px;
-  line-height: 16px;
-  color: #919eab;
-  :focus {
-    cursor: none !important;
-  }
 }
 
 .modalAdmin {
@@ -1117,9 +963,32 @@ textarea {
           }
         }
       }
+      .textInside {
+        width: 100%;
+        display: flex;
+        // align-items: center;
+        justify-content: space-between;
+        .textInput {
+          width: 48%;
+        }
+      }
+      .error-text {
+        color: red;
+        font-size: 16px;
+        // text-align: center;
+        &:nth-child(4){
+          // margin: 0 auto;
+          margin-top: 10px;
+        }
+      }
+      .textInput {
+        .error-text {
+          color: red;
+          font-size: 10px;
+        }
+      }
       .text-input {
         width: 100%;
-
         input:-webkit-autofill {
           box-shadow: 0 0 0px 1000px #fff inset;
           -webkit-text-fill-color: #667c8a;

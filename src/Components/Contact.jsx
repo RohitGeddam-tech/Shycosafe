@@ -4,6 +4,7 @@ import line from "../images/Rect2.png";
 import { getUtmSerializedString } from "../utils/common";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import axios from "axios";
 
 const defaultFormState = {
   fname: "",
@@ -61,12 +62,28 @@ const Contact = ({ className = "" }) => {
     const errorExist = validateForm();
     if (!errorExist) {
       const data = {
-        ...details,
-        type:"Shycocan",
-        description: getUtmSerializedString(),
-      }
+        // ...details,
+        name: `${details.fname} ${details.lname}`,
+        email: details.email,
+        mobile: details.mobile,
+        message: details.text,
+        city: details.city,
+        type: getUtmSerializedString(),
+        // type:"Shycocan",
+      };
       console.log(data);
-      // console.log(details);
+      try {
+        const res = await axios.post(
+          `${process.env.REACT_APP_PUBLIC_URL}contact-us`,
+          data
+        );
+        // .then((res) => {
+        if (res) {
+          console.log("response msg", res);
+        }
+      } catch (err) {
+        console.log(err);
+      }
     } else {
       console.log(error);
     }
@@ -76,6 +93,37 @@ const Contact = ({ className = "" }) => {
     Aos.init({ duration: 500 });
   });
 
+  // useEffect(async () => {
+  //   const errorExist = validateForm();
+  //   if (!errorExist) {
+  //     const data = {
+  //       // ...details,
+  //       name: `${details.fname} ${details.lname}`,
+  //       email: details.email,
+  //       mobile: details.mobile,
+  //       message: details.text,
+  //       city: details.city,
+  //       type: getUtmSerializedString(),
+  //       // type:"Shycocan",
+  //     };
+  //     console.log(data);
+  //     try {
+  //       const res = await axios.post(
+  //         `${process.env.REACT_APP_PUBLIC_URL}contact-us`,
+  //         data
+  //       );
+  //       // .then((res) => {
+  //       if (res) {
+  //         console.log("response msg", res);
+  //       }
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   } else {
+  //     console.log(error);
+  //   }
+  // }, [handleSubmit]);
+
   const [clicked, setClicked] = useState(false);
 
   className += ` textfield ${details.text ? "has-value" : ""}`;
@@ -84,7 +132,11 @@ const Contact = ({ className = "" }) => {
     <div className="contact">
       <div className="container">
         <form className="modal" onSubmit={handleSubmit}>
-          <div className="alignHeading" data-aos="fade-up" data-aos-duration="1500">
+          <div
+            className="alignHeading"
+            data-aos="fade-up"
+            data-aos-duration="1500"
+          >
             <h1>
               Contact Us
               <img src={line} alt="line" />
@@ -94,7 +146,11 @@ const Contact = ({ className = "" }) => {
               with us
             </p>
           </div>
-          <div className="boxShadow" data-aos="fade-up" data-aos-duration="2000">
+          <div
+            className="boxShadow"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
             <div className="inputFlex">
               <div className="text-input">
                 <input

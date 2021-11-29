@@ -5,6 +5,7 @@ import { Modal } from "@material-ui/core";
 import clear from "../images/clear.png";
 import edit from "../images/delete.png";
 import Settings from "./Settings";
+import axios from "axios";
 
 const data = [
   {
@@ -43,14 +44,17 @@ const User = () => {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [array, setArray] = useState([...data]);
-  const [popup, setPopup] = useState([]);
+  const [popup, setPopup] = useState({});
   const [error, setError] = useState({});
-  const [name, setName] = useState("");
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
   const [mail, setMail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [nameInvalid, setNameInvalid] = useState(false);
+  const [num, setNum] = useState(0);
+  const [FnameInvalid, setFnameInvalid] = useState(false);
+  const [LnameInvalid, setLnameInvalid] = useState(false);
   const [mailInvalid, setMailInvalid] = useState(false);
   const [right, setRight] = useState(false);
+  const [valid, setValid] = useState(false);
   const [draw, setDraw] = useState(false);
 
   const handleSearch = (e) => {
@@ -60,9 +64,13 @@ const User = () => {
 
   const handleChange = (e) => {
     switch (e.target.name) {
-      case "name":
-        setName(e.target.value);
-        setNameInvalid(!e.target.validity.valid);
+      case "fname":
+        setFname(e.target.value);
+        setFnameInvalid(!e.target.validity.valid);
+        break;
+      case "lname":
+        setLname(e.target.value);
+        setLnameInvalid(!e.target.validity.valid);
         break;
       case "mail":
         setMail(e.target.value);
@@ -73,24 +81,93 @@ const User = () => {
     }
   };
 
+  React.useEffect(async () => {
+    const tokenData = localStorage.getItem("accessToken");
+    const token = JSON.stringify(tokenData);
+    // console.log(token.slice(1, -1));
+    const headers = {
+      Authorization: `Bearer ${token.slice(1, -1)}`,
+    };
+    if (
+      localStorage.getItem("role") !== null &&
+      localStorage.getItem("role") === "admin"
+    ) {
+      axios
+        .get(`${process.env.REACT_APP_PUBLIC_URL}users`, {
+          headers: headers,
+        })
+        .then((res) => {
+          if (res) {
+            const info = res.data.data;
+            console.log("response user profile msg", info);
+            // console.log("file array state1: ", packed.length);
+            setArray([...info]);
+            // console.log("file array state2: ", packed.length);
+            console.log("array state: ", array);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!(nameInvalid && mailInvalid)) {
+    if (/\s/.test(fname)) {
+      console.log("error", fname);
+      setFnameInvalid(true);
+      console.log(FnameInvalid);
+    }
+    if (!(FnameInvalid || LnameInvalid || mailInvalid)) {
       setRight(true);
       setPopup({
-        name: name,
+        first_name: fname,
+        last_name: lname,
         mail: mail,
       });
+      setValid(false);
       setOpen(false);
     } else {
       setRight(false);
+      setValid(true);
       console.log("error submit: ", error);
     }
   };
 
-  React.useEffect(() => {
+  React.useEffect(async () => {
+    if (FnameInvalid || LnameInvalid || mailInvalid) {
+      setValid(true);
+    }
+    console.log("handlesubmit useeffect");
+    const tokenData = localStorage.getItem("accessToken");
+    const token = JSON.stringify(tokenData);
+    // console.log(token.slice(1, -1));
+    const headers = {
+      Authorization: `Bearer ${token.slice(1, -1)}`,
+    };
     if (right) {
       console.log("onForm submit: ", popup);
+      // console.log(form);
+      try {
+        const res = await axios.post(
+          `${process.env.REACT_APP_PUBLIC_URL}admin/packages`,
+          popup,
+          {
+            headers: headers,
+          }
+        );
+        if (res) {
+          console.log(res.data.data);
+          // setStart(false);
+          console.log(popup);
+          // window.location.reload();
+          // setForm({});
+        }
+      } catch (err) {
+        // console.log(name);
+        console.log(err);
+      }
     }
   }, [handleSubmit]);
 
@@ -136,7 +213,12 @@ const User = () => {
                 <td>{doc.name}</td>
                 <td>{doc.mail}</td>
                 <td>{doc.role}</td>
-                <td onClick={() => setDraw(true)}>
+                <td
+                  onClick={() => {
+                    setDraw(true);
+                    setNum(i + 1);
+                  }}
+                >
                   {doc.role === "Asst. Admin" ? (
                     <img src={edit} alt="delete" />
                   ) : null}
@@ -166,38 +248,73 @@ const User = () => {
                 />
               </div>
               <form className="enterData" onSubmit={handleSubmit}>
-                <div className="text-input">
-                  <input
-                    value={name}
-                    className="input"
-                    name="name"
-                    pattern="^([A-Za-z ,.'`-]{2,30})$"
-                    onChange={handleChange}
-                    type="text"
-                    required
-                  />
-                  <label htmlFor="name" className="input-placeholder">
-                    Full Name
-                  </label>
+                <div className="textInside">
+                  <div className="textInput">
+                    <div className="text-input">
+                      <input
+                        value={fname}
+                        className="input"
+                        name="fname"
+                        pattern="^([A-Za-z ,.'`-]{2,30})$"
+                        onChange={handleChange}
+                        type="text"
+                        required
+                      />
+                      <label htmlFor="fname" className="input-placeholder">
+                        First Name
+                      </label>
+                    </div>
+                    {FnameInvalid ? (
+                      <p className="error-text">
+                        PLEASE PROVIDE A VALID FIRST NAME
+                      </p>
+                    ) : null}
+                  </div>
+                  <div className="textInput">
+                    <div className="text-input">
+                      <input
+                        value={lname}
+                        className="input"
+                        name="lname"
+                        pattern="^([A-Za-z ,.'`-]{2,30})$"
+                        onChange={handleChange}
+                        type="text"
+                        required
+                      />
+                      <label htmlFor="lname" className="input-placeholder">
+                        Last Name
+                      </label>
+                    </div>
+                    {LnameInvalid ? (
+                      <p className="error-text">
+                        PLEASE PROVIDE A VALID LAST NAME
+                      </p>
+                    ) : null}
+                  </div>
                 </div>
-                <div className="text-input">
-                  <input
-                    className="input"
-                    value={mail}
-                    name="mail"
-                    onChange={handleChange}
-                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$"
-                    type="email"
-                    required
-                  />
-                  <label htmlFor="mail" className="input-placeholder">
-                    Email
-                  </label>
+                <div className="textInput">
+                  <div className="text-input">
+                    <input
+                      className="input"
+                      value={mail}
+                      name="mail"
+                      onChange={handleChange}
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$"
+                      type="email"
+                      required
+                    />
+                    <label htmlFor="mail" className="input-placeholder">
+                      Email
+                    </label>
+                  </div>
+                  {mailInvalid ? (
+                    <p className="error-text">PLEASE PROVIDE A VALID EMAIL</p>
+                  ) : null}
                 </div>
-                <i>
+                {/* <i>
                   Note: ‘Set Password’ link will be sent to entered email
                   address.
-                </i>
+                </i> */}
                 <div className="btnGrp">
                   <button className="noOutline" onClick={() => setOpen(false)}>
                     Cancel
@@ -206,6 +323,9 @@ const User = () => {
                     Add
                   </button>
                 </div>
+                {valid ? (
+                  <p className="error-text">PLEASE PROVIDE A VALID EMAIL</p>
+                ) : null}
               </form>
             </div>
           </Modal>

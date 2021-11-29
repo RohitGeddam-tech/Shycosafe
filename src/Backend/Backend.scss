@@ -1,6 +1,7 @@
 .bookMain {
   width: 79%;
   position: absolute;
+  padding-bottom: 30px;
   left: 20%;
   .drop {
     position: relative;
@@ -96,6 +97,7 @@
     width: 98%;
     margin: auto;
     margin-right: 0;
+    padding-bottom: 30px;
     h1 {
       padding-top: 75px;
       margin: 0;
@@ -163,7 +165,7 @@
       box-sizing: border-box;
       box-shadow: 5px 9px 50px rgba(130, 130, 130, 0.15);
       border-radius: 3px;
-      width: 100%;
+      width: 98%;
       padding: 18px 0;
       padding-bottom: 10px;
       border-collapse: inherit;
@@ -190,28 +192,28 @@
           text-align: start;
           &:nth-child(1) {
             padding-left: 25px;
-            width: 7.1%;
+            width: 7.7%;
           }
           &:nth-child(8) {
             padding-right: 25px;
           }
           &:nth-child(7) {
-            width: 9%;
+            width: 7.5%;
           }
           &:nth-child(6) {
-            width: 8%;
+            width: 9%;
           }
           &:nth-child(2) {
-            width: 8.2%;
+            width: 8.8%;
           }
           &:nth-child(3) {
-            width: 7%;
+            width: 7.5%;
           }
           &:nth-child(5) {
-            width: 8%;
+            width: 8.7%;
           }
           &:nth-child(4) {
-            width: 10%;
+            width: 11.5%;
           }
         }
         td {
@@ -229,29 +231,61 @@
           &:nth-child(8) {
             padding-right: 25px;
           }
-        //   &:nth-child(7) {
-        //     width: 6%;
-        //   }
-        //   &:nth-child(3) {
-        //     padding-right: 5px;
-        //   }
-        //   &:nth-child(6) {
-        //     width: 8%;
-        //   }
-        //   &:nth-child(2) {
-        //     width: 8%;
-        //   }
-        //   &:nth-child(5),
-        //   &:nth-child(4) {
-        //     width: 8%;
-        //   }
+          //   &:nth-child(7) {
+          //     width: 6%;
+          //   }
+          //   &:nth-child(3) {
+          //     padding-right: 5px;
+          //   }
+          //   &:nth-child(6) {
+          //     width: 8%;
+          //   }
+          //   &:nth-child(2) {
+          //     width: 8%;
+          //   }
+          //   &:nth-child(5),
+          //   &:nth-child(4) {
+          //     width: 8%;
+          //   }
+
           .select {
             width: 90%;
             position: relative;
+            p.stat {
+              display: flex;
+              align-items: center;
+              span {
+                width: 10px !important;
+                height: 10px;
+                border-radius: 50px;
+                margin-right: 5px;
+                margin-top: -1px;
+                &.nill {
+                  display: none;
+                }
+                &.red {
+                  background-color: #d83621;
+                }
+                &.black {
+                  background-color: #282c36;
+                }
+                &.blue {
+                  background-color: #314f77;
+                }
+                &.green {
+                  background-color: #3cbb00;
+                }
+              }
+              font-weight: normal;
+              font-size: 16px;
+              line-height: 19px;
+              color: #667c8a;
+              margin-bottom: 0;
+            }
             .dots {
               position: absolute;
-              top: 10px;
-              right: -11px;
+              top: 0px;
+              right: -7px;
               cursor: pointer;
               padding: 0;
               margin: 0;
@@ -576,7 +610,7 @@ input:-webkit-autofill:focus {
   }
   label {
     position: absolute;
-    top: 19px;
+    top: 22px;
     left: 15px;
     padding: 0;
     color: #919eab;
@@ -642,7 +676,7 @@ input:-webkit-autofill:focus {
   }
 
   textarea.textfield {
-    height: 150px;
+    height: 100px;
     width: 100%;
     outline: none;
     border: 1px solid #919eab;
@@ -712,23 +746,23 @@ input:-webkit-autofill:focus {
   line-height: 16px;
   color: #919eab;
 }
-textarea {
-  height: 150px;
-  width: 100%;
-  outline: none;
-  border: 1px solid #919eab;
-  box-sizing: border-box;
-  border-radius: 4px;
-  margin: 8px 0;
-  resize: none;
-  padding: 10px;
-  font-size: 14px;
-  line-height: 16px;
-  color: #919eab;
-  :focus {
-    cursor: none !important;
-  }
-}
+// textarea {
+//   height: 150px;
+//   width: 100%;
+//   outline: none;
+//   border: 1px solid #919eab;
+//   box-sizing: border-box;
+//   border-radius: 4px;
+//   margin: 8px 0;
+//   resize: none;
+//   padding: 10px;
+//   font-size: 14px;
+//   line-height: 16px;
+//   color: #919eab;
+//   :focus {
+//     cursor: none !important;
+//   }
+// }
 
 .modalBack {
   position: relative;
@@ -750,6 +784,106 @@ textarea {
     align-items: center;
     border-radius: 5px;
     padding: 24px;
+    &.details {
+      width: 70%;
+      // min-height: 660px;
+      padding: 18px 0px !important;
+      .enterData {
+        width: 92%;
+        align-items: flex-start;
+        .textData {
+          display: flex;
+          // align-items: center;
+          margin: 10px 0;
+          width: 98%;
+          .label {
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 19px;
+            color: #667c8a;
+            margin: 0;
+            white-space: nowrap;
+          }
+          .value {
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 19px;
+            color: #667c8a;
+            margin: 0;
+            margin-left: 5px;
+          }
+        }
+        .text-input {
+          textarea.textfield {
+            width: 98%;
+            margin: 0;
+            margin-left: 5px;
+            height: 70px;
+          }
+        }
+        .redBtn {
+          margin: 0 auto;
+        }
+        .select {
+          // width: fit-content;
+          width: 150px;
+          margin: 0;
+          margin-left: 5px;
+          .ui.selection.dropdown {
+            border-color: #667c8a;
+          }
+          .dropdown.icon {
+            top: 1.2em;
+          }
+          .ui.dropdown > .text > img {
+            top: 13px;
+            width: 10px;
+            height: 10px;
+            vertical-align: middle;
+          }
+          .divider {
+            border: none;
+          }
+          .text {
+            display: flex;
+            color: #667c8a !important;
+            font-weight: 500;
+            font-family: "Raleway", sans-serif;
+            font-size: 18px;
+            line-height: 21px;
+          }
+          .ui.dropdown .menu > .item > .image {
+            top: 13px;
+            width: 10px;
+            height: 10px;
+            vertical-align: middle;
+          }
+          .item {
+            padding: 0 16px;
+            display: flex;
+            a {
+              font-family: "Raleway", sans-serif;
+              font-style: normal;
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 19px;
+              color: #667c8a;
+            }
+            button {
+              border: none;
+              outline: none;
+              font-family: "Raleway", sans-serif;
+              font-style: normal;
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 19px;
+              color: #667c8a;
+              background-color: transparent;
+            }
+          }
+        }
+      }
+    }
     .head {
       width: 92%;
       display: flex;
@@ -758,12 +892,13 @@ textarea {
       p {
         margin: 0;
         font-weight: bold;
-        font-size: 16px;
-        line-height: 19px;
-        color: #55575c;
+        font-size: 20px;
+        line-height: 23px;
+        color: #e40055;
       }
       img {
         cursor: pointer;
+        margin-top: -5px;
       }
     }
     .checkInfo {
@@ -864,7 +999,7 @@ textarea {
       }
     }
     .enterData {
-      padding-top: 25px;
+      padding-top: 12px;
       width: 95%;
       margin: 0 auto;
       display: flex;
@@ -888,9 +1023,9 @@ textarea {
           display: flex;
           align-items: center;
           z-index: 50;
-        //   .visible.dropdown > .text:not(.default) {
-        //     color: #667c8a;
-        //   }
+          //   .visible.dropdown > .text:not(.default) {
+          //     color: #667c8a;
+          //   }
           .divider {
             width: fit-content;
             border: none;
@@ -1073,8 +1208,78 @@ textarea {
           }
         }
       }
+
+      .redBtn:disabled {
+        background-color: #667c8a;
+        // background-color: #DADADA;
+        border-radius: 3px;
+      }
+
+      .textInput {
+        width: 100%;
+      }
+
       .text-input {
         width: 100%;
+
+        textarea.textfield {
+          height: 100px;
+          width: 100%;
+          outline: none;
+          border: 1px solid #667c8a;
+          box-sizing: border-box;
+          border-radius: 3px;
+          margin: 8px 0;
+          resize: none;
+          padding: 10px 15px;
+          padding-top: 12px;
+          font-size: 18px;
+          line-height: 21px;
+          font-family: "Metropolis";
+          font-style: normal;
+          font-weight: 500;
+          color: #667c8a !important;
+
+          &:focus ~ label {
+            color: #667c8a !important;
+          }
+
+          &:focus ~ label {
+            color: #667c8a;
+            top: 0px;
+            left: 8px;
+            font-size: 12px;
+            background-color: white;
+            padding-left: 5px;
+            padding-right: 5px;
+            height: none;
+            color: #919eab;
+          }
+
+          &:focus,
+          &:valid ~ label,
+          &:not([value=""]) ~ label {
+            outline: none;
+            border-color: #667c8a;
+            box-shadow: none;
+          }
+
+          &.has-value ~ label {
+            top: 0px;
+            left: 8px;
+            font-size: 12px;
+            background-color: white;
+            padding-left: 5px;
+            padding-right: 5px;
+            color: #667c8a;
+            outline: none;
+            // border-color: #667c8a;
+            box-shadow: none;
+          }
+          &.has-value:focus ~ label {
+            color: #667c8a;
+          }
+        }
 
         input:-webkit-autofill {
           box-shadow: 0 0 0px 1000px #fff inset;

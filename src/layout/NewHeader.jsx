@@ -154,6 +154,14 @@ const NewHeader = () => {
               >
                 Contact Us
               </NavHashLink>
+              {/* <NavHashLink
+                to="/login"
+                // activeStyle={{ color: "#e40061", fontWeight: "bold" }}
+                className="redBtn"
+                onClick={() => setActive(false)}
+              >
+                Login
+              </NavHashLink> */}
             </div>
           </div>
         </>
