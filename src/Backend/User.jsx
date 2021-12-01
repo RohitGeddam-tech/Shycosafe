@@ -194,32 +194,34 @@ const User = () => {
             </button>
           </div>
           <table className="mainData">
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
-              <th></th>
-            </tr>
-            {array.map((doc, i) => (
-              <tr key={i}>
-                <td>{`${doc.first_name} ${doc.last_name}`}</td>
-                <td>{doc.email}</td>
-                <td>{doc.role}</td>
-                <td
-                  onClick={() => {
-                    setDraw(true);
-                    setNum(doc.id);
-                  }}
-                >
-                  {doc.deletable ? (
-                    <>
-                      <img src={edit} alt="delete" />
-                      Delete
-                    </>
-                  ) : null}
-                </td>
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th></th>
               </tr>
-            ))}
+              {array.map((doc, i) => (
+                <tr key={i}>
+                  <td>{`${doc.first_name} ${doc.last_name}`}</td>
+                  <td>{doc.email}</td>
+                  <td>{doc.role}</td>
+                  <td
+                    onClick={() => {
+                      setDraw(true);
+                      setNum(doc.id);
+                    }}
+                  >
+                    {doc.deletable ? (
+                      <>
+                        <img src={edit} alt="delete" />
+                        Delete
+                      </>
+                    ) : null}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
           </table>
           <Modal
             className="modalAdmin"

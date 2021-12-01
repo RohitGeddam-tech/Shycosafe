@@ -20,7 +20,7 @@ const Routing = () => {
           <Route path="/news" exact component={NewsShy} />
           <Route path="/faq" exact component={FAQ} />
           <Route path="/about" exact component={AboutPage} />
-          <Route path="/backend" exact component={BookBack} />
+          <Route path="/leads" exact component={BookBack} />
           <Route path="/user" exact component={User} />
           <Route path="/Shycocan" exact component={Shycocan} />
           <Route path="/login" exact component={Login} />

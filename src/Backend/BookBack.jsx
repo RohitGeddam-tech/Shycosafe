@@ -334,89 +334,88 @@ const BookBack = (className = "") => {
             </button>
           </div>
           <table className="mainData">
-            <tr>
-              <th>
-                <div className="point">
-                  <DateRangePicker
-                    className="customDatePicker"
-                    id="customDatePicker"
-                    initialSettings={{
-                      maxDate: new Date(),
-                      startDate: moment().subtract(1, "year").toDate(),
-                      endDate: moment().toDate(),
-                      ranges: ranges,
-                      autoUpdateInput: true,
-                    }}
-                    onCallback={handleCallback}
-                  >
-                    <div className="inner">
-                      <span className="range">Date</span>
-                      <label className="tabIcon">
-                        {CalendarFilter}
-                      </label>
-                    </div>
-                  </DateRangePicker>
-                </div>
-              </th>
-              <th>Name</th>
-              <th>Mobile No.</th>
-              <th>Email</th>
-              <th>Source</th>
-              <th>Attended by</th>
-              <th>
-                Status
-                <Dropdown icon="filter" className="dots fill">
-                  <Dropdown.Menu>
-                    <Dropdown.Item
-                      key={1}
-                      text="Ongoing"
-                      // value="View All Details"
-                      image={green}
-                      // onClick={() => setSelected("ongoing")}
-                      onClick={() => handleFilter("ongoing")}
-                    />
-                    <Dropdown.Item
-                      key={2}
-                      text="Pending"
-                      // value="View All Details"
-                      image={orange}
-                      // onClick={() => setSelected("pending")}
-                      onClick={() => handleFilter("pending")}
-                    />
-                    <Dropdown.Item
-                      key={3}
-                      text="Closed"
-                      // value="View All Details"
-                      image={circleGrey}
-                      // onClick={() => setSelected("closed")}
-                      onClick={() => handleFilter("closed")}
-                    />
-                    <Dropdown.Item
-                      key={4}
-                      text="Unable to contact"
-                      // value="View All Details"
-                      image={circleBlack}
-                      // onClick={() => setSelected("unable_to_contact")}
-                      onClick={() => handleFilter("unable_to_contact")}
-                    />
-                  </Dropdown.Menu>
-                </Dropdown>
-              </th>
-            </tr>
-            {array.map((doc, i) => (
-              <tr key={i}>
-                <td>{moment(doc.date).format("DD MMM YYYY")}</td>
-                <td>{doc.name}</td>
-                <td>{doc.mobile}</td>
-                <td>{doc.email}</td>
-                <td>{doc.type}</td>
-                {doc.attended_by.length !== 0 ? (
-                  <td>{`${doc.attended_by.first_name} ${doc.attended_by.last_name}`}</td>
-                ) : (
-                  <td>--</td>
-                )}
-                <td>
-                  {/* <Status
+            <tbody>
+              <tr>
+                <th>
+                  <div className="point">
+                    <DateRangePicker
+                      className="customDatePicker"
+                      id="customDatePicker"
+                      initialSettings={{
+                        maxDate: new Date(),
+                        startDate: moment().subtract(1, "year").toDate(),
+                        endDate: moment().toDate(),
+                        ranges: ranges,
+                        autoUpdateInput: true,
+                      }}
+                      onCallback={handleCallback}
+                    >
+                      <div className="inner">
+                        <span className="range">Date</span>
+                        <label className="tabIcon">{CalendarFilter}</label>
+                      </div>
+                    </DateRangePicker>
+                  </div>
+                </th>
+                <th>Name</th>
+                <th>Mobile No.</th>
+                <th>Email</th>
+                <th>Source</th>
+                <th>Attended by</th>
+                <th>
+                  Status
+                  <Dropdown icon="filter" className="dots fill">
+                    <Dropdown.Menu>
+                      <Dropdown.Item
+                        key={1}
+                        text="Ongoing"
+                        // value="View All Details"
+                        image={green}
+                        // onClick={() => setSelected("ongoing")}
+                        onClick={() => handleFilter("ongoing")}
+                      />
+                      <Dropdown.Item
+                        key={2}
+                        text="Pending"
+                        // value="View All Details"
+                        image={orange}
+                        // onClick={() => setSelected("pending")}
+                        onClick={() => handleFilter("pending")}
+                      />
+                      <Dropdown.Item
+                        key={3}
+                        text="Closed"
+                        // value="View All Details"
+                        image={circleGrey}
+                        // onClick={() => setSelected("closed")}
+                        onClick={() => handleFilter("closed")}
+                      />
+                      <Dropdown.Item
+                        key={4}
+                        text="Unable to contact"
+                        // value="View All Details"
+                        image={circleBlack}
+                        // onClick={() => setSelected("unable_to_contact")}
+                        onClick={() => handleFilter("unable_to_contact")}
+                      />
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </th>
+              </tr>
+              {array.map((doc, i) => (
+                <tr key={i}>
+                  <td>{moment(doc.date).format("DD MMM YYYY")}</td>
+                  <td>{doc.name}</td>
+                  <td>{doc.mobile}</td>
+                  <td>{doc.email}</td>
+                  <td>{doc.type}</td>
+                  {doc.attended_by.length !== 0 ? (
+                    <td>{`${doc.attended_by.first_name} ${doc.attended_by.last_name}`}</td>
+                  ) : (
+                    <td>--</td>
+                  )}
+                  <td>
+                    {/* <Status
                     // setOpen={setOpen}
                     status={doc.status}
                     // open={open}
@@ -425,38 +424,43 @@ const BookBack = (className = "") => {
                     handleCheck={handleCheck}
                     room={doc.phone}
                   /> */}
-                  <div className="select">
-                    <p className="stat">
-                      <span
-                        className={
-                          doc.status === "unable to contact" ? "black" : "nill"
-                        }
-                      ></span>
-                      <span
-                        className={doc.status === "pending" ? "red" : "nill"}
-                      ></span>
-                      <span
-                        className={doc.status === "closed" ? "blue" : "nill"}
-                      ></span>
-                      <span
-                        className={doc.status === "ongoing" ? "green" : "nill"}
-                      ></span>
-                      {doc.status}
-                    </p>
-                    <Dropdown icon="ellipsis vertical" className="dots">
-                      <Dropdown.Menu>
-                        <Dropdown.Item
-                          key={1}
-                          text="View All Details"
-                          value="View All Details"
-                          onClick={() => handleSettings(doc.id)}
-                        />
-                      </Dropdown.Menu>
-                    </Dropdown>
-                  </div>
-                </td>
-              </tr>
-            ))}
+                    <div className="select">
+                      <p className="stat">
+                        <span
+                          className={
+                            doc.status === "unable to contact"
+                              ? "black"
+                              : "nill"
+                          }
+                        ></span>
+                        <span
+                          className={doc.status === "pending" ? "red" : "nill"}
+                        ></span>
+                        <span
+                          className={doc.status === "closed" ? "blue" : "nill"}
+                        ></span>
+                        <span
+                          className={
+                            doc.status === "ongoing" ? "green" : "nill"
+                          }
+                        ></span>
+                        {doc.status}
+                      </p>
+                      <Dropdown icon="ellipsis vertical" className="dots">
+                        <Dropdown.Menu>
+                          <Dropdown.Item
+                            key={1}
+                            text="View All Details"
+                            value="View All Details"
+                            onClick={() => handleSettings(doc.id)}
+                          />
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
           </table>
           <div className="page">
             <ReactPaginate

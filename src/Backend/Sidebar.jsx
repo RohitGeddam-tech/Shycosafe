@@ -9,14 +9,14 @@ const Sidebar = () => {
       <img src={logo} alt="logo" />
       <div className="links">
         <NavHashLink
-          to="/backend#top"
+          to="/leads"
           className="backLinks"
           activeClassName="active"
         >
           Lead Management
         </NavHashLink>
         <NavHashLink
-          to="/user#top"
+          to="/user"
           className="backLinks"
           activeClassName="active"
         >

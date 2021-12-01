@@ -147,7 +147,7 @@ const Login = () => {
             // localStorage.setItem("mobile", info.mobile);
             localStorage.setItem("role", info.role);
             if (info.role === "admin") {
-              window.location.href = "/backend#top";
+              window.location.href = "/leads";
             }
             setSuccess(res.data.success);
             // console.log(success);
