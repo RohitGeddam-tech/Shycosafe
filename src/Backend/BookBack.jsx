@@ -222,7 +222,7 @@ const BookBack = (className = "") => {
           if (res) {
             const info = res.data.data;
             // const inform = res.data;
-            // console.log("response user profile msg", inform);
+            // console.log("response user profile msg", info);
             setArray([...info]);
             // console.log("array state: ", array);
             // console.log("page: ", res.data.meta);
@@ -257,12 +257,17 @@ const BookBack = (className = "") => {
           mail: members.email,
           date: members.date,
           click: members.type,
-          Attended: `${members.attended_by.first_name} ${members.attended_by.last_name}`,
+          Attended: `${
+            members.attended_by.length !== 0
+              ? `${members.attended_by.first_name} ${members.attended_by.last_name}`
+              : ""
+          }`,
           status: members.status,
           city: members.city,
-          msg: members.message,
+          msg: members.note,
         });
         setSel(members.status);
+        // setText(members.note);
         setOpen(true);
       }
     });
@@ -535,7 +540,7 @@ const BookBack = (className = "") => {
                 </div>
                 <div className="textData">
                   <p className="label">Attended by :</p>
-                  {form.Attended === "" ? (
+                  {form.Attended !== "" ? (
                     <p className="value">{form.Attended}</p>
                   ) : (
                     <p className="value">--</p>
