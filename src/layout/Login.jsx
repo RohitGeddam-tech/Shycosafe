@@ -41,9 +41,9 @@ const Login = () => {
         );
         // .then((res) => {
         if (res) {
-        //   console.log("response msg", res);
+          //   console.log("response msg", res);
           setSuccess(res.data.success);
-        //   console.log(success);
+          //   console.log(success);
           const { message = "Otp sent successfully" } = res.data;
           setAlertState({ open: true, message, type: "success" });
           // }
@@ -142,8 +142,9 @@ const Login = () => {
             const info = res.data.data;
             // console.log("response user profile msg", info);
             localStorage.setItem("email", info.email);
-            localStorage.setItem("name", info.name);
-            localStorage.setItem("mobile", info.mobile);
+            // localStorage.setItem("info", JSON.stringify(info));
+            localStorage.setItem("name", `${info.first_name} ${info.last_name}`);
+            // localStorage.setItem("mobile", info.mobile);
             localStorage.setItem("role", info.role);
             if (info.role === "admin") {
               window.location.href = "/backend#top";
@@ -161,8 +162,8 @@ const Login = () => {
 
   const otpClick = async () => {
     if (!emailInvalid && email !== "") {
-    //   console.log("email empty", email !== "");
-    //   console.log("email invalid", !emailInvalid);
+      //   console.log("email empty", email !== "");
+      //   console.log("email invalid", !emailInvalid);
       setValidity(true);
     }
     otpApi();

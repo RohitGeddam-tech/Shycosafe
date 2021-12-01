@@ -5,20 +5,29 @@ import below from "../images/down.png";
 import black from "../images/black.png";
 
 const Settings = () => {
+  const tokenData = localStorage.getItem("name");
+  const name = JSON.stringify(tokenData);
+
   return (
     <>
       <div className="drop">
         <div className="shown">
           <img src={black} alt="account" />
-          <h1>Rajkumar Remalli</h1>
+          <h1>{name.slice(1, -1)}</h1>
           <img src={below} alt="down-arrow" />
         </div>
         <Dropdown className="d">
           <DropdownMenu>
-            <DropdownItem>
+            {/* <DropdownItem>
               <p>Settings</p>
-            </DropdownItem>
-            <DropdownItem>
+            </DropdownItem> */}
+            <DropdownItem
+              onClick={() => {
+                localStorage.clear();
+                sessionStorage.clear();
+                window.location.href = "/#top";
+              }}
+            >
               <p>Log Out</p>
             </DropdownItem>
           </DropdownMenu>

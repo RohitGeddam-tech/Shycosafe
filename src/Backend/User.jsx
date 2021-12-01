@@ -7,45 +7,12 @@ import edit from "../images/delete.png";
 import Settings from "./Settings";
 import axios from "axios";
 
-const data = [
-  {
-    name: "Darshan Sawant",
-    phone: 9869753456,
-    mail: "darshansawant743@gmail.com",
-    date: "2021-10-21",
-    click: "Table Top Stand",
-    Attended: "Vishal Sharma",
-    status: "Ongoing",
-    role: "Admin",
-  },
-  {
-    name: "Kiran Patil",
-    phone: 8108345778,
-    mail: "ksp@gmail.com",
-    date: "2021-10-21",
-    click: "The Floor Stand - Black",
-    Attended: "Rahul Jain",
-    status: "Pending",
-    role: "Admin",
-  },
-  {
-    name: "Rohit Geddam",
-    phone: 7977250075,
-    mail: "rohitgeddam0@gmail.com",
-    date: "2021-10-21",
-    click: "Contact Form",
-    Attended: "Jeet Khandelwal",
-    status: "Closed",
-    role: "Asst. Admin",
-  },
-];
-
 const User = () => {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const [array, setArray] = useState([...data]);
+  const [array, setArray] = useState([]);
   const [popup, setPopup] = useState({});
-  const [error, setError] = useState({});
+  // const [error, setError] = useState({});
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [mail, setMail] = useState("");
@@ -56,9 +23,9 @@ const User = () => {
   const [right, setRight] = useState(false);
   const [valid, setValid] = useState(false);
   const [draw, setDraw] = useState(false);
+  const [del, setDel] = useState(false);
 
   const handleSearch = (e) => {
-    // console.log("e value", e);
     setSearch(e.target.value);
   };
 
@@ -81,95 +48,120 @@ const User = () => {
     }
   };
 
-  React.useEffect(async () => {
-    const tokenData = localStorage.getItem("accessToken");
-    const token = JSON.stringify(tokenData);
-    // console.log(token.slice(1, -1));
-    const headers = {
-      Authorization: `Bearer ${token.slice(1, -1)}`,
+  React.useEffect(() => {
+    const fetchData = async () => {
+      const tokenData = localStorage.getItem("accessToken");
+      const token = JSON.stringify(tokenData);
+      // console.log(token.slice(1, -1));
+      const headers = {
+        Authorization: `Bearer ${token.slice(1, -1)}`,
+      };
+      if (
+        localStorage.getItem("role") !== null &&
+        localStorage.getItem("role") === "admin"
+      ) {
+        axios
+          .get(`${process.env.REACT_APP_PUBLIC_URL}users`, {
+            headers: headers,
+          })
+          .then((res) => {
+            if (res) {
+              const info = res.data.data;
+              // console.log("response user profile msg", info);
+              // console.log("file array state1: ", packed.length);
+              setArray([...info]);
+              // console.log("file array state2: ", packed.length);
+              // console.log("array state: ", array);
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
     };
-    if (
-      localStorage.getItem("role") !== null &&
-      localStorage.getItem("role") === "admin"
-    ) {
-      axios
-        .get(`${process.env.REACT_APP_PUBLIC_URL}users`, {
-          headers: headers,
-        })
-        .then((res) => {
-          if (res) {
-            const info = res.data.data;
-            console.log("response user profile msg", info);
-            // console.log("file array state1: ", packed.length);
-            setArray([...info]);
-            // console.log("file array state2: ", packed.length);
-            console.log("array state: ", array);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+    fetchData();
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (/\s/.test(fname)) {
-      console.log("error", fname);
+      // console.log("error", fname);
       setFnameInvalid(true);
-      console.log(FnameInvalid);
+      // console.log(FnameInvalid);
     }
-    if (!(FnameInvalid || LnameInvalid || mailInvalid)) {
+    if (!(FnameInvalid && LnameInvalid && mailInvalid)) {
       setRight(true);
       setPopup({
         first_name: fname,
         last_name: lname,
-        mail: mail,
+        email: mail,
       });
       setValid(false);
       setOpen(false);
     } else {
       setRight(false);
       setValid(true);
-      console.log("error submit: ", error);
+      // console.log("error submit: ", error);
     }
   };
 
-  React.useEffect(async () => {
-    if (FnameInvalid || LnameInvalid || mailInvalid) {
-      setValid(true);
-    }
-    console.log("handlesubmit useeffect");
+  const postData = async () => {
     const tokenData = localStorage.getItem("accessToken");
     const token = JSON.stringify(tokenData);
-    // console.log(token.slice(1, -1));
     const headers = {
       Authorization: `Bearer ${token.slice(1, -1)}`,
     };
     if (right) {
-      console.log("onForm submit: ", popup);
-      // console.log(form);
       try {
         const res = await axios.post(
-          `${process.env.REACT_APP_PUBLIC_URL}admin/packages`,
+          `${process.env.REACT_APP_PUBLIC_URL}users`,
           popup,
           {
             headers: headers,
           }
         );
         if (res) {
-          console.log(res.data.data);
-          // setStart(false);
-          console.log(popup);
-          // window.location.reload();
-          // setForm({});
+          // console.log(res.data.data);
+          window.location.reload();
         }
       } catch (err) {
-        // console.log(name);
         console.log(err);
       }
     }
+  };
+
+  React.useEffect(() => {
+    postData();
+    // console.log("handlesubmit useeffect");
   }, [handleSubmit]);
+
+  const delData = async () => {
+    const tokenData = localStorage.getItem("accessToken");
+    const token = JSON.stringify(tokenData);
+    const headers = {
+      Authorization: `Bearer ${token.slice(1, -1)}`,
+    };
+    if (del) {
+      try {
+        const res = await axios.delete(
+          `${process.env.REACT_APP_PUBLIC_URL}users/${num}`,
+          { headers: headers }
+        );
+        if (res) {
+          setNum(0);
+          setDel(false);
+          window.location.reload();
+          // setForm({});
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
+
+  React.useEffect(() => {
+    delData();
+  }, [del]);
 
   return (
     <>
@@ -210,19 +202,21 @@ const User = () => {
             </tr>
             {array.map((doc, i) => (
               <tr key={i}>
-                <td>{doc.name}</td>
-                <td>{doc.mail}</td>
+                <td>{`${doc.first_name} ${doc.last_name}`}</td>
+                <td>{doc.email}</td>
                 <td>{doc.role}</td>
                 <td
                   onClick={() => {
                     setDraw(true);
-                    setNum(i + 1);
+                    setNum(doc.id);
                   }}
                 >
-                  {doc.role === "Asst. Admin" ? (
-                    <img src={edit} alt="delete" />
+                  {doc.deletable ? (
+                    <>
+                      <img src={edit} alt="delete" />
+                      Delete
+                    </>
                   ) : null}
-                  {doc.role === "Asst. Admin" ? `Delete` : null}
                 </td>
               </tr>
             ))}
@@ -358,7 +352,7 @@ const User = () => {
                 <button className="noOutline" onClick={() => setDraw(false)}>
                   Cancel
                 </button>
-                <button className="redBtn" onClick={() => setDraw(false)}>
+                <button className="redBtn" onClick={() => setDel(true)}>
                   Delete
                 </button>
               </div>

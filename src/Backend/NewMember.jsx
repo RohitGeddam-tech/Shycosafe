@@ -59,7 +59,8 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
     if (
       !(nameInvalid && mailInvalid && phoneInvalid) &&
       phone.length === 10 &&
-      text !== "" && selected !== ""
+      text !== "" &&
+      selected !== ""
     ) {
       setRight(true);
       setPopup({
@@ -68,7 +69,7 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
         mobile: phone,
         type: selected,
         city: city,
-        message: text,
+        note: text,
       });
       setDraw(false);
     } else {
@@ -77,9 +78,9 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
     }
   };
 
-  React.useEffect(async () => {
-    console.log("on new entry: ", popup);
-    const tokenData = localStorage.getItem("access-token");
+  const addData = async () => {
+    // console.log("on new entry: ", popup);
+    const tokenData = localStorage.getItem("accessToken");
     const token = JSON.stringify(tokenData);
     // console.log(token.slice(1, -1));
     const headers = {
@@ -88,18 +89,18 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
     if (right) {
       // console.log(form);
       try {
-        const res = await axios.put(
-          `${process.env.REACT_APP_PUBLIC_URL}admin/packages/`,
+        const res = await axios.post(
+          `${process.env.REACT_APP_PUBLIC_URL}leads`,
           popup,
           {
             headers: headers,
           }
         );
         if (res) {
-          console.log(res.data.data);
+          // console.log(res.data.data);
           // setStart(false);
-          console.log(popup);
-          // window.location.reload();
+          // console.log(popup);
+          window.location.reload();
           // setForm({});
         }
       } catch (err) {
@@ -107,6 +108,10 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
         console.log(err);
       }
     }
+  };
+
+  React.useEffect(async () => {
+    addData();
   }, [setRight, handleSubmit]);
 
   const selectedArray = [
