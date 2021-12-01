@@ -155,7 +155,7 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
                   value={name}
                   className="input"
                   name="name"
-                  pattern="^([A-Za-z ,.'`-]{2,30})$"
+                  pattern="^([A-Za-z ,.'`-]{2,60})$"
                   onChange={handleChange}
                   type="text"
                   required
@@ -196,7 +196,7 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
                   value={mail}
                   name="mail"
                   onChange={handleChange}
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$"
+                  pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,}$"
                   type="email"
                   required
                 />
