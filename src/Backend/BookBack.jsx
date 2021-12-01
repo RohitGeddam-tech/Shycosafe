@@ -264,10 +264,10 @@ const BookBack = (className = "") => {
           }`,
           status: members.status,
           city: members.city,
-          msg: members.note,
+          msg: members.message,
         });
         setSel(members.status);
-        // setText(members.note);
+        setText(members.note);
         setOpen(true);
       }
     });
@@ -532,7 +532,11 @@ const BookBack = (className = "") => {
                 </div>
                 <div className="textData">
                   <p className="label">Message :</p>
-                  <p className="value">{form.msg}</p>
+                  {form.msg !== null ? (
+                    <p className="value">{form.msg}</p>
+                  ) : (
+                    <p className="value">--</p>
+                  )}
                 </div>
                 <div className="textData">
                   <p className="label">Status: </p>
