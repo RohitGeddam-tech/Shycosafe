@@ -135,6 +135,32 @@ const ProductSlide = ({ children }) => {
             </div>
           </div>
         </div>
+        <div className={`equipCard fourth`}>
+          <img src={product} alt="cardImg" loading="lazy" />
+          <div className="right">
+            <h1 className="heading">The Table Top Stand</h1>
+            <p className="para">
+              The stylish, sturdy design, precisely engineered to be
+              user-friendly and extremely easy to install <br />
+              The Shycosafe table-top stand comes manufactured in high quality
+              coating of a chrome finish that will complement the surroundings
+              it's setup in. This uniquely designed product is ideal for
+              factories, offices, homes, hospitals and any other environment.
+            </p>
+            <div className="bottom">
+              <h2>MRP ₹3,499/- (incl.taxes)</h2>
+              <NavHashLink
+                to="/#contacts"
+                className="redBtn"
+                onClick={() =>
+                  sessionStorage.setItem("utm_content", `product4`)
+                }
+              >
+                BUY NOW
+              </NavHashLink>
+            </div>
+          </div>
+        </div>
       </Slider>
     </>
   );

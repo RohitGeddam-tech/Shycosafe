@@ -91,7 +91,10 @@ const NewHeader = () => {
                 <NavHashLink
                   to="/#contacts"
                   className="navfade"
-                  onClick={() => setActive(false)}
+                  onClick={() => {
+                    setActive(false);
+                    sessionStorage.setItem("utm_content", `Contact Form`);
+                  }}
                 >
                   Contact Us
                 </NavHashLink>
@@ -150,7 +153,10 @@ const NewHeader = () => {
                 to="/#contacts"
                 // activeStyle={{ color: "#e40061", fontWeight: "bold" }}
                 className="navfade"
-                onClick={() => setActive(false)}
+                onClick={() => {
+                  setActive(false);
+                  sessionStorage.setItem("utm_content", `Contact Form`);
+                }}
               >
                 Contact Us
               </NavHashLink>

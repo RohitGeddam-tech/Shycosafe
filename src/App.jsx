@@ -61,7 +61,13 @@ function App() {
             <h1>We're on a mission to make you safe.</h1>
             <p>Take the first step to a safer tomorrow.</p>
             {/* <div id="contacts" className="height"></div> */}
-            <NavHashLink to="/#contacts" className="redBtn">
+            <NavHashLink
+              to="/#contacts"
+              className="redBtn"
+              onClick={() =>
+                sessionStorage.setItem("utm_content", `Contact Form`)
+              }
+            >
               GET IN TOUCH
             </NavHashLink>
           </div>

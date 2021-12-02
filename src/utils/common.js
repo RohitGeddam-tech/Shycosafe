@@ -18,5 +18,5 @@ export const getUtmParamsObject = (settings) => {
 export const getUtmSerializedString = () => {
   const { utm_content } =
     sessionStorage || {};
-  return `${utm_content || "Form"}`;
+  return `${utm_content || "Contact Form"}`;
 };
