@@ -33,7 +33,7 @@
       .item {
         padding: 0 16px;
         a {
-          font-family: "Raleway", sans-serif;
+          font-family: "Metropolis";
           font-style: normal;
           font-weight: 500;
           font-size: 16px;
@@ -43,7 +43,7 @@
         button {
           border: none;
           outline: none;
-          font-family: "Raleway", sans-serif;
+          font-family: "Metropolis";
           font-style: normal;
           font-weight: 500;
           font-size: 16px;
@@ -189,6 +189,7 @@
           color: #919eab;
           padding-bottom: 5px;
           text-align: start;
+          font-family: "Metropolis";
           &:nth-child(1) {
             padding-left: 25px;
             width: 25%;
@@ -201,11 +202,13 @@
           }
         }
         td {
+          font-family: "Metropolis";
           font-weight: normal;
           font-size: 16px;
           line-height: 19px;
           color: #667c8a;
-          word-break: break-all;
+          // word-break: break-all;
+          word-break: break-word;
           height: 60px;
           border-bottom: 1px solid #dadada;
           padding-left: 5px;
@@ -227,9 +230,9 @@
           //   &:nth-child(7) {
           //     width: 6%;
           //   }
-          //   &:nth-child(3) {
-          //     padding-right: 5px;
-          //   }
+            &:nth-child(3) {
+              text-transform: capitalize;
+            }
           //   &:nth-child(6) {
           //     width: 8%;
           //   }
@@ -508,7 +511,7 @@
             outline: none;
             border: none;
             background-color: transparent;
-            font-family: "Raleway", sans-serif;
+            font-family: "Metropolis";
             font-style: normal;
             font-weight: normal;
             font-size: 14px;
@@ -792,14 +795,14 @@ input:-webkit-autofill:focus {
             padding-bottom: 18px;
             color: #667c8a !important;
             font-weight: 500;
-            font-family: "Raleway", sans-serif;
+            font-family: "Metropolis";
             font-size: 18px;
             line-height: 21px;
           }
           .item {
             padding: 0 16px;
             a {
-              font-family: "Raleway", sans-serif;
+              font-family: "Metropolis";
               font-style: normal;
               font-weight: 500;
               font-size: 16px;
@@ -809,7 +812,7 @@ input:-webkit-autofill:focus {
             button {
               border: none;
               outline: none;
-              font-family: "Raleway", sans-serif;
+              font-family: "Metropolis";
               font-style: normal;
               font-weight: 500;
               font-size: 16px;
@@ -837,7 +840,7 @@ input:-webkit-autofill:focus {
           height: 200px;
           // justify-content: center;
           input {
-            font-family: "Raleway", sans-serif;
+            font-family: "Metropolis";
             font-style: normal;
             font-weight: normal;
             font-weight: 500;
@@ -918,51 +921,6 @@ input:-webkit-autofill:focus {
           right: 7%;
         }
       }
-      .date {
-        width: 100%;
-        .MuiOutlinedInput-notchedOutline {
-          border-color: transparent;
-          border-width: 1px;
-        }
-        .MuiFormControl-root {
-          width: 100%;
-          margin: 8px 0;
-          .MuiInputLabel-outlined.MuiInputLabel-shrink {
-            padding: 2px;
-            transform: translate(9px, -7px) scale(0.65);
-            background-color: white;
-          }
-          .MuiFormLabel-root {
-            font-family: "Raleway", sans-serif;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 18px;
-            line-height: 21px;
-            color: #667c8a;
-          }
-          .MuiInputLabel-outlined {
-            transform: translate(14px, 12px) scale(1);
-          }
-          .MuiOutlinedInput-notchedOutline {
-            border-color: transparent;
-            border-width: 1px;
-          }
-          .MuiOutlinedInput-input {
-            font-family: "Raleway", sans-serif;
-            font-style: normal;
-            font-weight: 500;
-            font-size: 18px;
-            line-height: 21px;
-            background-color: white;
-            font-feature-settings: "pnum" on, "lnum" on;
-            color: #667c8a;
-            text-align: start;
-            padding: 11px 15px;
-            border: 1px solid #667c8a;
-            border-radius: 3px;
-          }
-        }
-      }
       .textInside {
         width: 100%;
         display: flex;
@@ -998,9 +956,24 @@ input:-webkit-autofill:focus {
           transition: background-color 5000s ease-in-out 0s;
         }
         label {
+          position: absolute;
+          top: 20px;
+          left: 15px;
+          padding: 0;
+          pointer-events: none;
+          transition: 0.5s;
+          z-index: 10;
+          margin-bottom: 0;
+          font-family: "Metropolis";
+          font-style: normal;
+          span {
+            color: #e40055;
+          }
+        }
+        label {
           font-weight: normal;
-          font-size: 18px;
-          line-height: 21px;
+          font-size: 14px;
+          line-height: 16px;
           color: #667c8a;
         }
         .input {
@@ -1009,9 +982,9 @@ input:-webkit-autofill:focus {
           height: max-content;
           padding: 11px 15px;
           font-weight: 500;
-          font-family: "Raleway", sans-serif;
-          font-size: 18px;
-          line-height: 21px;
+          font-family: "Metropolis";
+          font-size: 14px;
+          line-height: 16px;
           border: 1px solid #667c8a;
           color: #667c8a !important;
 
@@ -1043,6 +1016,10 @@ input:-webkit-autofill:focus {
       }
       .redBtn {
         margin-top: 17px;
+        &:disabled{
+          background-color: #d9d9d9;
+          cursor: not-allowed;
+        }
       }
     }
   }

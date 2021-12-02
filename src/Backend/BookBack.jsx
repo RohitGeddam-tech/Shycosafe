@@ -81,6 +81,7 @@ const BookBack = (className = "") => {
   const [search, setSearch] = useState("");
   const [searched, setSearched] = useState("");
   const [sel, setSel] = useState("");
+  const [select, setSelect] = useState("");
   const [selected, setSelected] = useState("");
   const [array, setArray] = useState([]);
   const [form, setForm] = useState([]);
@@ -149,7 +150,7 @@ const BookBack = (className = "") => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (sel !== "" && text !== "") {
+    if (sel !== "" && sel !== select && text !== "") {
       setRight(true);
       setPopup({
         status: sel,
@@ -267,6 +268,7 @@ const BookBack = (className = "") => {
           msg: members.message,
         });
         setSel(members.status);
+        setSelect(members.status);
         setText(members.note);
         setOpen(true);
       }
@@ -562,7 +564,13 @@ const BookBack = (className = "") => {
                     />
                   </div>
                 </div>
-                <button className="redBtn" type="submit">
+                <button
+                  className="redBtn"
+                  disabled={
+                    text !== "" || sel !== select ? false : true
+                  }
+                  type="submit"
+                >
                   Save Changes
                 </button>
               </form>

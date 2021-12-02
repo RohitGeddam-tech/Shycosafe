@@ -10,6 +10,7 @@ import axios from "axios";
 const User = () => {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
+  const [searched, setSearched] = useState("");
   const [array, setArray] = useState([]);
   const [popup, setPopup] = useState({});
   // const [error, setError] = useState({});
@@ -28,6 +29,13 @@ const User = () => {
   const handleSearch = (e) => {
     setSearch(e.target.value);
   };
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setSearched(search);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [search]);
 
   const handleChange = (e) => {
     switch (e.target.name) {
@@ -48,39 +56,49 @@ const User = () => {
     }
   };
 
-  React.useEffect(() => {
-    const fetchData = async () => {
-      const tokenData = localStorage.getItem("accessToken");
-      const token = JSON.stringify(tokenData);
-      // console.log(token.slice(1, -1));
-      const headers = {
-        Authorization: `Bearer ${token.slice(1, -1)}`,
-      };
-      if (
-        localStorage.getItem("role") !== null &&
-        localStorage.getItem("role") === "admin"
-      ) {
-        axios
-          .get(`${process.env.REACT_APP_PUBLIC_URL}users`, {
-            headers: headers,
-          })
-          .then((res) => {
-            if (res) {
-              const info = res.data.data;
-              // console.log("response user profile msg", info);
-              // console.log("file array state1: ", packed.length);
-              setArray([...info]);
-              // console.log("file array state2: ", packed.length);
-              // console.log("array state: ", array);
-            }
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
+  const fetchData = async () => {
+    const tokenData = localStorage.getItem("accessToken");
+    const token = JSON.stringify(tokenData);
+    // console.log(token.slice(1, -1));
+    const headers = {
+      Authorization: `Bearer ${token.slice(1, -1)}`,
     };
+    if (
+      localStorage.getItem("role") !== null &&
+      localStorage.getItem("role") === "admin"
+    ) {
+      axios
+        .get(
+          `${process.env.REACT_APP_PUBLIC_URL}users${
+            searched !== "" ? `?search=${searched}` : ""
+          }`,
+          {
+            headers: headers,
+          }
+        )
+        .then((res) => {
+          if (res) {
+            const info = res.data.data;
+            // console.log("response user profile msg", info);
+            // console.log("file array state1: ", packed.length);
+            setArray([...info]);
+            // console.log("file array state2: ", packed.length);
+            // console.log("array state: ", array);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+
+  React.useEffect(() => {
     fetchData();
   }, []);
+
+  React.useEffect(() => {
+    fetchData();
+  }, [searched]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -205,7 +223,7 @@ const User = () => {
                 <tr key={i}>
                   <td>{`${doc.first_name} ${doc.last_name}`}</td>
                   <td>{doc.email}</td>
-                  <td>{doc.role}</td>
+                  <td>{doc.role.split("_").join(" ")}</td>
                   <td
                     onClick={() => {
                       setDraw(true);
@@ -233,7 +251,7 @@ const User = () => {
             <div className="box">
               <div className="head">
                 <div className="heading">
-                  <h1>Add New Asst.Admin</h1>
+                  <h1>Add New Asst. Admin</h1>
                   <p>Please fill in the details. </p>
                 </div>
                 <img
@@ -315,7 +333,15 @@ const User = () => {
                   <button className="noOutline" onClick={() => setOpen(false)}>
                     Cancel
                   </button>
-                  <button className="redBtn" type="submit">
+                  <button
+                    disabled={
+                      !(FnameInvalid || LnameInvalid || mailInvalid)
+                        ? false
+                        : true
+                    }
+                    className="redBtn"
+                    type="submit"
+                  >
                     Add
                   </button>
                 </div>

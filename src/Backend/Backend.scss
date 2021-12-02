@@ -34,7 +34,7 @@
       .item {
         padding: 0 16px;
         a {
-          font-family: "Raleway", sans-serif;
+          font-family: "Metropolis";
           font-style: normal;
           font-weight: 500;
           font-size: 16px;
@@ -44,7 +44,7 @@
         button {
           border: none;
           outline: none;
-          font-family: "Raleway", sans-serif;
+          font-family: "Metropolis";
           font-style: normal;
           font-weight: 500;
           font-size: 16px;
@@ -347,9 +347,10 @@
           font-weight: normal;
           font-family: "Metropolis";
           font-size: 16px;
+          word-break: break-word;
           line-height: 19px;
           color: #667c8a;
-          word-break: break-all;
+          // word-break: break-all;
           height: 60px;
           border-bottom: 1px solid #dadada;
           padding-left: 5px;
@@ -382,6 +383,7 @@
             p.stat {
               display: flex;
               align-items: center;
+              text-transform: capitalize;
               span {
                 width: 10px !important;
                 height: 10px;
@@ -392,13 +394,13 @@
                   display: none;
                 }
                 &.red {
-                  background-color: #d83621;
+                  background-color: #F57A00;
                 }
                 &.black {
                   background-color: #282c36;
                 }
                 &.blue {
-                  background-color: #314f77;
+                  background-color: #667C8A;
                 }
                 &.green {
                   background-color: #3cbb00;
@@ -631,7 +633,7 @@
             outline: none;
             border: none;
             background-color: transparent;
-            font-family: "Raleway", sans-serif;
+            font-family: "Metropolis";
             font-style: normal;
             font-weight: normal;
             font-size: 14px;
@@ -720,8 +722,8 @@ input:-webkit-autofill:focus {
     border-radius: 0;
     margin: 8px 0;
     padding: 0 15px;
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 14px;
+    line-height: 16px;
     font-family: "Metropolis";
     font-style: normal;
     font-weight: 200;
@@ -920,7 +922,7 @@ input:-webkit-autofill:focus {
             top: 9px;
           }
           .ui.dropdown > .text > img {
-            top: 14px;
+            top: 11px;
             width: 10px;
             height: 10px;
             vertical-align: middle;
@@ -932,13 +934,14 @@ input:-webkit-autofill:focus {
             display: flex;
             color: #667c8a !important;
             font-weight: 500;
-            font-family: "Raleway", sans-serif;
-            font-size: 18px;
-            line-height: 21px;
-            margin-top: -4px;
+            font-family: "Metropolis";
+            font-size: 14px;
+            line-height: 16px;
+            margin-top: -1.5px;
+            text-transform: capitalize;
           }
           .ui.dropdown .menu > .item > .image {
-            top: 10px;
+            top: 8px;
             width: 10px;
             height: 10px;
             vertical-align: middle;
@@ -947,7 +950,7 @@ input:-webkit-autofill:focus {
             padding: 0 16px;
             display: flex;
             a {
-              font-family: "Raleway", sans-serif;
+              font-family: "Metropolis";
               font-style: normal;
               font-weight: 500;
               font-size: 16px;
@@ -957,7 +960,7 @@ input:-webkit-autofill:focus {
             button {
               border: none;
               outline: none;
-              font-family: "Raleway", sans-serif;
+              font-family: "Metropolis";
               font-style: normal;
               font-weight: 500;
               font-size: 16px;
@@ -1122,14 +1125,14 @@ input:-webkit-autofill:focus {
             padding-bottom: 18px;
             color: #667c8a !important;
             font-weight: 500;
-            font-family: "Raleway", sans-serif;
-            font-size: 18px;
-            line-height: 21px;
+            font-family: "Metropolis";
+            font-size: 16px;
+            line-height: 19px;
           }
           .item {
             padding: 0 16px;
             a {
-              font-family: "Raleway", sans-serif;
+              font-family: "Metropolis";
               font-style: normal;
               font-weight: 500;
               font-size: 16px;
@@ -1139,7 +1142,7 @@ input:-webkit-autofill:focus {
             button {
               border: none;
               outline: none;
-              font-family: "Raleway", sans-serif;
+              font-family: "Metropolis";
               font-style: normal;
               font-weight: 500;
               font-size: 16px;
@@ -1167,7 +1170,7 @@ input:-webkit-autofill:focus {
           height: 200px;
           // justify-content: center;
           input {
-            font-family: "Raleway", sans-serif;
+            font-family: "Metropolis";
             font-style: normal;
             font-weight: normal;
             font-weight: 500;
@@ -1248,54 +1251,10 @@ input:-webkit-autofill:focus {
           right: 7%;
         }
       }
-      .date {
-        width: 100%;
-        .MuiOutlinedInput-notchedOutline {
-          border-color: transparent;
-          border-width: 1px;
-        }
-        .MuiFormControl-root {
-          width: 100%;
-          margin: 8px 0;
-          .MuiInputLabel-outlined.MuiInputLabel-shrink {
-            padding: 2px;
-            transform: translate(9px, -7px) scale(0.65);
-            background-color: white;
-          }
-          .MuiFormLabel-root {
-            font-family: "Raleway", sans-serif;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 18px;
-            line-height: 21px;
-            color: #667c8a;
-          }
-          .MuiInputLabel-outlined {
-            transform: translate(14px, 12px) scale(1);
-          }
-          .MuiOutlinedInput-notchedOutline {
-            border-color: transparent;
-            border-width: 1px;
-          }
-          .MuiOutlinedInput-input {
-            font-family: "Raleway", sans-serif;
-            font-style: normal;
-            font-weight: 500;
-            font-size: 18px;
-            line-height: 21px;
-            background-color: white;
-            font-feature-settings: "pnum" on, "lnum" on;
-            color: #667c8a;
-            text-align: start;
-            padding: 11px 15px;
-            border: 1px solid #667c8a;
-            border-radius: 3px;
-          }
-        }
-      }
 
       .redBtn:disabled {
-        background-color: #667c8a;
+        background-color: #d9d9d9;
+        cursor: not-allowed;
         // background-color: #DADADA;
         border-radius: 3px;
       }
@@ -1318,8 +1277,8 @@ input:-webkit-autofill:focus {
           resize: none;
           padding: 10px 15px;
           padding-top: 12px;
-          font-size: 18px;
-          line-height: 21px;
+          font-size: 16px;
+          line-height: 19px;
           font-family: "Metropolis";
           font-style: normal;
           font-weight: 500;
@@ -1373,8 +1332,8 @@ input:-webkit-autofill:focus {
         }
         label {
           font-weight: normal;
-          font-size: 18px;
-          line-height: 21px;
+          font-size: 16px;
+          line-height: 18px;
           color: #667c8a;
         }
         .input {
@@ -1383,9 +1342,9 @@ input:-webkit-autofill:focus {
           height: max-content;
           padding: 11px 15px;
           font-weight: 500;
-          font-family: "Raleway", sans-serif;
-          font-size: 18px;
-          line-height: 21px;
+          font-family: "Metropolis";
+          font-size: 16px;
+          line-height: 18px;
           border: 1px solid #667c8a;
           color: #667c8a !important;
 
