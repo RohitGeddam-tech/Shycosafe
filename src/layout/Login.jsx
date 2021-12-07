@@ -21,6 +21,7 @@ const Login = () => {
   const [valid, setValid] = useState(false);
   const [right, setRight] = useState(false);
   const [error, setError] = useState({});
+  const [btnloading, setBtnloading] = useState(false);
   const [alertState, setAlertState] = useState({
     open: false,
     message: "",
@@ -44,6 +45,7 @@ const Login = () => {
           //   console.log("response msg", res);
           setSuccess(res.data.success);
           //   console.log(success);
+          setBtnloading(false);
           const { message = "Otp sent successfully" } = res.data;
           setAlertState({ open: true, message, type: "success" });
           // }
@@ -143,7 +145,10 @@ const Login = () => {
             // console.log("response user profile msg", info);
             localStorage.setItem("email", info.email);
             // localStorage.setItem("info", JSON.stringify(info));
-            localStorage.setItem("name", `${info.first_name} ${info.last_name}`);
+            localStorage.setItem(
+              "name",
+              `${info.first_name} ${info.last_name}`
+            );
             // localStorage.setItem("mobile", info.mobile);
             localStorage.setItem("role", info.role);
             if (info.role === "admin") {
@@ -165,6 +170,7 @@ const Login = () => {
       //   console.log("email empty", email !== "");
       //   console.log("email invalid", !emailInvalid);
       setValidity(true);
+      setBtnloading(true);
     }
     otpApi();
   };
@@ -253,10 +259,10 @@ const Login = () => {
                   type="button"
                   // onClick={() => setInvalid(emailInvalid)}
                   onClick={otpClick}
-                  // disabled={!invalid}
+                  disabled={btnloading}
                 >
+                  {btnloading ? `Sending...`: `Send OTP` }
                   {/* Send OTP */}
-                  Send OTP
                 </button>
               )}
             </div>

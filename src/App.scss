@@ -77,6 +77,40 @@
   }
 }
 
+.modalThanks {
+  position: relative;
+  outline: none !important;
+  .box {
+    position: absolute;
+    z-index: 800;
+    top: 50%;
+    left: 45%;
+    transform: translate(-45%, -50%);
+    background-color: white;
+    outline: none !important;
+    width: 510px;
+    height: 270px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    @media(max-width:600px){
+      width: 90%;
+    }
+    h1 {
+      margin: 0;
+      margin-bottom: 28px;
+    }
+    p {
+      width: 80%;
+      margin: 0;
+      padding-bottom: 40px;
+      text-align: center;
+    }
+  }
+}
+
 .login {
   width: 100%;
   overflow-x: hidden;
@@ -96,6 +130,10 @@
       width: 300px;
       .redBtn {
         padding: 10px 30px;
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
       }
       .otp {
         display: flex;

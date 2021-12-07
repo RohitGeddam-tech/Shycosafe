@@ -5,6 +5,7 @@ import { Modal } from "@material-ui/core";
 import clear from "../images/clear.png";
 import edit from "../images/delete.png";
 import Settings from "./Settings";
+import { Icon } from "semantic-ui-react";
 import axios from "axios";
 
 const User = () => {
@@ -181,6 +182,12 @@ const User = () => {
     delData();
   }, [del]);
 
+  React.useEffect(() => {
+    if (search === "") {
+      setSearched("");
+    }
+  }, [search]);
+
   return (
     <>
       <Sidebar />
@@ -190,25 +197,34 @@ const User = () => {
           <h1>User Manangement</h1>
           <div className="Navigation">
             <div className="links">
-              <div className="searchBox">
+              <form
+                className="searchBox"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setSearched(search);
+                }}
+              >
                 <div className="text-input">
                   <input
                     value={search}
                     className="input"
                     name="search"
-                    onChange={handleSearch}
+                    onChange={(e) => setSearch(e.target.value)}
                     pattern="^([A-Za-z ,.'`-]{0,})$"
                     type="text"
                     // required
                   />
-                  <label htmlFor="name" className="input-placeholder">
+                  <label htmlFor="search" className="input-placeholder">
                     Search by Name
                   </label>
+                  <button type="submit">
+                    <Icon name="search" />
+                  </button>
                 </div>
-              </div>
+              </form>
             </div>
             <button className="redBtn" onClick={() => setOpen(true)}>
-              Add New Asst. Admin
+              <Icon name="add" /> New Asst. Admin
             </button>
           </div>
           <table className="mainData">

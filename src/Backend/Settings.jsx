@@ -1,8 +1,9 @@
 import React from "react";
 import { Dropdown, DropdownMenu, DropdownItem } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
-import below from "../images/down.png";
-import black from "../images/black.png";
+// import below from "../images/down.png";
+// import black from "../images/black.png";
+import { Icon } from 'semantic-ui-react'
 
 const Settings = () => {
   const tokenData = localStorage.getItem("name");
@@ -12,9 +13,11 @@ const Settings = () => {
     <>
       <div className="drop">
         <div className="shown">
-          <img src={black} alt="account" />
+          <Icon name="user circle" />
+          {/* <img src={black} alt="account" /> */}
           <h1>{name.slice(1, -1)}</h1>
-          <img src={below} alt="down-arrow" />
+          <Icon name="angle down" />
+          {/* <img src={below} alt="down-arrow" /> */}
         </div>
         <Dropdown className="d">
           <DropdownMenu>

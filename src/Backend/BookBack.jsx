@@ -8,6 +8,7 @@ import clear from "../images/clear.png";
 // import dots from "../images/dots.png";
 // import below from "../images/down.png";
 // import black from "../images/black.png";
+import { Icon } from "semantic-ui-react";
 import green from "../images/green.png";
 import circleBlack from "../images/circle_black.png";
 import circleGrey from "../images/circle_grey.png";
@@ -98,7 +99,7 @@ const BookBack = (className = "") => {
   const [total, setTotal] = useState(0);
   const [state, setState] = useState({ start: moment(), end: moment() });
   const [filter, setFilter] = useState({
-    date_from: moment().subtract(6, "days").format("YYYY-MM-DD"),
+    date_from: moment().subtract(1, "year").format("YYYY-MM-DD"),
     date_to: moment().format("YYYY-MM-DD"),
   });
   // const [page, setPage] = useState(0);
@@ -111,34 +112,17 @@ const BookBack = (className = "") => {
   //   },
   // ]);
 
-  const CalendarFilter = (
-    <svg
-      width="13"
-      height="12"
-      viewBox="0 0 14 14"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M12.1282 1.4H11.4282V0.7C11.4282 0.315 11.1132 0 10.7282 0C10.3432 0 10.0282 0.315 10.0282 0.7V1.4H4.42822V0.7C4.42822 0.315 4.11322 0 3.72822 0C3.34322 0 3.02822 0.315 3.02822 0.7V1.4H2.32822C1.55122 1.4 0.935223 2.03 0.935223 2.8L0.928223 12.6C0.928223 13.37 1.55122 14 2.32822 14H12.1282C12.8982 14 13.5282 13.37 13.5282 12.6V2.8C13.5282 2.03 12.8982 1.4 12.1282 1.4ZM11.4285 12.6H3.02854C2.64354 12.6 2.32854 12.285 2.32854 11.9V4.90002H12.1285V11.9C12.1285 12.285 11.8135 12.6 11.4285 12.6ZM6.52885 6.29999H4.42885C4.04385 6.29999 3.72885 6.61499 3.72885 6.99999V9.09999C3.72885 9.48499 4.04385 9.79999 4.42885 9.79999H6.52885C6.91385 9.79999 7.22885 9.48499 7.22885 9.09999V6.99999C7.22885 6.61499 6.91385 6.29999 6.52885 6.29999Z"
-        fill="#828282"
-      />
-    </svg>
-  );
-
   const handleSearch = (e) => {
     // console.log("e value", e);
     setSearch(e.target.value);
   };
 
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setSearched(search);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, [search]);
+  // React.useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setSearched(search);
+  //   }, 1000);
+  //   return () => clearTimeout(timer);
+  // }, [search]);
 
   const handleSelect = (e, room) => {
     setSel(e.target.innerText);
@@ -197,6 +181,36 @@ const BookBack = (className = "") => {
   }, [handleSubmit]);
 
   const fetchData = async () => {
+    console.log(
+      `moment newdate: ${moment(new Date())
+        .subtract(1, "days")
+        .format("YYYY-MM-DD")} && filter todate: ${filter.date_to}
+        
+        extra:- ${filter.date_from ? `&date_from=${filter.date_from}` : ""}${
+        filter.date_to && filter.date_to !== "Invalid date"
+          ? `&date_to=${filter.date_to}`
+          : ""
+      }
+      
+      from date: ${moment(filter.date_from)
+        .subtract(1, "days")
+        .format("YYYY-MM-DD")} && ${moment(new Date())
+        .subtract(1, "year")
+        .format("YYYY-MM-DD")}`
+    );
+
+    const apiUrl = `${
+      selected !== "" || search !== "" || current > 0 ? "?" : ""
+    }page=${current}${
+      filter.date_from !==
+        moment(new Date()).subtract(1, "year").format("YYYY-MM-DD") ||
+      filter.date_to !== moment(new Date()).format("YYYY-MM-DD")
+        ? `&date_from=${filter.date_from}&date_to=${filter.date_to}`
+        : ``
+    }${selected !== "" ? `&status=${selected}` : ""}${
+      searched !== "" ? `&search=${searched}` : ""
+    }`;
+
     const tokenData = localStorage.getItem("accessToken");
     const token = JSON.stringify(tokenData);
     const headers = {
@@ -208,13 +222,10 @@ const BookBack = (className = "") => {
     ) {
       axios
         .get(
-          `${process.env.REACT_APP_PUBLIC_URL}leads${
-            selected !== "" || search !== "" || current > 0 ? "?" : ""
-          }page=${current}&date_from=${filter.date_from}&date_to=${
-            filter.date_to
-          }${selected !== "" ? `&status=${selected}` : ""}${
-            search !== "" ? `&search=${searched}` : ""
-          }`,
+          `${process.env.REACT_APP_PUBLIC_URL}leads${apiUrl.replace(
+            /%20/g,
+            ""
+          )}`,
           {
             headers: headers,
           }
@@ -310,6 +321,17 @@ const BookBack = (className = "") => {
     setCurrent(data.selected + 1);
   };
 
+  const handleClear = () => {
+    // console.log("hello");
+    setSearched("");
+    setSelected("");
+    setSearch("");
+    setFilter({
+      date_from: moment().subtract(1, "year").format("YYYY-MM-DD"),
+      date_to: moment().format("YYYY-MM-DD"),
+    });
+  };
+
   return (
     <>
       <Sidebar />
@@ -319,29 +341,41 @@ const BookBack = (className = "") => {
           <h1>Leads Manangement</h1>
           <div className="Navigation">
             <div className="links">
-              <div className="searchBox">
+              <form
+                className="searchBox"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setSearched(search);
+                }}
+              >
                 <div className="text-input">
                   <input
                     value={search}
                     className="input"
                     name="search"
-                    onChange={handleSearch}
+                    onChange={(e) => setSearch(e.target.value)}
                     pattern="^([A-Za-z ,.'`-]{0,})$"
                     type="text"
                     // required
                   />
-                  <label htmlFor="name" className="input-placeholder">
+                  <label htmlFor="search" className="input-placeholder">
                     Search by Name, Email, Mobile No.
                   </label>
+                  <button type="submit">
+                    <Icon name="search" />
+                  </button>
                 </div>
-              </div>
+              </form>
             </div>
             <button className="redBtn" onClick={() => setDraw(true)}>
-              New Lead Entry
+            <Icon name="add" /> New Lead Entry
             </button>
           </div>
           <table className="mainData">
             <tbody>
+              <button className="clear" onClick={handleClear}>
+                Clear all filters
+              </button>
               <tr>
                 <th>
                   <div className="point">
@@ -359,7 +393,8 @@ const BookBack = (className = "") => {
                     >
                       <div className="inner">
                         <span className="range">Date</span>
-                        <label className="tabIcon">{CalendarFilter}</label>
+                        <Icon name="calendar alternate outline" />
+                        {/* <label className="tabIcon">{CalendarFilter}</label> */}
                       </div>
                     </DateRangePicker>
                   </div>
@@ -369,9 +404,9 @@ const BookBack = (className = "") => {
                 <th>Email</th>
                 <th>Source</th>
                 <th>Attended by</th>
-                <th>
-                  Status
-                  <Dropdown icon="filter" className="dots fill">
+                <th className="statusFilter">
+                  <p className={selected !== "" ? "statFil" : ""}>Status</p>
+                  <Dropdown icon="filter" className={`dots fill ${selected !== "" ? "sl" : ""}`}>
                     <Dropdown.Menu>
                       <Dropdown.Item
                         key={1}
@@ -566,9 +601,7 @@ const BookBack = (className = "") => {
                 </div>
                 <button
                   className="redBtn"
-                  disabled={
-                    text !== "" || sel !== select ? false : true
-                  }
+                  disabled={text !== "" || sel !== select ? false : true}
                   type="submit"
                 >
                   Save Changes

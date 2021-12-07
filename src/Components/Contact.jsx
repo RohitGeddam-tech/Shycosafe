@@ -5,6 +5,7 @@ import { getUtmSerializedString } from "../utils/common";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
+import { Modal } from "@material-ui/core";
 
 const defaultFormState = {
   fname: "",
@@ -18,6 +19,8 @@ const defaultFormState = {
 const Contact = ({ className = "" }) => {
   const [details, setDetails] = useState({ ...defaultFormState });
   const [error, setError] = useState({});
+  const [btnloading, setBtnloading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     const tempDetails = { ...details },
@@ -71,7 +74,8 @@ const Contact = ({ className = "" }) => {
         type: getUtmSerializedString(),
         // type:"Shycocan",
       };
-      console.log(data);
+      setBtnloading(true);
+      // console.log(data);
       try {
         const res = await axios.post(
           `${process.env.REACT_APP_PUBLIC_URL}contact-us`,
@@ -79,10 +83,13 @@ const Contact = ({ className = "" }) => {
         );
         // .then((res) => {
         if (res) {
-          console.log("response msg", res);
+          // console.log("response msg", res.data);
+          setBtnloading(false);
+          setSuccess(res.data.success);
         }
       } catch (err) {
         console.log(err);
+        setBtnloading(false);
       }
     } else {
       console.log(error);
@@ -235,13 +242,31 @@ const Contact = ({ className = "" }) => {
               </label>
             </div>
             <div className="bottom">
-              <button type="submit" className="redBtn">
-                GET A CALL BACK
+              <button type="submit" className="redBtn" disabled={btnloading}>
+                {btnloading ? `Sending...` : `GET A CALL BACK`}
               </button>
             </div>
           </div>
         </form>
       </div>
+      <Modal
+        className="modalThanks"
+        open={success}
+        onClose={() => {
+          setSuccess(false);
+        }}
+      >
+        <div className="box">
+          <h1>Thank you</h1>
+          <p>
+            Thank you for your interest. Our team will get in touch with you
+            soon.
+          </p>
+          <button className="redBtn" onClick={() => setSuccess(false)}>
+            Close
+          </button>
+        </div>
+      </Modal>
     </div>
   );
 };
