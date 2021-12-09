@@ -4,8 +4,8 @@ import useWindowSize from "../utils/useWindowSize";
 import banner from "../images/mobileGraph.gif";
 import banner1 from "../images/banner1.jpeg";
 // import lap from "../images/lap.png";
-import lap from "../images/Banner.gif";
-import banner2 from "../images/Graph.gif";
+import lap from "../images/bannerFinal.gif";
+import banner2 from "../images/Graph-Final.gif";
 import mobile2 from "../images/mobile.gif";
 import girl from "../images/girl.jpg";
 import man from "../images/man.jpg";
@@ -140,6 +140,8 @@ const BannerSlider = () => {
                   </h1>
                   <p>The new normal was never normal.</p>
                   <p>We're making the world safe again.</p>
+                  {/* <p style={{ color: "#fff" }}>The new normal was never normal.</p>
+                  <p style={{ color: "#fff" }}>We're making the world safe again.</p> */}
                   <div className="bottom" id={`bottom`}>
                     <NavHashLink to="/#about" className="redBtn">
                       {/* <NavHashLink to="/faq#top" className="redBtn"> */}
