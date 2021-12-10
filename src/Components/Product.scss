@@ -45,19 +45,37 @@
               margin: 15px;
               .equipCard {
                 // width: 680px !important;
-                height: fit-content !important;
+                // height: fit-content !important;
                 box-shadow: 1px 0 10px 1px rgb(0 0 0 / 25%);
                 padding: 10px 0 !important;
                 // border: 1px solid #e40051;
                 display: flex !important;
-                align-items: center;
+                // align-items: center;
                 justify-content: space-between;
                 margin-left: 0;
                 outline: none;
                 background-color: white;
-                img {
+                height: 430px;
+                @media (max-width: 1200px) {
+                  height: 370px;
+                }
+                @media (max-width: 1000px) {
+                  height: 400px;
+                }
+                @media (max-width: 800px) {
+                  height: 450px;
+                }
+                @media (max-width: 715px) {
+                  height: 870px;
+                }
+                .productImg {
                   width: 35%;
-                  // box-shadow: 1px 1px 0px 1px rgb(0 0 0 / 25%);
+                  display: flex;
+                  align-items: center;
+                  img {
+                    width: 100%;
+                    // box-shadow: 1px 1px 0px 1px rgb(0 0 0 / 25%);
+                  }
                 }
                 // &.first{
                 //   margin-left: 150px;
@@ -87,6 +105,8 @@
                     padding: 0 0 10px;
                     margin-left: 10px;
                     display: block;
+                    position: absolute;
+                    bottom: 30px;
                     h2 {
                       color: #e40051;
                       margin-bottom: 20px;
@@ -96,16 +116,21 @@
                     }
                   }
                 }
-                @media(max-width:710px){
+                @media (max-width: 710px) {
                   flex-flow: column;
-                  img{
+                  justify-content: flex-start;
+                  .productImg {
                     width: 100%;
                   }
-                  .right{
+                  .right {
                     width: 95%;
-                    .para{
+                    .para {
                       width: 100%;
                     }
+                    // .bottom{
+                    //   position: relative;
+                    //   bottom: 0;
+                    // }
                   }
                 }
               }

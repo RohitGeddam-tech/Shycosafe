@@ -58,16 +58,16 @@ const ProductSlide = ({ children }) => {
     <>
       <Slider {...settings}>
         <div className={`equipCard first`}>
-          <img src={product} alt="cardImg" loading="lazy" />
+          <div className="productImg">
+            <img src={product} alt="cardImg" loading="lazy" />
+          </div>
           <div className="right">
             <h1 className="heading">The Table Top Stand</h1>
             <p className="para">
-              The stylish, sturdy design, precisely engineered to be
-              user-friendly and extremely easy to install <br />
-              The Shycosafe table-top stand comes manufactured in high quality
-              coating of a chrome finish that will complement the surroundings
-              it's setup in. This uniquely designed product is ideal for
-              factories, offices, homes, hospitals and any other environment.
+              A stylish, sturdy design, precisely engineered to be user-friendly
+              and extremely easy to install. The Shycosafe® table-top standcomes
+              manufactured in high quality coating or a chrome finish that will
+              complement the surroundings it's set up in.
             </p>
             <div className="bottom">
               <h2>MRP ₹3,499/- (incl.taxes)</h2>
@@ -75,7 +75,7 @@ const ProductSlide = ({ children }) => {
                 to="/#contacts"
                 className="redBtn"
                 onClick={() =>
-                  sessionStorage.setItem("utm_content", `product1`)
+                  sessionStorage.setItem("utm_content", `The Table Top Stand`)
                 }
               >
                 BUY NOW
@@ -84,24 +84,28 @@ const ProductSlide = ({ children }) => {
           </div>
         </div>
         <div className={`equipCard second`}>
-          <img src={product} alt="cardImg" loading="lazy" />
+          <div className="productImg">
+            <img src={product} alt="cardImg" loading="lazy" />
+          </div>
           <div className="right">
-            <h1 className="heading">The Table Top Stand</h1>
+            <h1 className="heading">The Floor Stand - Black</h1>
             <p className="para">
-              The stylish, sturdy design, precisely engineered to be
-              user-friendly and extremely easy to install <br />
-              The Shycosafe table-top stand comes manufactured in high quality
-              coating of a chrome finish that will complement the surroundings
-              it's setup in. This uniquely designed product is ideal for
-              factories, offices, homes, hospitals and any other environment.
+              Powder coated in black, this high-quality floor stand keeps your
+              Shycocan, and your environment, safe. Precisely machined with
+              angled-degree for enhanced sturdiness and easy installation, the
+              stand is a user- friendly addition, and a must-have, to your
+              Shycocan.
             </p>
             <div className="bottom">
-              <h2>MRP ₹3,499/- (incl.taxes)</h2>
+              <h2>MRP ₹8,999/- (incl.taxes)</h2>
               <NavHashLink
                 to="/#contacts"
                 className="redBtn"
                 onClick={() =>
-                  sessionStorage.setItem("utm_content", `product2`)
+                  sessionStorage.setItem(
+                    "utm_content",
+                    `The Floor Stand - Black`
+                  )
                 }
               >
                 BUY NOW
@@ -110,24 +114,29 @@ const ProductSlide = ({ children }) => {
           </div>
         </div>
         <div className={`equipCard third`}>
-          <img src={product} alt="cardImg" loading="lazy" />
+          <div className="productImg">
+            <img src={product} alt="cardImg" loading="lazy" />
+          </div>
           <div className="right">
-            <h1 className="heading">The Table Top Stand</h1>
+            <h1 className="heading">The Floor Stand - Chrome</h1>
             <p className="para">
-              The stylish, sturdy design, precisely engineered to be
-              user-friendly and extremely easy to install <br />
-              The Shycosafe table-top stand comes manufactured in high quality
-              coating of a chrome finish that will complement the surroundings
-              it's setup in. This uniquely designed product is ideal for
-              factories, offices, homes, hospitals and any other environment.
+              With an elegant, chromed look, you can't go wrong. This unique
+              design has the ability to fit in with its environment,
+              complementing the surroundings without taking up too much space.
+              Precisely machined with angled-degree for enhanced sturdiness and
+              easy installation, the stand is a user-friendly addition, and a
+              must-have, to your Shycocan.
             </p>
             <div className="bottom">
-              <h2>MRP ₹3,499/- (incl.taxes)</h2>
+              <h2>MRP ₹9,999/- (incl.taxes)</h2>
               <NavHashLink
                 to="/#contacts"
                 className="redBtn"
                 onClick={() =>
-                  sessionStorage.setItem("utm_content", `product3`)
+                  sessionStorage.setItem(
+                    "utm_content",
+                    `The Floor Stand - Chrome`
+                  )
                 }
               >
                 BUY NOW
@@ -135,7 +144,7 @@ const ProductSlide = ({ children }) => {
             </div>
           </div>
         </div>
-        <div className={`equipCard fourth`}>
+        {/* <div className={`equipCard fourth`}>
           <img src={product} alt="cardImg" loading="lazy" />
           <div className="right">
             <h1 className="heading">The Table Top Stand</h1>
@@ -160,7 +169,7 @@ const ProductSlide = ({ children }) => {
               </NavHashLink>
             </div>
           </div>
-        </div>
+        </div> */}
       </Slider>
     </>
   );
