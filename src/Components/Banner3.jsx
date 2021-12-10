@@ -53,21 +53,34 @@ const bannerDetails1 = [
 // Get your business back on track with Shycosafe
 
 const Banner1 = ({ image, title, styles, line, id }) => {
+  const [state, setState] = useState(false);
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  });
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setState(true);
+      // console.log("src",src)
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
   return (
-    <div className="banner">
+    <div className="banner" data-aos="fade-up" data-aos-duration="1500">
       <img src={image} alt="banner" loading="lazy" />
-      <div className="bannerBox" data-aos="fade-up" data-aos-duration="1500">
-        <h1 style={styles}>
-          {title}
-          <img src={line} alt="line" />
-        </h1>
-        <div className="bottom" id={id}>
-          <NavHashLink to="/#about" className="redBtn">
-            {/* <NavHashLink to="/faq#top" className="redBtn"> */}
-            KNOW MORE
-          </NavHashLink>
+      {state ? (
+        <div className="bannerBox" data-aos="fade-up" data-aos-duration="1500">
+          <h1 style={styles}>
+            {title}
+            <img src={line} alt="line" />
+          </h1>
+          <div className="bottom" id={id}>
+            <NavHashLink to="/#about" className="redBtn">
+              {/* <NavHashLink to="/faq#top" className="redBtn"> */}
+              KNOW MORE
+            </NavHashLink>
+          </div>
         </div>
-      </div>
+      ) : null}
     </div>
   );
 };
