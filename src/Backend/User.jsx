@@ -18,12 +18,14 @@ const User = () => {
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [mail, setMail] = useState("");
+  const [msg, setMsg] = useState("");
   const [num, setNum] = useState(0);
   const [FnameInvalid, setFnameInvalid] = useState(false);
   const [LnameInvalid, setLnameInvalid] = useState(false);
   const [mailInvalid, setMailInvalid] = useState(false);
   const [right, setRight] = useState(false);
   const [valid, setValid] = useState(false);
+  const [wrong, setWrong] = useState(false);
   const [draw, setDraw] = useState(false);
   const [del, setDel] = useState(false);
 
@@ -88,7 +90,7 @@ const User = () => {
           }
         })
         .catch((err) => {
-          console.log(err);
+          console.log(err.message);
         });
     }
   };
@@ -100,29 +102,6 @@ const User = () => {
   React.useEffect(() => {
     fetchData();
   }, [searched]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (/\s/.test(fname)) {
-      // console.log("error", fname);
-      setFnameInvalid(true);
-      // console.log(FnameInvalid);
-    }
-    if (!(FnameInvalid && LnameInvalid && mailInvalid)) {
-      setRight(true);
-      setPopup({
-        first_name: fname,
-        last_name: lname,
-        email: mail,
-      });
-      setValid(false);
-      setOpen(false);
-    } else {
-      setRight(false);
-      setValid(true);
-      // console.log("error submit: ", error);
-    }
-  };
 
   const postData = async () => {
     const tokenData = localStorage.getItem("accessToken");
@@ -140,18 +119,53 @@ const User = () => {
           }
         );
         if (res) {
-          // console.log(res.data.data);
+          console.log(res.data.data);
+          setOpen(false);
+          setFname("");
+          setLname("");
+          setMail("");
+          setMsg("");
+          setPopup({});
           window.location.reload();
         }
       } catch (err) {
-        console.log(err);
+        if (err.request) {
+          // The request was made but no response was received
+          const errorData = JSON.parse(err.request.response);
+          console.log(errorData.message);
+          setMsg(errorData.message);
+          setRight(false);
+        }
       }
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (/\s/.test(fname)) {
+      // console.log("error", fname);
+      setFnameInvalid(true);
+      // console.log(FnameInvalid);
+    }
+    if (!(FnameInvalid && LnameInvalid && mailInvalid)) {
+      setRight(true);
+      setPopup({
+        first_name: fname,
+        last_name: lname,
+        email: mail,
+      });
+      setValid(false);
+      // postData();
+      setWrong(true);
+    } else {
+      setRight(false);
+      setValid(true);
+      // console.log("error submit: ", error);
     }
   };
 
   React.useEffect(() => {
     postData();
-    // console.log("handlesubmit useeffect");
   }, [handleSubmit]);
 
   const delData = async () => {
@@ -262,6 +276,11 @@ const User = () => {
             open={open}
             onClose={() => {
               setOpen(false);
+              setFname("");
+              setLname("");
+              setMail("");
+              setMsg("");
+              setPopup({});
             }}
           >
             <div className="box">
@@ -274,7 +293,14 @@ const User = () => {
                   className="img"
                   src={clear}
                   alt="cancel"
-                  onClick={() => setOpen(false)}
+                  onClick={() => {
+                    setOpen(false);
+                    setFname("");
+                    setLname("");
+                    setMail("");
+                    setMsg("");
+                    setPopup({});
+                  }}
                 />
               </div>
               <form className="enterData" onSubmit={handleSubmit}>
@@ -340,13 +366,28 @@ const User = () => {
                   {mailInvalid ? (
                     <p className="error-text">PLEASE PROVIDE A VALID EMAIL</p>
                   ) : null}
+                  {msg !== "" ? (
+                    <p className="error-text" style={{ fontSize: "16px" }}>
+                      {msg}
+                    </p>
+                  ) : null}
                 </div>
                 {/* <i>
                   Note: ‘Set Password’ link will be sent to entered email
                   address.
                 </i> */}
                 <div className="btnGrp">
-                  <button className="noOutline" onClick={() => setOpen(false)}>
+                  <button
+                    className="noOutline"
+                    onClick={() => {
+                      setOpen(false);
+                      setFname("");
+                      setLname("");
+                      setMail("");
+                      setMsg("");
+                      setPopup({});
+                    }}
+                  >
                     Cancel
                   </button>
                   <button
@@ -362,7 +403,7 @@ const User = () => {
                   </button>
                 </div>
                 {valid ? (
-                  <p className="error-text">PLEASE PROVIDE A VALID EMAIL</p>
+                  <p className="error-text">PLEASE PROVIDE A VALID DATA.</p>
                 ) : null}
               </form>
             </div>

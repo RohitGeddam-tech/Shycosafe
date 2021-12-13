@@ -15,8 +15,8 @@ import circleGrey from "../images/circle_grey.png";
 import orange from "../images/orange.png";
 // import DateFnsUtils from "@date-io/date-fns";
 // import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
-import moment from "moment";
-import { Dropdown, DropdownItem, DropdownMenu } from "semantic-ui-react";
+// import moment from "moment";
+import { Dropdown } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import axios from "axios";
 // import { NavHashLink } from "react-router-hash-link";
@@ -28,9 +28,14 @@ import ReactPaginate from "react-paginate";
 // import { DateRangePicker } from "react-date-range";
 // import "react-date-range/dist/styles.css";
 // import "react-date-range/dist/theme/default.css";
-import DateRangePicker from "react-bootstrap-daterangepicker";
-// import 'bootstrap/dist/css/bootstrap.css';
 import "bootstrap-daterangepicker/daterangepicker.css";
+// import DateRangePicker from "react-bootstrap-daterangepicker";
+// import 'bootstrap/dist/css/bootstrap.css';
+import loadable from "@loadable/component";
+const DateRangePicker = loadable(() =>
+  import("react-bootstrap-daterangepicker")
+);
+const moment = loadable(() => import("moment"));
 
 const statusData = [
   {
@@ -368,14 +373,20 @@ const BookBack = (className = "") => {
               </form>
             </div>
             <button className="redBtn" onClick={() => setDraw(true)}>
-            <Icon name="add" /> New Lead Entry
+              <Icon name="add" /> New Lead Entry
             </button>
           </div>
           <table className="mainData">
             <tbody>
-              <button className="clear" onClick={handleClear}>
-                Clear all filters
-              </button>
+              {selected !== "" ||
+              search !== "" ||
+              filter.date_from !==
+                moment(new Date()).subtract(1, "year").format("YYYY-MM-DD") ||
+              filter.date_to !== moment(new Date()).format("YYYY-MM-DD") ? (
+                <button className="clear" onClick={handleClear}>
+                  Clear all filters
+                </button>
+              ) : null}
               <tr>
                 <th>
                   <div className="point">
@@ -405,8 +416,35 @@ const BookBack = (className = "") => {
                 <th>Source</th>
                 <th>Attended by</th>
                 <th className="statusFilter">
-                  <p className={selected !== "" ? "statFil" : ""}>Status</p>
-                  <Dropdown icon="filter" className={`dots fill ${selected !== "" ? "sl" : ""}`}>
+                  <p
+                    className={
+                      selected !== "" ||
+                      search !== "" ||
+                      filter.date_from !==
+                        moment(new Date())
+                          .subtract(1, "year")
+                          .format("YYYY-MM-DD") ||
+                      filter.date_to !== moment(new Date()).format("YYYY-MM-DD")
+                        ? "statFil"
+                        : ""
+                    }
+                  >
+                    Status
+                  </p>
+                  <Dropdown
+                    icon="filter"
+                    className={`dots fill ${
+                      selected !== "" ||
+                      search !== "" ||
+                      filter.date_from !==
+                        moment(new Date())
+                          .subtract(1, "year")
+                          .format("YYYY-MM-DD") ||
+                      filter.date_to !== moment(new Date()).format("YYYY-MM-DD")
+                        ? "sl"
+                        : ""
+                    }`}
+                  >
                     <Dropdown.Menu>
                       <Dropdown.Item
                         key={1}

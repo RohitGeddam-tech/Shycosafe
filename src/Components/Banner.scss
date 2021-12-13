@@ -12,6 +12,15 @@
   .slickNext{
     right: 10px;
   }
+  .slickPrev{
+    left: 10px;
+    z-index: 1;
+  }
+  @media (max-width: 920px) {
+    .slickNext, .slickPrev{
+      display: none !important;
+    }
+  }
   @media (min-width: 1020px) {
     .height {
       height: 70px !important;

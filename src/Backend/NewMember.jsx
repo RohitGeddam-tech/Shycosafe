@@ -136,6 +136,12 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
         open={draw}
         onClose={() => {
           setDraw(false);
+          setName("");
+          setMail("");
+          setText("");
+          setPhone("");
+          setCity("");
+          setSelected("");
         }}
       >
         <div className="box">
@@ -145,7 +151,15 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
               className="img"
               src={clear}
               alt="cancel"
-              onClick={() => setDraw(false)}
+              onClick={() => {
+                setDraw(false);
+                setName("");
+                setMail("");
+                setText("");
+                setPhone("");
+                setCity("");
+                setSelected("");
+              }}
             />
           </div>
           <form className="enterData" onSubmit={handleSubmit}>

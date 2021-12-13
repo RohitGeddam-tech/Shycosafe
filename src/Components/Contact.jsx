@@ -262,7 +262,21 @@ const Contact = ({ className = "" }) => {
             Thank you for your interest. Our team will get in touch with you
             soon.
           </p>
-          <button className="redBtn" onClick={() => setSuccess(false)}>
+          <button
+            className="redBtn"
+            onClick={() => {
+              setSuccess(false);
+              setDetails({
+                fname: "",
+                lname: "",
+                mobile: "",
+                email: "",
+                text: "",
+                city: "",
+              });
+              window.location.href = "/#top";
+            }}
+          >
             Close
           </button>
         </div>

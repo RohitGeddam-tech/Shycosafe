@@ -1,14 +1,21 @@
 import React from "react";
 import App from "./App";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import Products from "./Components/Products";
-import NewsShy from "./Components/NewsShy";
-import FAQ from "./Components/FAQ";
-import BookBack from "./Backend/BookBack";
-import AboutPage from "./Components/About/AboutPage";
+// import NewsShy from "./Components/NewsShy";
+// import FAQ from "./Components/FAQ";
+// import BookBack from "./Backend/BookBack";
+// import AboutPage from "./Components/About/AboutPage";
 import Shycocan from "./Shyocan";
-import User from "./Backend/User";
+// import User from "./Backend/User";
 import Login from "./layout/Login";
+import loadable from "@loadable/component";
+const BookBack = loadable(() => import("./Backend/BookBack"));
+// const Shycocan = loadable(() => import("./Shycocan"));
+const User = loadable(() => import("./Backend/User"));
+const NewsShy = loadable(() => import("./Components/NewsShy"));
+const FAQ = loadable(() => import("./Components/FAQ"));
+const AboutPage = loadable(() => import("./Components/About/AboutPage"));
 
 const Routing = () => {
   return (
