@@ -95,7 +95,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    @media(max-width:600px){
+    @media (max-width: 600px) {
       width: 90%;
     }
     h1 {
@@ -143,6 +143,176 @@
         margin-bottom: 10px;
         .textInput {
           width: 100%;
+
+          input[type="number"]::-webkit-inner-spin-button,
+          input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+
+          input:-webkit-autofill {
+            box-shadow: 0 0 0px 1000px #fff inset;
+            -webkit-text-fill-color: #667c8a;
+            transition: background-color 5000s ease-in-out 0s;
+          }
+          input:-webkit-autofill:focus {
+            box-shadow: 0 0 0px 1000px #fff inset;
+            transition: background-color 5000s ease-in-out 0s;
+            -webkit-text-fill-color: #667c8a;
+          }
+
+          .text-input {
+            position: relative;
+            padding: 0;
+            display: block;
+            .error-text {
+              text-align: start;
+              color: red;
+              font-size: 12px;
+              line-height: 14px;
+              margin: 0;
+              padding-bottom: 5px;
+              padding-left: 5px;
+            }
+            label {
+              position: absolute;
+              top: 19px;
+              left: 15px;
+              padding: 0;
+              color: #919eab;
+              pointer-events: none;
+              transition: 0.5s;
+              z-index: 10;
+              margin-bottom: 0;
+              font-family: "Metropolis";
+              font-style: normal;
+              font-weight: 200;
+              font-size: 16px;
+              line-height: 18px;
+              span {
+                color: #e40055;
+              }
+            }
+            .input {
+              width: 100%;
+              height: 40px;
+              border: 1px solid #b7b7b7;
+              outline: none;
+              box-sizing: border-box;
+              border-radius: 0;
+              margin: 8px 0;
+              padding: 0 15px;
+              font-size: 16px;
+              line-height: 18px;
+              font-family: "Metropolis";
+              font-style: normal;
+              font-weight: 200;
+              color: #b7b7b7;
+
+              &::-webkit-input-placeholder,
+              &:-moz-placeholder,
+              &:-ms-input-placeholder {
+                color: #667c8a;
+                font-size: 14px;
+              }
+              &:not([value=""]) {
+                border-color: #667c8a;
+                color: #667c8a !important;
+              }
+
+              &:focus ~ label,
+              &:not([value=""]) ~ label {
+                top: 0px;
+                left: 8px;
+                font-size: 12px;
+                background-color: white;
+                padding-left: 5px;
+                padding-right: 5px;
+                height: none;
+                color: #667c8a !important;
+              }
+
+              &:focus ~ label {
+                color: #e40055 !important;
+              }
+
+              &:focus,
+              &:valid ~ label,
+              &:not([value=""]) ~ label {
+                outline: none;
+                border-color: #e40055;
+                box-shadow: none;
+              }
+            }
+
+            textarea.textfield {
+              height: 150px;
+              width: 100%;
+              outline: none;
+              border: 1px solid #b7b7b7;
+              box-sizing: border-box;
+              border-radius: 0;
+              margin: 8px 0;
+              resize: none;
+              padding: 10px 15px;
+              font-size: 16px;
+              line-height: 18px;
+              font-family: "Metropolis";
+              font-style: normal;
+              font-weight: 200;
+              color: #b7b7b7;
+
+              &:focus ~ label {
+                color: #e40055 !important;
+              }
+
+              &:focus ~ label {
+                color: #e40055;
+                top: 0px;
+                left: 8px;
+                font-size: 12px;
+                background-color: white;
+                padding-left: 5px;
+                padding-right: 5px;
+                height: none;
+                color: #667c8a;
+              }
+
+              &:focus,
+              &:valid ~ label,
+              &:not([value=""]) ~ label {
+                outline: none;
+                border-color: #e40055;
+                box-shadow: none;
+              }
+
+              &.has-value {
+                border-color: #667c8a;
+                color: #667c8a !important;
+              }
+              &.has-value:focus {
+                border-color: #e40055;
+                color: #667c8a !important;
+              }
+
+              &.has-value ~ label {
+                top: 0px;
+                left: 8px;
+                font-size: 12px;
+                background-color: white;
+                padding-left: 5px;
+                padding-right: 5px;
+                // color: #919eab;
+                outline: none;
+                border-color: #e40055;
+                box-shadow: none;
+                color: #667c8a;
+              }
+              &.has-value:focus ~ label {
+                color: #e40055;
+              }
+            }
+          }
         }
         .resend {
           color: #e40051;

@@ -15,7 +15,7 @@ import circleGrey from "../images/circle_grey.png";
 import orange from "../images/orange.png";
 // import DateFnsUtils from "@date-io/date-fns";
 // import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
-// import moment from "moment";
+import moment from "moment";
 import { Dropdown } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import axios from "axios";
@@ -35,7 +35,7 @@ import loadable from "@loadable/component";
 const DateRangePicker = loadable(() =>
   import("react-bootstrap-daterangepicker")
 );
-const moment = loadable(() => import("moment"));
+// const moment = loadable(() => import("moment"));
 
 const statusData = [
   {

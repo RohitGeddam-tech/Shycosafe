@@ -4,7 +4,7 @@ import account from "../images/favicon.png";
 // import profile from "../image/profile.png";
 import { Snackbar } from "@material-ui/core";
 // import clear from "../images/clear.png";
-import "semantic-ui-css/semantic.min.css";
+// import "semantic-ui-css/semantic.min.css";
 // import { NavHashLink } from "react-router-hash-link";
 // import useWindowSize from "../utils/useWindowSize";
 import axios from "axios";
@@ -22,6 +22,7 @@ const Login = () => {
   const [right, setRight] = useState(false);
   const [error, setError] = useState({});
   const [btnloading, setBtnloading] = useState(false);
+  const [loadBtn, setLoadBtn] = useState(false);
   const [alertState, setAlertState] = useState({
     open: false,
     message: "",
@@ -60,6 +61,7 @@ const Login = () => {
 
         setSuccess(false);
         // console.log(success);
+        setBtnloading(false);
 
         const errArr = Object.keys(errors);
         if (status_code === 422 && errArr.length) {
@@ -92,6 +94,7 @@ const Login = () => {
           //   setLogin(true);
           setRight(true);
           console.log(code, res);
+          setLoadBtn(false);
           sessionStorage.setItem("logged", true);
           sessionStorage.setItem("mailed", JSON.stringify(email));
           //   window.location.reload();
@@ -106,6 +109,7 @@ const Login = () => {
 
         setSuccess(false);
         // console.log(success);
+        setLoadBtn(false);
 
         const errArr = Object.keys(errors);
         if (status_code === 422 && errArr.length) {
@@ -183,6 +187,7 @@ const Login = () => {
     e.preventDefault();
     if (!(codeInvalid && emailInvalid)) {
       setValid(true);
+      setLoadBtn(true);
     }
     loginApi();
   };
@@ -261,7 +266,7 @@ const Login = () => {
                   onClick={otpClick}
                   disabled={btnloading}
                 >
-                  {btnloading ? `Sending...`: `Send OTP` }
+                  {btnloading ? `Sending...` : `Send OTP`}
                   {/* Send OTP */}
                 </button>
               )}
@@ -292,7 +297,7 @@ const Login = () => {
                     </p>
                   ) : null}
                 </div>
-                <button type="submit" className="redBtn">
+                <button type="submit" className="redBtn" disabled={loadBtn}>
                   Login
                 </button>
               </div>
