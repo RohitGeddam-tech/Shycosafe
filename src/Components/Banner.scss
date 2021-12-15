@@ -54,6 +54,9 @@
         flex-flow: column;
         justify-content: space-between;
         height: 550px;
+        @media (max-width: 500px) {
+          justify-content: flex-start;
+        }
         &.third {
           justify-content: flex-start;
           align-items: center;
@@ -93,6 +96,9 @@
           width: 100%;
           display: flex;
           justify-content: flex-start;
+          @media (max-width: 500px) {
+            margin-top: 20px;
+          }
           .redBtn {
             padding: 10px 80px;
             display: flex;

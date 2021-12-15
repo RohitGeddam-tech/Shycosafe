@@ -72,6 +72,7 @@
                   width: 35%;
                   display: flex;
                   align-items: center;
+                  margin: 0;
                   img {
                     width: 100%;
                     // box-shadow: 1px 1px 0px 1px rgb(0 0 0 / 25%);
@@ -88,6 +89,7 @@
                 // }
                 .right {
                   width: 62%;
+                  margin: 0;
                   .heading {
                     font-size: 18px;
                     line-height: 24px;
@@ -103,6 +105,7 @@
                   }
                   .bottom {
                     padding: 0 0 10px;
+                    margin-right: 0;
                     margin-left: 10px;
                     display: block;
                     position: absolute;
@@ -113,6 +116,11 @@
                     }
                     .redBtn {
                       margin: 0;
+                    }
+                    @media (max-width: 460px) {
+                      h2 {
+                        width: 240px;
+                      }
                     }
                   }
                 }
@@ -125,7 +133,7 @@
                   .right {
                     width: 95%;
                     .para {
-                      width: 100%;
+                      width: 98%;
                     }
                     // .bottom{
                     //   position: relative;
