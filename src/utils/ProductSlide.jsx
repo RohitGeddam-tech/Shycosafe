@@ -5,7 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import SliderNextArrow from "./NextArrow";
 import SliderPrevArrow from "./PrevArrow";
 import { NavHashLink } from "react-router-hash-link";
-import product from "../images/product.png";
+// import product from "../images/product.png";
+import product from "../images/product.webp";
 
 const ProductSlide = ({ children }) => {
   const settings = {
