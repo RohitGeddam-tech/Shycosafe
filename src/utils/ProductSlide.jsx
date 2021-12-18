@@ -70,7 +70,9 @@ const ProductSlide = ({ children }) => {
               complement the surroundings it's set up in.
             </p>
             <div className="bottom">
-              <h2>MRP ₹3,499/- (incl.taxes)</h2>
+              <h2>
+                MRP ₹3,499/- <span>(incl.taxes)</span>
+              </h2>
               <NavHashLink
                 to="/#contacts"
                 className="redBtn"
@@ -97,7 +99,9 @@ const ProductSlide = ({ children }) => {
               Shycocan.
             </p>
             <div className="bottom">
-              <h2>MRP ₹8,999/- (incl.taxes)</h2>
+              <h2>
+                MRP ₹8,999/- <span>(incl.taxes)</span>
+              </h2>
               <NavHashLink
                 to="/#contacts"
                 className="redBtn"
@@ -128,7 +132,9 @@ const ProductSlide = ({ children }) => {
               must-have, to your Shycocan.
             </p>
             <div className="bottom">
-              <h2>MRP ₹9,999/- (incl.taxes)</h2>
+              <h2>
+                MRP ₹9,999/- <span>(incl.taxes)</span>
+              </h2>
               <NavHashLink
                 to="/#contacts"
                 className="redBtn"
