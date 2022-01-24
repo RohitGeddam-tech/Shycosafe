@@ -186,23 +186,23 @@ const BookBack = (className = "") => {
   }, [handleSubmit]);
 
   const fetchData = async () => {
-    console.log(
-      `moment newdate: ${moment(new Date())
-        .subtract(1, "days")
-        .format("YYYY-MM-DD")} && filter todate: ${filter.date_to}
+    // console.log(
+    //   `moment newdate: ${moment(new Date())
+    //     .subtract(1, "days")
+    //     .format("YYYY-MM-DD")} && filter todate: ${filter.date_to}
         
-        extra:- ${filter.date_from ? `&date_from=${filter.date_from}` : ""}${
-        filter.date_to && filter.date_to !== "Invalid date"
-          ? `&date_to=${filter.date_to}`
-          : ""
-      }
+    //     extra:- ${filter.date_from ? `&date_from=${filter.date_from}` : ""}${
+    //     filter.date_to && filter.date_to !== "Invalid date"
+    //       ? `&date_to=${filter.date_to}`
+    //       : ""
+    //   }
       
-      from date: ${moment(filter.date_from)
-        .subtract(1, "days")
-        .format("YYYY-MM-DD")} && ${moment(new Date())
-        .subtract(1, "year")
-        .format("YYYY-MM-DD")}`
-    );
+    //   from date: ${moment(filter.date_from)
+    //     .subtract(1, "days")
+    //     .format("YYYY-MM-DD")} && ${moment(new Date())
+    //     .subtract(1, "year")
+    //     .format("YYYY-MM-DD")}`
+    // );
 
     const apiUrl = `${
       selected !== "" || search !== "" || current > 0 ? "?" : ""

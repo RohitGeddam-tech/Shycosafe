@@ -62,7 +62,7 @@ const AboutPage = () => {
             <div
               className="aboutImg"
               data-aos="fade-up"
-              data-aos-duration="2000"
+              data-aos-duration="1500"
             >
               <img src={banner} alt="about" />
               <p>Vishal Sharma</p>
