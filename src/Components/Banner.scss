@@ -47,7 +47,7 @@
       }
       .bannerBox {
         position: absolute;
-        // top: 20px;
+        top: 50px;
         width: 96%;
         left: 4%;
         right: 4%;
@@ -57,11 +57,13 @@
         height: 550px;
         justify-content: flex-start;
         align-items: center;
-        top: 50px;
         @media (max-width: 500px) {
           justify-content: flex-start;
           align-items: flex-start;
-          top: 20px;
+          top: 50px;
+          h1{
+            margin-bottom: 30px;
+          }
           .bottom {
             flex-flow: column !important;
             .redBtn {
@@ -141,7 +143,7 @@
           align-items: flex-start;
           @media (min-width: 1440px) {
             width: 1160px;
-            left: 4%;
+            left: 5%;
             margin: 0 auto;
           }
           .bottom {
@@ -155,6 +157,7 @@
             justify-content: space-between;
             align-items: initial;
             top: 100px;
+            left: 11%;
             .bottom {
               justify-content: flex-start;
             }
