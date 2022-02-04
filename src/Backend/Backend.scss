@@ -1040,7 +1040,8 @@ input:-webkit-autofill:focus {
         }
         .select {
           // width: fit-content;
-          width: 150px;
+          // width: 150px;
+          width: max-content;
           margin: 0;
           margin-left: 5px;
           .ui.selection.dropdown {
@@ -1067,6 +1068,9 @@ input:-webkit-autofill:focus {
             line-height: 16px;
             margin-top: -1.5px;
             text-transform: capitalize;
+            &.divider {
+              width: max-content;
+            }
           }
           .ui.dropdown .menu > .item > .image {
             top: 8px;

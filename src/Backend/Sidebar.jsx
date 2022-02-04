@@ -8,20 +8,18 @@ const Sidebar = () => {
     <div className="sidebar">
       <img src={logo} alt="logo" />
       <div className="links">
-        <NavHashLink
-          to="/leads"
-          className="backLinks"
-          activeClassName="active"
-        >
+        <NavHashLink to="/leads" className="backLinks" activeClassName="active">
           Lead Management
         </NavHashLink>
-        <NavHashLink
-          to="/user"
-          className="backLinks"
-          activeClassName="active"
-        >
-          User Management
-        </NavHashLink>
+        {localStorage.getItem("role") !== "assistant_admin" ? (
+          <NavHashLink
+            to="/user"
+            className="backLinks"
+            activeClassName="active"
+          >
+            User Management
+          </NavHashLink>
+        ) : null}
         {/* <NavHashLink
           to="/BookBack#top"
           // className="backLinks"

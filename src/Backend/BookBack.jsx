@@ -142,6 +142,9 @@ const BookBack = (className = "") => {
 
   const handleSelect = (e, room) => {
     setSel(e.target.innerText);
+    if (e.target.innerText.toLocaleLowerCase() === "unable to contact") {
+      setSel("unable_to_connect");
+    }
   };
 
   const handleFilter = (name) => {
@@ -201,9 +204,9 @@ const BookBack = (className = "") => {
           // console.log(res.data.data);
           // setStart(false);
           // console.log(popup);
+          setRight(false);
           setTextInvalid(false);
           setSelInvalid(false);
-          setRight(false);
           window.location.reload();
           // setForm({});
         }
@@ -255,6 +258,9 @@ const BookBack = (className = "") => {
     // );
 
     // if(selected)
+    if (localStorage.getItem("role") === null) {
+      window.location.href = "/#top";
+    }
 
     const apiUrl = `${
       selected !== "" || search !== "" || current > 0 ? "?" : ""
@@ -275,7 +281,8 @@ const BookBack = (className = "") => {
     };
     if (
       localStorage.getItem("role") !== null &&
-      localStorage.getItem("role") === "admin"
+      (localStorage.getItem("role") === "admin" ||
+        localStorage.getItem("role") === "assistant_admin")
     ) {
       axios
         .get(
@@ -324,7 +331,9 @@ const BookBack = (className = "") => {
   };
 
   React.useEffect(() => {
-    fetchData();
+    if (array.length === 0) {
+      fetchData();
+    }
   }, []);
 
   React.useEffect(() => {

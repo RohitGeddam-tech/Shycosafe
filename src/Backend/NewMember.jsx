@@ -43,6 +43,11 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
         break;
       case "phone":
         setPhone(e.target.value);
+        if (/^[0-9]{10}$/.test(e.target.value)) {
+          setPhoneInvalid(false);
+        } else {
+          setPhoneInvalid(true);
+        }
         break;
       case "mail":
         setMail(e.target.value);
@@ -54,9 +59,6 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
       default:
         break;
     }
-    if (/^[0-9]{10}$/.test(phone)) {
-      setPhoneInvalid(true);
-    }
   };
 
   const handleSubmit = (e) => {
@@ -65,7 +67,7 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
     // console.log(phone);
     // console.log("phoneInvalid", phoneInvalid);
     if (
-      !(nameInvalid && mailInvalid && phoneInvalid) &&
+      !(nameInvalid && mailInvalid) &&
       phone.length === 10 &&
       selected !== ""
     ) {
@@ -135,8 +137,10 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
     }
   };
 
-  React.useEffect(async () => {
-    addData();
+  React.useEffect(() => {
+    if (right) {
+      addData();
+    }
   }, [setRight, handleSubmit]);
 
   const selectedArray = [
@@ -240,9 +244,9 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
                 <label htmlFor="phone" className="input-placeholder">
                   Mobile No.
                 </label>
-                {nameInvalid ? (
+                {phoneInvalid ? (
                   <p className="error-text">
-                    PLEASE PROVIDE A VALID MOBILE NO.
+                    PLEASE PROVIDE A VALID 10 DIGIT MOBILE NO.
                   </p>
                 ) : null}
               </div>
@@ -338,20 +342,20 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
           </form>
         </div>
       </Modal>
-        <Snackbar
-          anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-          open={alertState.open}
+      <Snackbar
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+        open={alertState.open}
+        onClose={handleAlertClose}
+        autoHideDuration={5000}
+      >
+        <Alert
           onClose={handleAlertClose}
-          autoHideDuration={5000}
+          severity={alertState.type}
+          variant="filled"
         >
-          <Alert
-            onClose={handleAlertClose}
-            severity={alertState.type}
-            variant="filled"
-          >
-            {alertState.message}
-          </Alert>
-        </Snackbar>
+          {alertState.message}
+        </Alert>
+      </Snackbar>
     </>
   );
 };

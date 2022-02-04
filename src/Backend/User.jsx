@@ -61,6 +61,7 @@ const User = () => {
       case "mail":
         setMail(e.target.value);
         setMailInvalid(!e.target.validity.valid);
+        setMsg("");
         break;
       default:
         break;
@@ -68,6 +69,13 @@ const User = () => {
   };
 
   const fetchData = async () => {
+    if (
+      localStorage.getItem("role") === null ||
+      localStorage.getItem("role") === "assistant_admin"
+    ) {
+      window.location.href = "/#top";
+    }
+
     const tokenData = localStorage.getItem("accessToken");
     const token = JSON.stringify(tokenData);
     // console.log(token.slice(1, -1));
@@ -122,7 +130,9 @@ const User = () => {
   };
 
   React.useEffect(() => {
-    fetchData();
+    if (array.length === 0) {
+      fetchData();
+    }
   }, []);
 
   React.useEffect(() => {
@@ -263,7 +273,9 @@ const User = () => {
   };
 
   React.useEffect(() => {
-    delData();
+    if (del) {
+      delData();
+    }
   }, [del]);
 
   React.useEffect(() => {
@@ -442,7 +454,7 @@ const User = () => {
                       Email
                     </label>
                   </div>
-                  {mailInvalid ? (
+                  {mailInvalid && msg === "" ? (
                     <p className="error-text">PLEASE PROVIDE A VALID EMAIL</p>
                   ) : null}
                   {msg !== "" ? (
