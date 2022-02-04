@@ -31,7 +31,7 @@ const Routing = () => {
           <Route path="/leads" exact component={BookBack} />
           <Route path="/user" exact component={User} />
           <Route path="/Shycocan" exact component={Shycocan} />
-          <Route path="/Shycosafe/login" exact component={Login} />
+          <Route path="/login" exact component={Login} />
         </Switch>
       </>
     </Router>
