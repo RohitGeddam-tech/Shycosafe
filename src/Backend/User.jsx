@@ -29,16 +29,16 @@ const User = () => {
   const [draw, setDraw] = useState(false);
   const [del, setDel] = useState(false);
 
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
-  };
+  // const handleSearch = (e) => {
+  //   setSearch(e.target.value);
+  // };
 
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setSearched(search);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, [search]);
+  // React.useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setSearched(search);
+  //   }, 1000);
+  //   return () => clearTimeout(timer);
+  // }, [search]);
 
   const handleChange = (e) => {
     switch (e.target.name) {
@@ -119,7 +119,8 @@ const User = () => {
           }
         );
         if (res) {
-          console.log(res.data.data);
+          // console.log(res.data.data);
+          setRight(false);
           setOpen(false);
           setFname("");
           setLname("");
@@ -129,12 +130,12 @@ const User = () => {
           window.location.reload();
         }
       } catch (err) {
+        setRight(false);
         if (err.request) {
           // The request was made but no response was received
           const errorData = JSON.parse(err.request.response);
-          console.log(errorData.message);
+          // console.log(errorData.message);
           setMsg(errorData.message);
-          setRight(false);
         }
       }
     }
@@ -147,7 +148,12 @@ const User = () => {
       setFnameInvalid(true);
       // console.log(FnameInvalid);
     }
-    if (!(FnameInvalid && LnameInvalid && mailInvalid)) {
+    if (
+      !(FnameInvalid && LnameInvalid && mailInvalid) &&
+      fname !== "" &&
+      lname !== "" &&
+      mail !== ""
+    ) {
       setRight(true);
       setPopup({
         first_name: fname,
@@ -165,7 +171,9 @@ const User = () => {
   };
 
   React.useEffect(() => {
-    postData();
+    if (right) {
+      postData();
+    }
   }, [handleSubmit]);
 
   const delData = async () => {
@@ -231,7 +239,7 @@ const User = () => {
                   <label htmlFor="search" className="input-placeholder">
                     Search by Name
                   </label>
-                  <button type="submit">
+                  <button type="submit" disabled={search !== "" ? false : true}>
                     <Icon name="search" />
                   </button>
                 </div>
@@ -249,6 +257,11 @@ const User = () => {
                 <th>Role</th>
                 <th></th>
               </tr>
+              {array.length === 0 ? (
+                <tr className="empty">
+                  <td>Records not found.</td>
+                </tr>
+              ) : null}
               {array.map((doc, i) => (
                 <tr key={i}>
                   <td>{`${doc.first_name} ${doc.last_name}`}</td>
@@ -392,7 +405,10 @@ const User = () => {
                   </button>
                   <button
                     disabled={
-                      !(FnameInvalid || LnameInvalid || mailInvalid)
+                      !(FnameInvalid || LnameInvalid || mailInvalid) &&
+                      fname !== "" &&
+                      mail !== "" &&
+                      lname !== ""
                         ? false
                         : true
                     }

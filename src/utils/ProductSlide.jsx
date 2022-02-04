@@ -7,6 +7,8 @@ import SliderPrevArrow from "./PrevArrow";
 import { NavHashLink } from "react-router-hash-link";
 // import product from "../images/product.png";
 import product from "../images/product.webp";
+import product1 from "../images/Product1.png";
+import product2 from "../images/Product2.png";
 
 const ProductSlide = ({ children }) => {
   const settings = {
@@ -78,7 +80,7 @@ const ProductSlide = ({ children }) => {
                 to="/#contacts"
                 className="redBtn"
                 onClick={() =>
-                  sessionStorage.setItem("utm_content", `The Table Top Stand`)
+                  sessionStorage.setItem("utm_content", `Product: The Table Top Stand`)
                 }
               >
                 BUY NOW
@@ -88,7 +90,7 @@ const ProductSlide = ({ children }) => {
         </div>
         <div className={`equipCard second`}>
           <div className="productImg">
-            <img src={product} alt="cardImg" loading="lazy" />
+            <img src={product1} alt="cardImg" loading="lazy" />
           </div>
           <div className="right">
             <h1 className="heading">The Floor Stand - Black</h1>
@@ -109,7 +111,7 @@ const ProductSlide = ({ children }) => {
                 onClick={() =>
                   sessionStorage.setItem(
                     "utm_content",
-                    `The Floor Stand - Black`
+                    `Product: The Floor Stand - Black`
                   )
                 }
               >
@@ -120,7 +122,7 @@ const ProductSlide = ({ children }) => {
         </div>
         <div className={`equipCard third`}>
           <div className="productImg">
-            <img src={product} alt="cardImg" loading="lazy" />
+            <img src={product2} alt="cardImg" loading="lazy" />
           </div>
           <div className="right">
             <h1 className="heading">The Floor Stand - Chrome</h1>
@@ -142,7 +144,7 @@ const ProductSlide = ({ children }) => {
                 onClick={() =>
                   sessionStorage.setItem(
                     "utm_content",
-                    `The Floor Stand - Chrome`
+                    `Product: The Floor Stand - Chrome`
                   )
                 }
               >

@@ -47,7 +47,7 @@
       }
       .bannerBox {
         position: absolute;
-        top: 20px;
+        // top: 20px;
         width: 96%;
         left: 4%;
         right: 4%;
@@ -55,11 +55,16 @@
         flex-flow: column;
         // justify-content: space-between;
         height: 550px;
+        justify-content: flex-start;
+        align-items: center;
+        top: 50px;
         @media (max-width: 500px) {
           justify-content: flex-start;
+          align-items: flex-start;
+          top: 20px;
           .bottom {
             flex-flow: column !important;
-            .redBtn{
+            .redBtn {
               padding: 10px 0 !important;
             }
           }
@@ -104,7 +109,7 @@
         .bottom {
           width: 94%;
           display: flex;
-          justify-content: flex-start;
+          justify-content: center;
           flex-flow: row;
           margin-top: 0;
           .redBtn {
@@ -132,13 +137,16 @@
           height: fit-content;
           top: 22%;
           left: 8%;
+          justify-content: flex-start;
+          align-items: flex-start;
           @media (min-width: 1440px) {
-            width: 1200px;
+            width: 1160px;
             left: 4%;
             margin: 0 auto;
           }
           .bottom {
             flex-flow: row;
+            justify-content: flex-start;
             .redBtn {
               padding: 10px 50px;
             }
@@ -152,6 +160,7 @@
             }
             h1 {
               margin-bottom: 15px;
+              font-size: 40px;
             }
             p {
               margin-bottom: 0;

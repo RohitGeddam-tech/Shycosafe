@@ -73,7 +73,7 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
       setDraw(false);
     } else {
       setRight(false);
-      console.log("error submit");
+      // console.log("error submit");
     }
   };
 
@@ -129,13 +129,19 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
       text: "Product: The Floor Stand - Chrome",
       value: "Product: The Floor Stand - Chrome",
     },
-    { key: "4", text: "Get in touch", value: "Get in touch" },
-    { key: "5", text: "Contact Form", value: "Contact Form" },
+    { key: "4", text: "Contact Form", value: "Contact Form" },
   ];
 
   className += ` textfield ${text ? "has-value" : ""}`;
 
   const [selectInvalid, setSelectInvalid] = useState(false);
+
+  // console.log(e.target.innerText.length);
+  // if (e.target.innerText.length < 50) {
+  //   setSelected(e.target.innerText);
+  // } else {
+  //   setSelected("Product: Table Top Stand");
+  // }
 
   return (
     <>
@@ -254,25 +260,21 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
                   defaultValue={selected}
                   placeholder="Source"
                   onChange={(e) => {
-                    // console.log(e.target.innerText.length);
-                    if (e.target.innerText.length < 50) {
-                      setSelected(e.target.innerText);
-                    } else {
-                      setSelected("Product: Table Top Stand");
-                    }
+                    setSelected(e.target.innerText);
                   }}
                   button
+                  selectOnBlur={false}
                   fluid
                   className="d"
                   options={selectedArray}
                 ></Dropdown>
               </div>
             </div>
-            {/* {selectInvalid ? (
+            {selectInvalid ? (
               <p style={{ margin: "2px 0 8px 0", color: "red" }}>
                 Please re-select the source.
               </p>
-            ) : null} */}
+            ) : null}
             <div className="textInput">
               <div className="text-input">
                 <textarea

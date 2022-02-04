@@ -150,6 +150,11 @@
               color: #fff;
               margin-right: 0;
             }
+            &:disabled {
+              cursor: not-allowed;
+              background-color: #919eab;
+              border-color: #919eab;
+            }
           }
           .text-input {
             width: 100%;
@@ -174,6 +179,9 @@
               padding-right: 5px;
               height: none;
               color: #e40055;
+            }
+            &:not([value=""]) ~ label {
+              font-size: 12px;
             }
           }
           label {
@@ -351,6 +359,22 @@
         // align-items: center;
         // padding: 23px 36px;
         // border-bottom-color: red !important;
+        &.empty {
+          // word-break: break-all;
+          height: 60px;
+          border-bottom: 1px solid #dadada;
+          text-align: center;
+          td {
+            font-weight: normal;
+            font-family: "Metropolis";
+            font-size: 16px;
+            line-height: 19px;
+            color: #667c8a;
+            position: absolute;
+            left: 45%;
+            top: 60%;
+          }
+        }
         th {
           width: 12%;
           font-weight: normal;
@@ -1392,7 +1416,8 @@ input:-webkit-autofill:focus {
             color: #667c8a !important;
           }
 
-          &:focus ~ label {
+          &:focus ~ label,
+          &:not([value=""]) ~ label {
             color: #667c8a;
             top: 0px;
             left: 8px;

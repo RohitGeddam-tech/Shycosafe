@@ -150,10 +150,10 @@ const BookBack = (className = "") => {
     if (text === "" || text === newText) {
       setTextInvalid(true);
     }
-    console.log(sel, select);
+    // console.log(sel, select);
     if (
-      (sel !== "" && sel.toLocaleLowerCase() !== select.toLocaleLowerCase()) ||
-      (text !== "" && text !== newText)
+      sel.toLocaleLowerCase() !== select.toLocaleLowerCase() ||
+      text !== newText
     ) {
       setRight(true);
       setPopup({
@@ -164,7 +164,7 @@ const BookBack = (className = "") => {
       setText("");
     } else {
       setRight(false);
-      console.log("error submit: ", error);
+      // console.log("error submit: ", error);
     }
   };
 
@@ -398,7 +398,7 @@ const BookBack = (className = "") => {
                   <label htmlFor="search" className="input-placeholder">
                     Search by Name, Email, Mobile No.
                   </label>
-                  <button type="submit">
+                  <button type="submit" disabled={search !== "" ? false : true}>
                     <Icon name="search" />
                   </button>
                 </div>
@@ -411,7 +411,7 @@ const BookBack = (className = "") => {
           <table className="mainData">
             <tbody>
               {selected !== "" ||
-              search !== "" ||
+              searched !== "" ||
               filter.date_from !==
                 moment(new Date()).subtract(1, "year").format("YYYY-MM-DD") ||
               filter.date_to !== moment(new Date()).format("YYYY-MM-DD") ? (
@@ -451,7 +451,7 @@ const BookBack = (className = "") => {
                   <p
                     className={
                       selected !== "" ||
-                      search !== "" ||
+                      searched !== "" ||
                       filter.date_from !==
                         moment(new Date())
                           .subtract(1, "year")
@@ -467,7 +467,7 @@ const BookBack = (className = "") => {
                     icon="filter"
                     className={`dots fill ${
                       selected !== "" ||
-                      search !== "" ||
+                      searched !== "" ||
                       filter.date_from !==
                         moment(new Date())
                           .subtract(1, "year")
@@ -514,6 +514,11 @@ const BookBack = (className = "") => {
                   </Dropdown>
                 </th>
               </tr>
+              {array.length === 0 ? (
+                <tr className="empty">
+                  <td>Records not found.</td>
+                </tr>
+              ) : null}
               {array.map((doc, i) => (
                 <tr key={i}>
                   <td>{moment(doc.date).format("DD MMM YYYY")}</td>
@@ -684,9 +689,8 @@ const BookBack = (className = "") => {
                 <button
                   className="redBtn"
                   disabled={
-                    (text !== form.text && text !== "") ||
-                    (sel.toLocaleLowerCase() !== select.toLocaleLowerCase() &&
-                      sel !== "")
+                    text !== form.text ||
+                    sel.toLocaleLowerCase() !== select.toLocaleLowerCase()
                       ? false
                       : true
                   }

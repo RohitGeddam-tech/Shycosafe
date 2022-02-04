@@ -91,9 +91,10 @@ const Contact = ({ className = "" }) => {
         console.log(err);
         setBtnloading(false);
       }
-    } else {
-      console.log(error);
-    }
+    } 
+    // else {
+    //   console.log(error);
+    // }
   };
 
   useEffect(() => {

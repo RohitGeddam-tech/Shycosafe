@@ -81,7 +81,7 @@ const Login = () => {
       password: code,
     };
     if (valid) {
-      console.log(form);
+      // console.log(form);
       try {
         const res = await axios.post(
           `${process.env.REACT_APP_PUBLIC_URL}login`,
@@ -93,7 +93,7 @@ const Login = () => {
           localStorage.setItem("refresh-token", res.data.refresh_token);
           //   setLogin(true);
           setRight(true);
-          console.log(code, res);
+          // console.log(code, res);
           setLoadBtn(false);
           sessionStorage.setItem("logged", true);
           sessionStorage.setItem("mailed", JSON.stringify(email));
