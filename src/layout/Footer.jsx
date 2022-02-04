@@ -37,6 +37,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div className="down" style={{backgroundColor: "#eaedf1", padding: "11px 0"}}>
+        <p>
+          Website by <a href="/#top">Sugarlogger Technologies Pvt. Ltd.</a>
+        </p>
+      </div>
     </div>
   );
 };

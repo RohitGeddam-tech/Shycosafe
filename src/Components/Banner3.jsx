@@ -21,7 +21,8 @@ const bannerDetails = [
     image: banner,
     styles: { color: "#282828" },
     line: line1,
-    title: "Get your business back on track",
+    title: "Get your business",
+    brake: " back on track",
     id: "about",
   },
   // {
@@ -38,7 +39,8 @@ const bannerDetails1 = [
     image: banner2,
     styles: { color: "#282828" },
     line: line1,
-    title: "Get your business back on track",
+    title: "Get your business",
+    brake: " back on track",
     id: "banner",
   },
   // {
@@ -52,7 +54,7 @@ const bannerDetails1 = [
 
 // Get your business back on track with Shycosafe
 
-const Banner1 = ({ image, title, styles, line, id }) => {
+const Banner1 = ({ image, title, styles, line, id, brake }) => {
   const [state, setState] = useState(false);
   useEffect(() => {
     Aos.init({ duration: 500 });
@@ -70,13 +72,13 @@ const Banner1 = ({ image, title, styles, line, id }) => {
       {state ? (
         <div className="bannerBox" data-aos="fade-up" data-aos-duration="1500">
           <h1 style={styles}>
-            {title}
+            {title} <br /> {brake}
             <img src={line} alt="line" />
           </h1>
           <div className="bottom" id={id}>
-            <NavHashLink to="/#about" className="redBtn">
+            <NavHashLink to="/#products" className="redBtn">
               {/* <NavHashLink to="/faq#top" className="redBtn"> */}
-              KNOW MORE
+              EXPLORE OUR PRODUCTS
             </NavHashLink>
           </div>
         </div>
@@ -100,7 +102,7 @@ const BannerSlider = () => {
   }, []);
   return (
     <div className="bannerSlider">
-      {width < 920 ? (
+      {width < 960 ? (
         <CustomSlider>
           <div>
             <div className="banner">
@@ -113,18 +115,21 @@ const BannerSlider = () => {
                 >
                   {width < 500 ? (
                     <h1 style={{ color: "#282828" }}>
-                      At Shycosafe,
-                      <br /> We Care
+                      At shycosafe, <br /> we care
+                       for <br /> your well being.
                     </h1>
                   ) : (
-                    <h1 style={{ color: "#282828" }}>At Shycosafe, We Care</h1>
+                    <h1 style={{ color: "#282828" }}>
+                      At shycosafe, we care
+                      <br /> for your well being
+                    </h1>
                   )}
                   <p>The new normal was never normal.</p>
                   <p>We're making the world safe again.</p>
                   <div className="bottom" id={`bottom`}>
-                    <NavHashLink to="/#about" className="redBtn">
+                    <NavHashLink to="/#products" className="redBtn">
                       {/* <NavHashLink to="/faq#top" className="redBtn"> */}
-                      KNOW MORE
+                      EXPLORE OUR PRODUCTS
                     </NavHashLink>
                   </div>
                 </div>
@@ -149,16 +154,17 @@ const BannerSlider = () => {
                   data-aos-duration="1500"
                 >
                   <h1 style={{ color: "#282828" }}>
-                    At Shycosafe, <br /> We Care
+                    At shycosafe, we care
+                    <br /> for your well being
                   </h1>
                   <p>The new normal was never normal.</p>
                   <p>We're making the world safe again.</p>
                   {/* <p style={{ color: "#fff" }}>The new normal was never normal.</p>
                   <p style={{ color: "#fff" }}>We're making the world safe again.</p> */}
                   <div className="bottom" id={`bottom`}>
-                    <NavHashLink to="/#about" className="redBtn">
+                    <NavHashLink to="/#products" className="redBtn">
                       {/* <NavHashLink to="/faq#top" className="redBtn"> */}
-                      KNOW MORE
+                      EXPLORE OUR PRODUCTS
                     </NavHashLink>
                   </div>
                 </div>

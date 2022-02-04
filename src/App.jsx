@@ -32,13 +32,13 @@ function App() {
                 and manufacturing high end stands of great quality and finesse,
                 one you would be pleased to keep at your office or home.
                 Currently these include floor stands and table tops with more
-                category launches planned in the future. <br />
+                category launches planned in the future. 
                 Shycosafe has started its journey by making stands for Shycocan
                 (a virus attenuation device) that promises to bring back life to
                 normal. After hearing about the product, our team at Shycosafe
                 was extremely impressed and passionate to design stands for
                 helping alleviate the suffering caused by the pandemic and
-                that's how our journey has started. <br />
+                that's how our journey has started. 
                 These stands are designed and manufactured keeping in mind not
                 only the sturdiness and safety but also the aesthetics.
               </p>

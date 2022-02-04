@@ -59,7 +59,6 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
     if (
       !(nameInvalid && mailInvalid && phoneInvalid) &&
       phone.length === 10 &&
-      text !== "" &&
       selected !== ""
     ) {
       setRight(true);
@@ -115,19 +114,28 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
   }, [setRight, handleSubmit]);
 
   const selectedArray = [
-    { key: "1", text: "Table Top Stand", value: "Table Top Stand" },
-    { key: "2", text: "Contact Form", value: "Contact Form" },
+    {
+      key: "1",
+      text: "Product: Table Top Stand",
+      value: "Product: Table Top Stand",
+    },
+    {
+      key: "2",
+      text: "Product: The Floor Stand - Black",
+      value: "Product: The Floor Stand - Black",
+    },
     {
       key: "3",
-      text: "The Floor Stand - Black",
-      value: "The Floor Stand - Black",
+      text: "Product: The Floor Stand - Chrome",
+      value: "Product: The Floor Stand - Chrome",
     },
-    { key: "4", text: "Know More", value: "Know More" },
-    { key: "5", text: "Product 3", value: "Product 3" },
-    { key: "6", text: "Product 4", value: "Product 4" },
+    { key: "4", text: "Get in touch", value: "Get in touch" },
+    { key: "5", text: "Contact Form", value: "Contact Form" },
   ];
 
   className += ` textfield ${text ? "has-value" : ""}`;
+
+  const [selectInvalid, setSelectInvalid] = useState(false);
 
   return (
     <>
@@ -245,7 +253,14 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
                   selection
                   defaultValue={selected}
                   placeholder="Source"
-                  onChange={(e) => setSelected(e.target.innerText)}
+                  onChange={(e) => {
+                    // console.log(e.target.innerText.length);
+                    if (e.target.innerText.length < 50) {
+                      setSelected(e.target.innerText);
+                    } else {
+                      setSelected("Product: Table Top Stand");
+                    }
+                  }}
                   button
                   fluid
                   className="d"
@@ -253,6 +268,11 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
                 ></Dropdown>
               </div>
             </div>
+            {/* {selectInvalid ? (
+              <p style={{ margin: "2px 0 8px 0", color: "red" }}>
+                Please re-select the source.
+              </p>
+            ) : null} */}
             <div className="textInput">
               <div className="text-input">
                 <textarea
@@ -273,7 +293,10 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
               disabled={
                 !(nameInvalid && mailInvalid && phoneInvalid) &&
                 phone.length === 10 &&
-                text !== ""
+                selected !== "" &&
+                city !== "" &&
+                mail !== "" &&
+                name !== ""
                   ? false
                   : true
               }

@@ -135,14 +135,29 @@ const BookBack = (className = "") => {
 
   const handleFilter = (name) => {
     setSelected(name);
+    setCurrent(1);
   };
+
+  const [textInvalid, setTextInvalid] = useState(false);
+  const [selInvalid, setSelInvalid] = useState(false);
+  const [newText, setNewText] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (sel !== "" && sel !== select && text !== "") {
+    if (sel === "" || sel === select) {
+      setSelInvalid(true);
+    }
+    if (text === "" || text === newText) {
+      setTextInvalid(true);
+    }
+    console.log(sel, select);
+    if (
+      (sel !== "" && sel.toLocaleLowerCase() !== select.toLocaleLowerCase()) ||
+      (text !== "" && text !== newText)
+    ) {
       setRight(true);
       setPopup({
-        status: sel,
+        status: sel.toLocaleLowerCase(),
         note: text,
       });
       setOpen(false);
@@ -175,12 +190,18 @@ const BookBack = (className = "") => {
           // console.log(res.data.data);
           // setStart(false);
           // console.log(popup);
+          setTextInvalid(false);
+          setSelInvalid(false);
+          setRight(false);
           window.location.reload();
           // setForm({});
         }
       } catch (err) {
         // console.log(name);
         console.log(err);
+        setTextInvalid(false);
+        setSelInvalid(false);
+        setRight(false);
       }
     }
   }, [handleSubmit]);
@@ -190,19 +211,21 @@ const BookBack = (className = "") => {
     //   `moment newdate: ${moment(new Date())
     //     .subtract(1, "days")
     //     .format("YYYY-MM-DD")} && filter todate: ${filter.date_to}
-        
+
     //     extra:- ${filter.date_from ? `&date_from=${filter.date_from}` : ""}${
     //     filter.date_to && filter.date_to !== "Invalid date"
     //       ? `&date_to=${filter.date_to}`
     //       : ""
     //   }
-      
+
     //   from date: ${moment(filter.date_from)
     //     .subtract(1, "days")
     //     .format("YYYY-MM-DD")} && ${moment(new Date())
     //     .subtract(1, "year")
     //     .format("YYYY-MM-DD")}`
     // );
+
+    // if(selected)
 
     const apiUrl = `${
       selected !== "" || search !== "" || current > 0 ? "?" : ""
@@ -261,6 +284,12 @@ const BookBack = (className = "") => {
     fetchData();
   }, [selected, searched, current, filter]);
 
+  // React.useEffect(() => {
+  //   if (current === 1) {
+  //     console.log(current);
+  //   }
+  // }, [fetchData]);
+
   // const pageVisited = current * page;
   // const leadsArray = array.slice(pageVisited, pageVisited + page);
 
@@ -282,10 +311,12 @@ const BookBack = (className = "") => {
           status: members.status,
           city: members.city,
           msg: members.message,
+          text: members.note,
         });
         setSel(members.status);
         setSelect(members.status);
         setText(members.note);
+        setNewText(members.note);
         setOpen(true);
       }
     });
@@ -351,6 +382,7 @@ const BookBack = (className = "") => {
                 onSubmit={(e) => {
                   e.preventDefault();
                   setSearched(search);
+                  setCurrent(1);
                 }}
               >
                 <div className="text-input">
@@ -476,7 +508,7 @@ const BookBack = (className = "") => {
                         // value="View All Details"
                         image={circleBlack}
                         // onClick={() => setSelected("unable_to_contact")}
-                        onClick={() => handleFilter("unable_to_contact")}
+                        onClick={() => handleFilter("unable_to_connect")}
                       />
                     </Dropdown.Menu>
                   </Dropdown>
@@ -550,7 +582,9 @@ const BookBack = (className = "") => {
               pageCount={total}
               marginPagesDisplayed={3}
               pageRangeDisplayed={5}
+              forcePage={current - 1}
               onPageChange={handlePageClick}
+              renderOnZeroPageCount={null}
               containerClassName="ui pagination menu out"
               pageClassName="ui pagination menu in"
               pageLinkClassName="item"
@@ -617,6 +651,11 @@ const BookBack = (className = "") => {
                   <p className="label">Status: </p>
                   <Status status={form.status} handleSelect={handleSelect} />
                 </div>
+                {selInvalid ? (
+                  <p style={{ margin: "2px 0 8px 0", color: "red" }}>
+                    Please select the status.
+                  </p>
+                ) : null}
                 <div className="textData">
                   <p className="label">Attended by :</p>
                   {form.Attended !== "" ? (
@@ -637,9 +676,20 @@ const BookBack = (className = "") => {
                     />
                   </div>
                 </div>
+                {textInvalid ? (
+                  <p style={{ margin: "2px 0 8px 0", color: "red" }}>
+                    Please provide proper text.
+                  </p>
+                ) : null}
                 <button
                   className="redBtn"
-                  disabled={text !== "" || sel !== select ? false : true}
+                  disabled={
+                    (text !== form.text && text !== "") ||
+                    (sel.toLocaleLowerCase() !== select.toLocaleLowerCase() &&
+                      sel !== "")
+                      ? false
+                      : true
+                  }
                   type="submit"
                 >
                   Save Changes

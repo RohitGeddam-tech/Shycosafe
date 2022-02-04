@@ -254,9 +254,9 @@ p {
   cursor: pointer;
 }
 
-a:hover{
+/* a:hover{
   color: white !important;
-}
+} */
 
 .container {
   width: 92%;

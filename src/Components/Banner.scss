@@ -9,15 +9,16 @@
     z-index: 1;
     bottom: 12%;
   }
-  .slickNext{
+  .slickNext {
     right: 10px;
   }
-  .slickPrev{
+  .slickPrev {
     left: 10px;
     z-index: 1;
   }
   @media (max-width: 920px) {
-    .slickNext, .slickPrev{
+    .slickNext,
+    .slickPrev {
       display: none !important;
     }
   }
@@ -47,35 +48,43 @@
       .bannerBox {
         position: absolute;
         top: 20px;
-        width: 92%;
+        width: 96%;
         left: 4%;
         right: 4%;
         display: flex;
         flex-flow: column;
-        justify-content: space-between;
+        // justify-content: space-between;
         height: 550px;
         @media (max-width: 500px) {
           justify-content: flex-start;
+          .bottom {
+            flex-flow: column !important;
+            .redBtn{
+              padding: 10px 0 !important;
+            }
+          }
         }
         &.third {
           justify-content: flex-start;
           align-items: center;
-          top: 100px;
+          top: 50px;
           .bottom {
             justify-content: center;
           }
           @media (max-width: 500px) {
             align-items: flex-start;
             top: 20px;
-            .bottom{
+            .bottom {
               justify-content: flex-start;
             }
           }
           h1 {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            font-size: 36px;
           }
           p {
             margin-bottom: 0;
+            margin-top: 0;
             &:nth-child(3) {
               margin: 0;
               margin-bottom: 28px;
@@ -93,14 +102,14 @@
           }
         }
         .bottom {
-          width: 100%;
+          width: 94%;
           display: flex;
           justify-content: flex-start;
-          @media (max-width: 500px) {
-            margin-top: 20px;
-          }
+          flex-flow: row;
+          margin-top: 0;
           .redBtn {
-            padding: 10px 80px;
+            padding: 10px 50px;
+            justify-content: center;
             display: flex;
             align-items: center;
             z-index: 88;
@@ -109,7 +118,7 @@
       }
     }
   }
-  @media (min-width: 920px) {
+  @media (min-width: 960px) {
     .slick-slide {
       height: 500px !important;
       .banner {
@@ -118,14 +127,26 @@
           height: 480px !important;
         }
         .bannerBox {
-          width: 500px;
+          width: 700px;
           // width: 45%;
           height: fit-content;
-          top: 20%;
+          top: 22%;
           left: 8%;
+          @media (min-width: 1440px) {
+            width: 1200px;
+            left: 4%;
+            margin: 0 auto;
+          }
+          .bottom {
+            flex-flow: row;
+            .redBtn {
+              padding: 10px 50px;
+            }
+          }
           &.third {
             justify-content: space-between;
             align-items: initial;
+            top: 100px;
             .bottom {
               justify-content: flex-start;
             }
