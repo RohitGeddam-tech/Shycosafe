@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { NavHashLink } from "react-router-hash-link";
 import useWindowSize from "../utils/useWindowSize";
 import banner from "../images/mobileGraph.gif";
-import banner1 from "../images/banner1.jpeg";
+// import banner1 from "../images/banner1.jpeg";
 // import lap from "../images/lap.png";
 import lap from "../images/bannerFinal.gif";
 import banner2 from "../images/Graph-Final.gif";
 import mobile2 from "../images/mobile.gif";
-import girl from "../images/girl.jpg";
-import man from "../images/man.jpg";
-import line from "../images/Rect1.png";
+// import girl from "../images/girl.jpg";
+// import man from "../images/man.jpg";
+// import line from "../images/Rect1.png";
 import line1 from "../images/Rect2.png";
 import "./Banner.scss";
 import CustomSlider from "../utils/Slider";
@@ -114,22 +114,37 @@ const BannerSlider = () => {
                   data-aos-duration="1500"
                 >
                   {width < 500 ? (
-                    <h1 style={{ color: "#282828" }}>
-                      At shycosafe, <br /> we care
-                       for <br /> your well being.
+                    <h1
+                      style={{
+                        color: "#282828",
+                        textAlign: "center",
+                        marginBottom: "0",
+                      }}
+                    >
+                      At Shycosafe, <br /> we care.
+                      {/* about <br /> your well being. */}
                     </h1>
                   ) : (
                     <h1 style={{ color: "#282828" }}>
                       At shycosafe, we care
-                      <br /> for your well being
+                      <br /> about your well being.
                     </h1>
                   )}
                   <p>The new normal was never normal.</p>
                   <p>We're making the world safe again.</p>
-                  <div className="bottom" id={`bottom`}>
-                    <NavHashLink to="/#products" className="redBtn">
+                  <div
+                    className="bottom"
+                    id={`bottom`}
+                    style={{ alignItems: "center", marginTop: "-10px" }}
+                  >
+                    <NavHashLink
+                      to="/#products"
+                      className="redBtn"
+                      style={{ width: "fit-content" }}
+                    >
                       {/* <NavHashLink to="/faq#top" className="redBtn"> */}
-                      EXPLORE OUR PRODUCTS
+                      {/* EXPLORE OUR PRODUCTS */}
+                      KNOW MORE
                     </NavHashLink>
                   </div>
                 </div>
@@ -155,7 +170,7 @@ const BannerSlider = () => {
                 >
                   <h1 style={{ color: "#282828" }}>
                     At shycosafe, we care
-                    <br /> for your well being
+                    <br /> about your well being.
                   </h1>
                   <p>The new normal was never normal.</p>
                   <p>We're making the world safe again.</p>
