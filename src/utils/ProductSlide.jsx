@@ -6,7 +6,7 @@ import SliderNextArrow from "./NextArrow";
 import SliderPrevArrow from "./PrevArrow";
 import { NavHashLink } from "react-router-hash-link";
 // import product from "../images/product.png";
-import product from "../images/product.webp";
+import product from "../images/Product3.png";
 import product1 from "../images/Product1.png";
 import product2 from "../images/Product2.png";
 
