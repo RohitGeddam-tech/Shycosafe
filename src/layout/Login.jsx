@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 // import Sign from "./Sign";
 import account from "../images/favicon.png";
 // import profile from "../image/profile.png";
-import { Snackbar } from "@material-ui/core";
 // import clear from "../images/clear.png";
 // import "semantic-ui-css/semantic.min.css";
 // import { NavHashLink } from "react-router-hash-link";
 // import useWindowSize from "../utils/useWindowSize";
 import axios from "axios";
+import { Snackbar } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import NewHeader from "./NewHeader";
 
@@ -52,7 +52,7 @@ const Login = () => {
           // }
         }
       } catch (err) {
-        console.log(err);
+        // console.log(err);
         const {
           message = "Sorry! We are unable to process your request.",
           status_code,
@@ -100,7 +100,7 @@ const Login = () => {
           //   window.location.reload();
         }
       } catch (err) {
-        console.log(err);
+        // console.log(err);
         const {
           message = "Sorry! We are unable to process your request.",
           status_code,
@@ -163,7 +163,25 @@ const Login = () => {
           }
         })
         .catch((err) => {
-          console.warn(err);
+          // console.warn(err);
+          const {
+            message = "Sorry! We are unable to process your request.",
+            status_code,
+            errors = {},
+          } = (err.response && err.response.data) || {};
+
+          // setSuccess(false);
+          // console.log(success);
+          // setLoadBtn(false);
+
+          const errArr = Object.keys(errors);
+          if (status_code === 422 && errArr.length) {
+            const error = {};
+            errArr.forEach((key) => (error[key] = errors[key][0]));
+            setError(error);
+          } else {
+            setAlertState({ open: true, message, type: "error" });
+          }
         });
       // }
     }

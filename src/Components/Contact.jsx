@@ -6,6 +6,8 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
 import { Modal } from "@material-ui/core";
+import { Snackbar } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 
 const defaultFormState = {
   fname: "",
@@ -21,6 +23,11 @@ const Contact = ({ className = "" }) => {
   const [error, setError] = useState({});
   const [btnloading, setBtnloading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [alertState, setAlertState] = useState({
+    open: false,
+    message: "",
+    type: "success",
+  });
 
   const handleChange = (e) => {
     const tempDetails = { ...details },
@@ -88,10 +95,28 @@ const Contact = ({ className = "" }) => {
           setSuccess(res.data.success);
         }
       } catch (err) {
-        console.log(err);
+        // console.log(err);
+        const {
+          message = "Sorry! We are unable to process your request.",
+          status_code,
+          errors = {},
+        } = (err.response && err.response.data) || {};
+
+        // setSuccess(false);
+        // console.log(success);
+        // setLoadBtn(false);
+
+        const errArr = Object.keys(errors);
+        if (status_code === 422 && errArr.length) {
+          const error = {};
+          errArr.forEach((key) => (error[key] = errors[key][0]));
+          setError(error);
+        } else {
+          setAlertState({ open: true, message, type: "error" });
+        }
         setBtnloading(false);
       }
-    } 
+    }
     // else {
     //   console.log(error);
     // }
@@ -135,6 +160,10 @@ const Contact = ({ className = "" }) => {
   const [clicked, setClicked] = useState(false);
 
   className += ` textfield ${details.text ? "has-value" : ""}`;
+
+  const handleAlertClose = () => {
+    setAlertState({ open: false, message: "", type: "success" });
+  };
 
   return (
     <div className="contact">
@@ -282,6 +311,20 @@ const Contact = ({ className = "" }) => {
           </button>
         </div>
       </Modal>
+      <Snackbar
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+        open={alertState.open}
+        onClose={handleAlertClose}
+        autoHideDuration={5000}
+      >
+        <Alert
+          onClose={handleAlertClose}
+          severity={alertState.type}
+          variant="filled"
+        >
+          {alertState.message}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

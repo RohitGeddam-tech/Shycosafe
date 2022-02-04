@@ -7,6 +7,8 @@ import edit from "../images/delete.png";
 import Settings from "./Settings";
 import { Icon } from "semantic-ui-react";
 import axios from "axios";
+import { Snackbar } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 
 const User = () => {
   const [open, setOpen] = useState(false);
@@ -28,6 +30,12 @@ const User = () => {
   const [wrong, setWrong] = useState(false);
   const [draw, setDraw] = useState(false);
   const [del, setDel] = useState(false);
+  const [error, setError] = useState({});
+  const [alertState, setAlertState] = useState({
+    open: false,
+    message: "",
+    type: "success",
+  });
 
   // const handleSearch = (e) => {
   //   setSearch(e.target.value);
@@ -90,7 +98,25 @@ const User = () => {
           }
         })
         .catch((err) => {
-          console.log(err.message);
+          // console.log(err.message);
+          const {
+            message = "Sorry! We are unable to process your request.",
+            status_code,
+            errors = {},
+          } = (err.response && err.response.data) || {};
+
+          // setSuccess(false);
+          // console.log(success);
+          // setLoadBtn(false);
+
+          const errArr = Object.keys(errors);
+          if (status_code === 422 && errArr.length) {
+            const error = {};
+            errArr.forEach((key) => (error[key] = errors[key][0]));
+            setError(error);
+          } else {
+            setAlertState({ open: true, message, type: "error" });
+          }
         });
     }
   };
@@ -136,6 +162,24 @@ const User = () => {
           const errorData = JSON.parse(err.request.response);
           // console.log(errorData.message);
           setMsg(errorData.message);
+        }
+        const {
+          message = "Sorry! We are unable to process your request.",
+          status_code,
+          errors = {},
+        } = (err.response && err.response.data) || {};
+
+        // setSuccess(false);
+        // console.log(success);
+        // setLoadBtn(false);
+
+        const errArr = Object.keys(errors);
+        if (status_code === 422 && errArr.length) {
+          const error = {};
+          errArr.forEach((key) => (error[key] = errors[key][0]));
+          setError(error);
+        } else {
+          setAlertState({ open: true, message, type: "error" });
         }
       }
     }
@@ -195,7 +239,25 @@ const User = () => {
           // setForm({});
         }
       } catch (err) {
-        console.log(err);
+        // console.log(err);
+        const {
+          message = "Sorry! We are unable to process your request.",
+          status_code,
+          errors = {},
+        } = (err.response && err.response.data) || {};
+
+        // setSuccess(false);
+        // console.log(success);
+        // setLoadBtn(false);
+
+        const errArr = Object.keys(errors);
+        if (status_code === 422 && errArr.length) {
+          const error = {};
+          errArr.forEach((key) => (error[key] = errors[key][0]));
+          setError(error);
+        } else {
+          setAlertState({ open: true, message, type: "error" });
+        }
       }
     }
   };
@@ -209,6 +271,10 @@ const User = () => {
       setSearched("");
     }
   }, [search]);
+
+  const handleAlertClose = () => {
+    setAlertState({ open: false, message: "", type: "success" });
+  };
 
   return (
     <>
@@ -460,6 +526,20 @@ const User = () => {
             </div>
           </Modal>
         </div>
+        <Snackbar
+          anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+          open={alertState.open}
+          onClose={handleAlertClose}
+          autoHideDuration={5000}
+        >
+          <Alert
+            onClose={handleAlertClose}
+            severity={alertState.type}
+            variant="filled"
+          >
+            {alertState.message}
+          </Alert>
+        </Snackbar>
       </div>
     </>
   );

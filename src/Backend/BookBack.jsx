@@ -23,6 +23,8 @@ import axios from "axios";
 import Settings from "./Settings";
 import NewMember from "./NewMember";
 import ReactPaginate from "react-paginate";
+import { Snackbar } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 // import { addDays } from "date-fns";
 // import { useState } from "react";
 // import { DateRangePicker } from "react-date-range";
@@ -107,6 +109,11 @@ const BookBack = (className = "") => {
     date_from: moment().subtract(1, "year").format("YYYY-MM-DD"),
     date_to: moment().format("YYYY-MM-DD"),
   });
+  const [alertState, setAlertState] = useState({
+    open: false,
+    message: "",
+    type: "success",
+  });
   // const [page, setPage] = useState(0);
   // const [total, setTotal] = useState(0);
   // const [state, setState] = useState([
@@ -120,6 +127,10 @@ const BookBack = (className = "") => {
   const handleSearch = (e) => {
     // console.log("e value", e);
     setSearch(e.target.value);
+  };
+
+  const handleAlertClose = () => {
+    setAlertState({ open: false, message: "", type: "success" });
   };
 
   // React.useEffect(() => {
@@ -198,10 +209,28 @@ const BookBack = (className = "") => {
         }
       } catch (err) {
         // console.log(name);
-        console.log(err);
+        // console.log(err);
         setTextInvalid(false);
         setSelInvalid(false);
         setRight(false);
+        const {
+          message = "Sorry! We are unable to process your request.",
+          status_code,
+          errors = {},
+        } = (err.response && err.response.data) || {};
+
+        // setSuccess(false);
+        // console.log(success);
+        // setLoadBtn(false);
+
+        const errArr = Object.keys(errors);
+        if (status_code === 422 && errArr.length) {
+          const error = {};
+          errArr.forEach((key) => (error[key] = errors[key][0]));
+          setError(error);
+        } else {
+          setAlertState({ open: true, message, type: "error" });
+        }
       }
     }
   }, [handleSubmit]);
@@ -271,7 +300,25 @@ const BookBack = (className = "") => {
           }
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
+          const {
+            message = "Sorry! We are unable to process your request.",
+            status_code,
+            errors = {},
+          } = (err.response && err.response.data) || {};
+
+          // setSuccess(false);
+          // console.log(success);
+          // setLoadBtn(false);
+
+          const errArr = Object.keys(errors);
+          if (status_code === 422 && errArr.length) {
+            const error = {};
+            errArr.forEach((key) => (error[key] = errors[key][0]));
+            setError(error);
+          } else {
+            setAlertState({ open: true, message, type: "error" });
+          }
         });
     }
   };
@@ -701,6 +748,20 @@ const BookBack = (className = "") => {
               </form>
             </div>
           </Modal>
+          <Snackbar
+            anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+            open={alertState.open}
+            onClose={handleAlertClose}
+            autoHideDuration={5000}
+          >
+            <Alert
+              onClose={handleAlertClose}
+              severity={alertState.type}
+              variant="filled"
+            >
+              {alertState.message}
+            </Alert>
+          </Snackbar>
         </div>
         <NewMember draw={draw} setDraw={setDraw} />
       </div>

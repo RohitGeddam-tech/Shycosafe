@@ -5,6 +5,8 @@ import clear from "../images/clear.png";
 import { Dropdown } from "semantic-ui-react";
 import axios from "axios";
 import "semantic-ui-css/semantic.min.css";
+import { Snackbar } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 
 const NewMember = ({ draw, setDraw, className = "" }) => {
   const [name, setName] = useState("");
@@ -22,6 +24,12 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
   const [mailInvalid, setMailInvalid] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [popup, setPopup] = useState([]);
+  const [error, setError] = useState({});
+  const [alertState, setAlertState] = useState({
+    open: false,
+    message: "",
+    type: "success",
+  });
 
   const handleChange = (e) => {
     switch (e.target.name) {
@@ -104,7 +112,25 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
         }
       } catch (err) {
         // console.log(name);
-        console.log(err);
+        // console.log(err);
+        const {
+          message = "Sorry! We are unable to process your request.",
+          status_code,
+          errors = {},
+        } = (err.response && err.response.data) || {};
+
+        // setSuccess(false);
+        // console.log(success);
+        // setLoadBtn(false);
+
+        const errArr = Object.keys(errors);
+        if (status_code === 422 && errArr.length) {
+          const error = {};
+          errArr.forEach((key) => (error[key] = errors[key][0]));
+          setError(error);
+        } else {
+          setAlertState({ open: true, message, type: "error" });
+        }
       }
     }
   };
@@ -135,6 +161,10 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
   className += ` textfield ${text ? "has-value" : ""}`;
 
   const [selectInvalid, setSelectInvalid] = useState(false);
+
+  const handleAlertClose = () => {
+    setAlertState({ open: false, message: "", type: "success" });
+  };
 
   // console.log(e.target.innerText.length);
   // if (e.target.innerText.length < 50) {
@@ -308,6 +338,20 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
           </form>
         </div>
       </Modal>
+        <Snackbar
+          anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+          open={alertState.open}
+          onClose={handleAlertClose}
+          autoHideDuration={5000}
+        >
+          <Alert
+            onClose={handleAlertClose}
+            severity={alertState.type}
+            variant="filled"
+          >
+            {alertState.message}
+          </Alert>
+        </Snackbar>
     </>
   );
 };
