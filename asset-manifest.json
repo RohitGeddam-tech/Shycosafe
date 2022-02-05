@@ -3,9 +3,9 @@
     "static/css/0.782720d6.chunk.css": "/Shycosafe/static/css/0.782720d6.chunk.css",
     "static/js/0.3e9d06ec.chunk.js": "/Shycosafe/static/js/0.3e9d06ec.chunk.js",
     "static/js/0.3e9d06ec.chunk.js.map": "/Shycosafe/static/js/0.3e9d06ec.chunk.js.map",
-    "main.css": "/Shycosafe/static/css/main.b1fc71b2.chunk.css",
-    "main.js": "/Shycosafe/static/js/main.500a6fe5.chunk.js",
-    "main.js.map": "/Shycosafe/static/js/main.500a6fe5.chunk.js.map",
+    "main.css": "/Shycosafe/static/css/main.a7c2d0bc.chunk.css",
+    "main.js": "/Shycosafe/static/js/main.4161eb23.chunk.js",
+    "main.js.map": "/Shycosafe/static/js/main.4161eb23.chunk.js.map",
     "runtime-main.js": "/Shycosafe/static/js/runtime-main.fd57141f.js",
     "runtime-main.js.map": "/Shycosafe/static/js/runtime-main.fd57141f.js.map",
     "static/css/3.d6260914.chunk.css": "/Shycosafe/static/css/3.d6260914.chunk.css",
@@ -66,7 +66,7 @@
     "static/css/7.7ccfad7b.chunk.css.map": "/Shycosafe/static/css/7.7ccfad7b.chunk.css.map",
     "static/css/8.fb9c3f02.chunk.css.map": "/Shycosafe/static/css/8.fb9c3f02.chunk.css.map",
     "static/css/9.90f7e9d5.chunk.css.map": "/Shycosafe/static/css/9.90f7e9d5.chunk.css.map",
-    "static/css/main.b1fc71b2.chunk.css.map": "/Shycosafe/static/css/main.b1fc71b2.chunk.css.map",
+    "static/css/main.a7c2d0bc.chunk.css.map": "/Shycosafe/static/css/main.a7c2d0bc.chunk.css.map",
     "static/js/0.3e9d06ec.chunk.js.LICENSE.txt": "/Shycosafe/static/js/0.3e9d06ec.chunk.js.LICENSE.txt",
     "static/js/16.be7b4642.chunk.js.LICENSE.txt": "/Shycosafe/static/js/16.be7b4642.chunk.js.LICENSE.txt",
     "static/js/3.31ad5fbd.chunk.js.LICENSE.txt": "/Shycosafe/static/js/3.31ad5fbd.chunk.js.LICENSE.txt",
@@ -83,7 +83,7 @@
     "static/media/favicon.d8fa18db.png": "/Shycosafe/static/media/favicon.d8fa18db.png",
     "static/media/guard.c62a7232.png": "/Shycosafe/static/media/guard.c62a7232.png",
     "static/media/mobile.771df6c7.gif": "/Shycosafe/static/media/mobile.771df6c7.gif",
-    "static/media/mobileGraph.89e7f49d.gif": "/Shycosafe/static/media/mobileGraph.89e7f49d.gif",
+    "static/media/mobileGraph.eef9dfca.gif": "/Shycosafe/static/media/mobileGraph.eef9dfca.gif",
     "static/media/new3.16a05b09.jpg": "/Shycosafe/static/media/new3.16a05b09.jpg",
     "static/media/news2.182472b0.jpg": "/Shycosafe/static/media/news2.182472b0.jpg",
     "static/media/profile.db65a098.jpg": "/Shycosafe/static/media/profile.db65a098.jpg",
@@ -94,7 +94,7 @@
     "static/js/runtime-main.fd57141f.js",
     "static/css/3.d6260914.chunk.css",
     "static/js/3.31ad5fbd.chunk.js",
-    "static/css/main.b1fc71b2.chunk.css",
-    "static/js/main.500a6fe5.chunk.js"
+    "static/css/main.a7c2d0bc.chunk.css",
+    "static/js/main.4161eb23.chunk.js"
   ]
 }
