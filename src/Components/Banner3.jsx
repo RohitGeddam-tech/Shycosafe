@@ -100,13 +100,21 @@ const BannerSlider = () => {
     }, 3000);
     return () => clearTimeout(timer);
   }, []);
+
+  const [src, setSrc] = useState("");
+  const [srcMob, setSrcMob] = useState("");
+  useEffect(() => {
+    setSrc(lap);
+    setSrcMob(mobile2);
+  }, []);
+
   return (
     <div className="bannerSlider">
       {width < 960 ? (
         <CustomSlider>
           <div>
             <div className="banner">
-              <img src={mobile2} alt="banner" loading="lazy" />
+              <img src={srcMob} alt="banner" loading="lazy" />
               {state ? (
                 <div
                   className="bannerBox third"
@@ -118,11 +126,10 @@ const BannerSlider = () => {
                       style={{
                         color: "#282828",
                         textAlign: "center",
-                        marginBottom: "0",
+                        marginBottom: "8px",
                       }}
                     >
-                      At Shycosafe, <br /> we care.
-                      {/* about <br /> your well being. */}
+                      At Shycosafe, we care about your well being.
                     </h1>
                   ) : (
                     <h1 style={{ color: "#282828" }}>
@@ -143,8 +150,8 @@ const BannerSlider = () => {
                       style={{ width: "fit-content" }}
                     >
                       {/* <NavHashLink to="/faq#top" className="redBtn"> */}
-                      {/* EXPLORE OUR PRODUCTS */}
-                      KNOW MORE
+                      EXPLORE OUR PRODUCTS
+                      {/* KNOW MORE */}
                     </NavHashLink>
                   </div>
                 </div>
@@ -161,7 +168,7 @@ const BannerSlider = () => {
         <CustomSlider>
           <div>
             <div className="banner">
-              <img src={lap} alt="banner" loading="lazy" />
+              <img src={src} alt="banner" loading="lazy" />
               {state ? (
                 <div
                   className="bannerBox third"

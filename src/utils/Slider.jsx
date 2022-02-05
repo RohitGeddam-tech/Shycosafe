@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import SliderNextArrow from "./NextArrow";
 import SliderPrevArrow from "./PrevArrow";
 
-const CustomSlider = ({children}) => {
+const CustomSlider = ({ children }) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -13,7 +13,7 @@ const CustomSlider = ({children}) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0,
-    arrows:true,
+    arrows: true,
     nextArrow: <SliderNextArrow />,
     prevArrow: <SliderPrevArrow />,
     responsive: [
@@ -31,6 +31,7 @@ const CustomSlider = ({children}) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          dots: true,
           arrows: false,
         },
       },
@@ -38,9 +39,7 @@ const CustomSlider = ({children}) => {
   };
   return (
     <>
-      <Slider {...settings}>
-        {children}
-      </Slider>
+      <Slider {...settings}>{children}</Slider>
     </>
   );
 };
