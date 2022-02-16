@@ -18,7 +18,7 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
   const [city, setCity] = useState("");
   const [text, setText] = useState("");
   // const [textInvalid, setTextInvalid] = useState(false);
-  // const [cityInvalid, setCityInvalid] = useState(false);
+  const [cityInvalid, setCityInvalid] = useState(false);
   const [right, setRight] = useState(false);
   const [phoneInvalid, setPhoneInvalid] = useState(false);
   const [mailInvalid, setMailInvalid] = useState(false);
@@ -36,10 +36,24 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
       case "name":
         setName(e.target.value);
         setNameInvalid(!e.target.validity.valid);
+        // if (/^[A-Za-z]{0,1}[\.]{0,1}[A-Za-z\s]{2,}/.test(e.target.value)) {
+        //   // console.log("error", fname);
+        //   setNameInvalid(true);
+        //   // console.log(FnameInvalid);
+        // } else {
+        //   setNameInvalid(false);
+        // }
         break;
       case "city":
         setCity(e.target.value);
-        // setCityInvalid(!e.target.validity.valid);
+        setCityInvalid(!e.target.validity.valid);
+        // if (/\s/.test(e.target.value)) {
+        //   // console.log("error", fname);
+        //   setCityInvalid(true);
+        //   // console.log(FnameInvalid);
+        // } else {
+        //   setCityInvalid(false);
+        // }
         break;
       case "phone":
         setPhone(e.target.value);
@@ -59,6 +73,7 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
       default:
         break;
     }
+    setError({});
   };
 
   const handleSubmit = (e) => {
@@ -80,7 +95,6 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
         city: city,
         note: text,
       });
-      setDraw(false);
     } else {
       setRight(false);
       // console.log("error submit");
@@ -109,6 +123,8 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
           // console.log(res.data.data);
           // setStart(false);
           // console.log(popup);
+          setRight(false);
+          setDraw(false);
           window.location.reload();
           // setForm({});
         }
@@ -124,12 +140,15 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
         // setSuccess(false);
         // console.log(success);
         // setLoadBtn(false);
+        setRight(false);
+        // setDraw(false);
 
         const errArr = Object.keys(errors);
         if (status_code === 422 && errArr.length) {
           const error = {};
           errArr.forEach((key) => (error[key] = errors[key][0]));
           setError(error);
+          setAlertState({ open: true, message, type: "error" });
         } else {
           setAlertState({ open: true, message, type: "error" });
         }
@@ -189,6 +208,11 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
           setText("");
           setPhone("");
           setCity("");
+          setNameInvalid(false);
+          setPhoneInvalid(false);
+          setCityInvalid(false);
+          setMailInvalid(false);
+          setSelectInvalid(false);
           setSelected("");
         }}
       >
@@ -206,6 +230,12 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
                 setText("");
                 setPhone("");
                 setCity("");
+                setNameInvalid(false);
+                setPhoneInvalid(false);
+                setCityInvalid(false);
+                setMailInvalid(false);
+                setSelectInvalid(false);
+                setError({});
                 setSelected("");
               }}
             />
@@ -217,7 +247,7 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
                   value={name}
                   className="input"
                   name="name"
-                  pattern="^([A-Za-z ,.'`-]{2,60})$"
+                  pattern="^(?! )[A-Za-z ]*(?<! )$"
                   onChange={handleChange}
                   type="text"
                   required
@@ -268,6 +298,9 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
                 {mailInvalid ? (
                   <p className="error-text">PLEASE PROVIDE A VALID EMAIL</p>
                 ) : null}
+                {error.email ? (
+                  <p className="error-text">PLEASE PROVIDE A VALID EMAIL</p>
+                ) : null}
               </div>
             </div>
             <div className="textInput">
@@ -276,7 +309,7 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
                   value={city}
                   className="input"
                   name="city"
-                  // pattern="^([A-Za-z ,.'`-]{2,30})$"
+                  pattern="^(?! )[A-Za-z ]*(?<! )$"
                   onChange={handleChange}
                   type="text"
                   // required
@@ -284,6 +317,11 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
                 <label htmlFor="city" className="input-placeholder">
                   City
                 </label>
+                {cityInvalid ? (
+                  <p className="error-text">
+                    PLEASE PROVIDE A VALID CITY NAME.
+                  </p>
+                ) : null}
               </div>
             </div>
             <div className="textInput">
@@ -298,6 +336,7 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
                   }}
                   button
                   selectOnBlur={false}
+                  text={selected || "Source"}
                   fluid
                   className="d"
                   options={selectedArray}
@@ -327,12 +366,13 @@ const NewMember = ({ draw, setDraw, className = "" }) => {
               className="redBtn"
               type="submit"
               disabled={
-                !(nameInvalid && mailInvalid && phoneInvalid) &&
+                !(nameInvalid || mailInvalid || phoneInvalid) &&
                 phone.length === 10 &&
                 selected !== "" &&
                 city !== "" &&
                 mail !== "" &&
-                name !== ""
+                name !== "" &&
+                name.length > 1
                   ? false
                   : true
               }

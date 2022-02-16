@@ -94,10 +94,12 @@ const Login = () => {
           //   setLogin(true);
           setRight(true);
           // console.log(code, res);
+          setCode("");
           setLoadBtn(false);
           sessionStorage.setItem("logged", true);
           sessionStorage.setItem("mailed", JSON.stringify(email));
           //   window.location.reload();
+          setValid(false);
         }
       } catch (err) {
         // console.log(err);
@@ -110,6 +112,7 @@ const Login = () => {
         setSuccess(false);
         // console.log(success);
         setLoadBtn(false);
+        setCode("");
 
         const errArr = Object.keys(errors);
         if (status_code === 422 && errArr.length) {
@@ -119,6 +122,7 @@ const Login = () => {
         } else {
           setAlertState({ open: true, message, type: "error" });
         }
+        setValid(false);
       }
     }
   };
@@ -155,8 +159,12 @@ const Login = () => {
             );
             // localStorage.setItem("mobile", info.mobile);
             localStorage.setItem("role", info.role);
+            setRight(false);
             if (info.role === "admin" || info.role === "assistant_admin") {
               window.location.href = "/leads";
+            }
+            if (res.data.message === "unauthorized") {
+              localStorage.clear();
             }
             setSuccess(res.data.success);
             // console.log(success);
@@ -181,7 +189,10 @@ const Login = () => {
             setError(error);
           } else {
             setAlertState({ open: true, message, type: "error" });
+            localStorage.clear();
           }
+          localStorage.clear();
+          setRight(false);
         });
       // }
     }

@@ -87,7 +87,7 @@
             text-align: start;
           }
           .bottom {
-            flex-flow: column !important;
+            // flex-flow: column !important;
             .redBtn {
               padding: 10px 50px !important;
             }
@@ -115,7 +115,7 @@
             // padding-bottom: 80px;
             left: 3%;
             .bottom {
-              justify-content: flex-start;
+              justify-content: center;
               .redBtn {
                 padding: 10px 50px !important;
               }

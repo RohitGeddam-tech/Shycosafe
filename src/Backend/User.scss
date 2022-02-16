@@ -1,7 +1,7 @@
 .userMain {
-  width: 79%;
+  width: 82%;
   position: absolute;
-  left: 20%;
+  left: 17%;
   .drop {
     position: relative;
     float: right;
@@ -286,7 +286,9 @@
             display: flex;
             align-items: center;
             color: #d83621;
-            cursor: pointer;
+            &.point {
+              cursor: pointer;
+            }
             img {
               margin-right: 10px;
               margin-bottom: 4px;

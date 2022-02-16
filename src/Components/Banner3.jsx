@@ -52,6 +52,16 @@ const bannerDetails1 = [
   // },
 ];
 
+// if (window.performance) {
+//   console.info("window.performance works fine on this browser");
+// }
+// console.info(performance.navigation.type);
+// if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+//   console.info( "This page is reloaded" );
+// } else {
+//   console.info( "This page is not reloaded");
+// }
+
 // Get your business back on track with Shycosafe
 
 const Banner1 = ({ image, title, styles, line, id, brake }) => {
@@ -104,8 +114,10 @@ const BannerSlider = () => {
   const [src, setSrc] = useState("");
   const [srcMob, setSrcMob] = useState("");
   useEffect(() => {
-    setSrc(lap);
-    setSrcMob(mobile2);
+    // window.addEventListener("load", () => {
+      setSrc(lap);
+      setSrcMob(mobile2);
+    // });
   }, []);
 
   return (

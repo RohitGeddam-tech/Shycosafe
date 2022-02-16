@@ -143,7 +143,7 @@ const BookBack = (className = "") => {
   const handleSelect = (e, room) => {
     setSel(e.target.innerText);
     if (e.target.innerText.toLocaleLowerCase() === "unable to contact") {
-      setSel("unable_to_connect");
+      setSel("unable_to_contact");
     }
   };
 
@@ -174,7 +174,6 @@ const BookBack = (className = "") => {
         status: sel.toLocaleLowerCase(),
         note: text,
       });
-      setOpen(false);
       setText("");
     } else {
       setRight(false);
@@ -369,8 +368,16 @@ const BookBack = (className = "") => {
           msg: members.message,
           text: members.note,
         });
-        setSel(members.status);
-        setSelect(members.status);
+        console.log(members.status);
+        if (members.status !== "unable to contact") {
+          setSel(members.status);
+          setSelect(members.status);
+        } else {
+          setSel("unable_to_contact");
+          setSelect("unable_to_contact");
+        }
+        // setSel(members.status);
+        // setSelect(members.status);
         setText(members.note);
         setNewText(members.note);
         setOpen(true);
@@ -564,7 +571,7 @@ const BookBack = (className = "") => {
                         // value="View All Details"
                         image={circleBlack}
                         // onClick={() => setSelected("unable_to_contact")}
-                        onClick={() => handleFilter("unable_to_connect")}
+                        onClick={() => handleFilter("unable_to_contact")}
                       />
                     </Dropdown.Menu>
                   </Dropdown>
@@ -577,7 +584,7 @@ const BookBack = (className = "") => {
               ) : null}
               {array.map((doc, i) => (
                 <tr key={i}>
-                  <td>{moment(doc.date).format("DD MMM YYYY")}</td>
+                  <td>{moment(doc.date).format("DD/MM/YY")}</td>
                   <td>{doc.name}</td>
                   <td>{doc.mobile}</td>
                   <td>{doc.email}</td>
@@ -587,7 +594,11 @@ const BookBack = (className = "") => {
                   ) : (
                     <td>--</td>
                   )}
-                  <td>
+                  <td
+                    className={`${
+                      doc.status === "unable to contact" ? "utc" : ""
+                    }`}
+                  >
                     {/* <Status
                     // setOpen={setOpen}
                     status={doc.status}
@@ -663,6 +674,8 @@ const BookBack = (className = "") => {
             open={open}
             onClose={() => {
               setOpen(false);
+              setTextInvalid(false);
+              setSelInvalid(false);
             }}
           >
             <div className="box details">
@@ -672,7 +685,11 @@ const BookBack = (className = "") => {
                   className="img"
                   src={clear}
                   alt="cancel"
-                  onClick={() => setOpen(false)}
+                  onClick={() => {
+                    setOpen(false);
+                    setTextInvalid(false);
+                    setSelInvalid(false);
+                  }}
                 />
               </div>
               <form className="enterData" onSubmit={handleSubmit}>

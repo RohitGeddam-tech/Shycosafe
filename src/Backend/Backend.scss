@@ -1,8 +1,8 @@
 .bookMain {
-  width: 79%;
+  width: 82%;
   position: absolute;
   padding-bottom: 30px;
-  left: 20%;
+  left: 17%;
   .drop {
     position: relative;
     float: right;
@@ -291,9 +291,10 @@
       .dots {
         position: absolute;
         top: 0px;
-        right: 10px;
+        right: 7px;
         cursor: pointer;
-        padding: 0;
+        padding: 0 10px;
+        padding-right: 14px;
         margin: 0;
         width: 0;
         border: none;
@@ -305,6 +306,7 @@
             line-height: 17px;
             margin: 0;
             color: #667c8a;
+            text-transform: capitalize;
             font-family: "Railway", sans-serif;
             font-style: normal;
             display: flex;
@@ -422,28 +424,29 @@
             }
           }
           &:nth-child(1) {
-            width: 8.5%;
+            width: 6%;
           }
           &:nth-child(8) {
             padding-right: 25px;
           }
           &:nth-child(7) {
-            width: 7.5%;
+            width: 8.5%;
           }
           &:nth-child(6) {
-            width: 9%;
+            width: 8%;
           }
           &:nth-child(2) {
-            width: 8.8%;
+            width: 8.4%;
           }
           &:nth-child(3) {
-            width: 7.5%;
+            width: 6%;
           }
           &:nth-child(5) {
             width: 8.7%;
+            padding-left: 10px;
           }
           &:nth-child(4) {
-            width: 11.5%;
+            width: 10.5%;
           }
           .point {
             cursor: pointer;
@@ -488,6 +491,9 @@
           &:nth-child(8) {
             padding-right: 25px;
           }
+          &:nth-child(5) {
+            padding:0 10px;
+          }
           //   &:nth-child(7) {
           //     width: 6%;
           //   }
@@ -501,10 +507,14 @@
           //     width: 8%;
           //   }
           //   &:nth-child(5),
-          //   &:nth-child(4) {
-          //     width: 8%;
-          //   }
-
+            &.utc{
+              .select p.stat span.black{
+                width: 11px !important;
+              }
+              .dots{
+                top:10px;
+              }
+            }
           .select {
             width: 90%;
             position: relative;
@@ -906,29 +916,29 @@ input:-webkit-autofill:focus {
     font-weight: 200;
     color: #919eab;
 
-    &:focus ~ label {
-      color: #e40055 !important;
-    }
+    // &:focus ~ label {
+    //   color: #e40055 !important;
+    // }
 
-    &:focus ~ label {
-      color: #e40055;
-      top: 0px;
-      left: 8px;
-      font-size: 12px;
-      background-color: white;
-      padding-left: 5px;
-      padding-right: 5px;
-      height: none;
-      color: #919eab;
-    }
+    // &:focus ~ label {
+    //   color: #e40055;
+    //   top: 0px;
+    //   left: 8px;
+    //   font-size: 12px;
+    //   background-color: white;
+    //   padding-left: 5px;
+    //   padding-right: 5px;
+    //   height: none;
+    //   color: #919eab;
+    // }
 
-    &:focus,
-    &:valid ~ label,
-    &:not([value=""]) ~ label {
-      outline: none;
-      border-color: #e40055;
-      box-shadow: none;
-    }
+    // &:focus,
+    // &:valid ~ label,
+    // &:not([value=""]) ~ label {
+    //   outline: none;
+    //   border-color: #e40055;
+    //   box-shadow: none;
+    // }
 
     &.has-value ~ label {
       top: 0px;
@@ -1420,8 +1430,7 @@ input:-webkit-autofill:focus {
             color: #667c8a !important;
           }
 
-          &:focus ~ label,
-          &:not([value=""]) ~ label {
+          &:focus ~ label {
             color: #667c8a;
             top: 0px;
             left: 8px;
@@ -1441,6 +1450,15 @@ input:-webkit-autofill:focus {
             box-shadow: none;
           }
 
+          &.has-value{
+            border-color: #667c8a;
+            color: #667c8a;
+          }
+          &.has-value:focus{
+            border-color: #667c8a;
+            color: #667c8a;
+          }
+
           &.has-value ~ label {
             top: 0px;
             left: 8px;
@@ -1448,10 +1466,11 @@ input:-webkit-autofill:focus {
             background-color: white;
             padding-left: 5px;
             padding-right: 5px;
-            color: #667c8a;
+            // color: #919eab;
             outline: none;
-            // border-color: #667c8a;
+            border-color: #667c8a;
             box-shadow: none;
+            color: #667c8a;
           }
           &.has-value:focus ~ label {
             color: #667c8a;

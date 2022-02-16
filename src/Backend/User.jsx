@@ -66,6 +66,7 @@ const User = () => {
       default:
         break;
     }
+    setError({});
   };
 
   const fetchData = async () => {
@@ -162,17 +163,20 @@ const User = () => {
           setLname("");
           setMail("");
           setMsg("");
+          setFnameInvalid(false);
+          setLnameInvalid(false);
+          setMailInvalid(false);
           setPopup({});
           window.location.reload();
         }
       } catch (err) {
         setRight(false);
-        if (err.request) {
-          // The request was made but no response was received
-          const errorData = JSON.parse(err.request.response);
-          // console.log(errorData.message);
-          setMsg(errorData.message);
-        }
+        // if (err.request) {
+        //   // The request was made but no response was received
+        //   const errorData = JSON.parse(err.request.response);
+        //   // console.log(errorData.message);
+        //   setMsg(errorData.message);
+        // }
         const {
           message = "Sorry! We are unable to process your request.",
           status_code,
@@ -197,11 +201,6 @@ const User = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (/\s/.test(fname)) {
-      // console.log("error", fname);
-      setFnameInvalid(true);
-      // console.log(FnameInvalid);
-    }
     if (
       !(FnameInvalid && LnameInvalid && mailInvalid) &&
       fname !== "" &&
@@ -345,15 +344,17 @@ const User = () => {
                   <td>{`${doc.first_name} ${doc.last_name}`}</td>
                   <td>{doc.email}</td>
                   <td>{doc.role.split("_").join(" ")}</td>
-                  <td
-                    onClick={() => {
-                      setDraw(true);
-                      setNum(doc.id);
-                    }}
-                  >
+                  <td className={`${doc.deletable ? "point" : ""}`}>
                     {doc.deletable ? (
                       <>
-                        <img src={edit} alt="delete" />
+                        <img
+                          src={edit}
+                          alt="delete"
+                          onClick={() => {
+                            setDraw(true);
+                            setNum(doc.id);
+                          }}
+                        />
                         Delete
                       </>
                     ) : null}
@@ -371,7 +372,11 @@ const User = () => {
               setLname("");
               setMail("");
               setMsg("");
+              setFnameInvalid(false);
+              setLnameInvalid(false);
+              setMailInvalid(false);
               setPopup({});
+              setError({});
             }}
           >
             <div className="box">
@@ -390,7 +395,11 @@ const User = () => {
                     setLname("");
                     setMail("");
                     setMsg("");
+                    setFnameInvalid(false);
+                    setLnameInvalid(false);
+                    setMailInvalid(false);
                     setPopup({});
+                    setError({});
                   }}
                 />
               </div>
@@ -402,7 +411,7 @@ const User = () => {
                         value={fname}
                         className="input"
                         name="fname"
-                        pattern="^([A-Za-z ,.'`-]{2,30})$"
+                        pattern="^(?! )[A-Za-z ]*(?<! )$"
                         onChange={handleChange}
                         type="text"
                         required
@@ -423,7 +432,7 @@ const User = () => {
                         value={lname}
                         className="input"
                         name="lname"
-                        pattern="^([A-Za-z ,.'`-]{2,30})$"
+                        pattern="^(?! )[A-Za-z ]*(?<! )$"
                         onChange={handleChange}
                         type="text"
                         required
@@ -446,7 +455,7 @@ const User = () => {
                       value={mail}
                       name="mail"
                       onChange={handleChange}
-                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$"
+                      pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$"
                       type="email"
                       required
                     />
@@ -457,10 +466,8 @@ const User = () => {
                   {mailInvalid && msg === "" ? (
                     <p className="error-text">PLEASE PROVIDE A VALID EMAIL</p>
                   ) : null}
-                  {msg !== "" ? (
-                    <p className="error-text" style={{ fontSize: "16px" }}>
-                      {msg}
-                    </p>
+                  {error.email ? (
+                    <p className="error-text">PLEASE PROVIDE A VALID EMAIL</p>
                   ) : null}
                 </div>
                 {/* <i>
@@ -476,6 +483,9 @@ const User = () => {
                       setLname("");
                       setMail("");
                       setMsg("");
+                      setFnameInvalid(false);
+                      setLnameInvalid(false);
+                      setMailInvalid(false);
                       setPopup({});
                     }}
                   >

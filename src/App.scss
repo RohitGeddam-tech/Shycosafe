@@ -121,13 +121,22 @@
     flex-flow: column;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 67px);
+    height: calc(100vh - 107px);
     img {
       width: 120px;
     }
     .loginForm {
       margin-top: 30px;
       width: 300px;
+      .error-text {
+        text-align: start;
+        color: red;
+        font-size: 12px;
+        line-height: 14px;
+        margin: 0;
+        padding-bottom: 5px;
+        padding-left: 5px;
+      }
       .redBtn {
         padding: 10px 30px;
         &:disabled {
