@@ -66,11 +66,19 @@ const ProductSlide = ({ children }) => {
           </div>
           <div className="right">
             <h1 className="heading">The Table Top Stand</h1>
+            <p
+              className="para"
+              style={{ fontWeight: "bold", margin: "0px 0 8px 0" }}
+            >
+              Model No: TTS-001
+            </p>
             <p className="para">
               A stylish, sturdy design, precisely engineered to be user-friendly
-              and extremely easy to install. The Shycosafe® table-top standcomes
-              manufactured in high quality coating or a chrome finish that will
-              complement the surroundings it's set up in.
+              and extremely easy to install. The Shycosafe® table-top stand
+              comes manufactured in high quality coating or a chrome finish that
+              will complement the surroundings it's set up in. This uniquely
+              designed product is ideal for factories, offices, homes,
+              hospitals, and any other environment.
             </p>
             <div className="bottom">
               <h2>
@@ -80,7 +88,10 @@ const ProductSlide = ({ children }) => {
                 to="/#contacts"
                 className="redBtn"
                 onClick={() =>
-                  sessionStorage.setItem("utm_content", `Product: The Table Top Stand`)
+                  sessionStorage.setItem(
+                    "utm_content",
+                    `Product: The Table Top Stand`
+                  )
                 }
               >
                 BUY NOW
@@ -94,12 +105,20 @@ const ProductSlide = ({ children }) => {
           </div>
           <div className="right">
             <h1 className="heading">The Floor Stand - Black</h1>
+            <p
+              className="para"
+              style={{ fontWeight: "bold", margin: "0px 0 8px 0" }}
+            >
+              Model No: FS-001
+            </p>
             <p className="para">
               Powder coated in black, this high-quality floor stand keeps your
               Shycocan, and your environment, safe. Precisely machined with
               angled-degree for enhanced sturdiness and easy installation, the
               stand is a user- friendly addition, and a must-have, to your
-              Shycocan.
+              Shycocan. This product is suitable for homes, offices, hospitals,
+              factories, and any other environment where the Shycocan needs to
+              be used.
             </p>
             <div className="bottom">
               <h2>
@@ -126,13 +145,21 @@ const ProductSlide = ({ children }) => {
           </div>
           <div className="right">
             <h1 className="heading">The Floor Stand - Chrome</h1>
+            <p
+              className="para"
+              style={{ fontWeight: "bold", margin: "0px 0 8px 0" }}
+            >
+              Model No: FS-CR-001
+            </p>
             <p className="para">
-              With an elegant, chromed look, you can't go wrong. This unique
-              design has the ability to fit in with its environment,
+              With an elegant, chromed look, you can't go wrong.
+              Thisuniquedesignhastheabilitytofitin with its environment,
               complementing the surroundings without taking up too much space.
               Precisely machined with angled-degree for enhanced sturdiness and
               easy installation, the stand is a user-friendly addition, and a
-              must-have, to your Shycocan.
+              must-have, to your Shycocan. This product is suitable for homes,
+              offices, hospitals, factories, and any other environment where the
+              Shycocan needs to be used.
             </p>
             <div className="bottom">
               <h2>

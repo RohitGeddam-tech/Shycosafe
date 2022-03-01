@@ -23,11 +23,11 @@ const Footer = () => {
         <div className="box">
           <img src={call} alt="call" />
           <div className="data">
-            <p>You can call us on our toll free number :</p>
-            <a href="tel:1800 5678 3458">1800 5678 3458</a>
+            <p>You can call us on:</p>
+            <a href="tel:+918591131843">+91 85911 31843</a>
           </div>
         </div>
-        <div className="box">
+        {/* <div className="box">
           <img src={address} alt="address" />
           <div className="data">
             <p>Address</p>
@@ -35,7 +35,7 @@ const Footer = () => {
               802, Corner View, 15th Road, Bandra ( West) Mumbai - 400 050.
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
       <div
         className="down"

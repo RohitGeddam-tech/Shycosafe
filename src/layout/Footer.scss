@@ -54,15 +54,16 @@
       }
     }
   }
-  @media (min-width: 1020px) {
+  @media (min-width: 870px) {
     .container {
       width: 85%;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       padding: 50px 0;
       .box {
-        width: 29%;
+        width: 45%;
         align-items: center;
+        justify-content: center;
       }
     }
   }
