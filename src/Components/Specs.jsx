@@ -7,8 +7,8 @@ import ozone from "../images/ozone.png";
 import cool from "../images/cool.png";
 import body from "../images/body.png";
 import install from "../images/install.png";
-import "react-responsive-modal/styles.css"
-import { Modal } from "react-responsive-modal"
+import "react-responsive-modal/styles.css";
+import { Modal } from "react-responsive-modal";
 import "./Specs.scss";
 
 const Specs = ({ modalOpen, modalClose }) => {
@@ -93,8 +93,19 @@ const Specs = ({ modalOpen, modalClose }) => {
           </div>
           <div className="bottom">
             <div className="right">
-              <button className="noOutline" onClick={() => modalClose(false)}>CLOSE</button>
-              <button className="redBtn">BUY NOW</button>
+              <button className="noOutline" onClick={() => modalClose(false)}>
+                CLOSE
+              </button>
+              <button
+                className="redBtn"
+                onClick={() => {
+                  sessionStorage.setItem("utm_content", `Contact Form`);
+                  modalClose(false);
+                  window.location.href = "/#contacts";
+                }}
+              >
+                BUY NOW
+              </button>
             </div>
           </div>
         </div>

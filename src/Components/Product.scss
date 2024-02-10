@@ -1,15 +1,221 @@
 .product {
   width: 100%;
-  padding: 20px 0 40px;
+  padding: 20px 0 0px;
+  background-color: #eaedf1;
+  .height {
+    width: 100% !important;
+    height: 50px;
+  }
   .container {
+    padding-bottom: 0;
     h1 {
-      margin-bottom: 30px;
-      img{
+      margin-top: 10px;
+      margin-bottom: 20px;
+      img {
         width: 70px !important;
       }
     }
-    img{
-        width: 100%;
+    img {
+      width: 100%;
+    }
+    .redBtn {
+      margin-left: 15px;
+    }
+    .slick-slider {
+      padding-bottom: 80px;
+      .slick-dots {
+        bottom: 35px;
+      }
+      // @media(max-width:1200px){
+      //   .slickPrev{
+      //     left: 0;
+      //   }
+      // }
+      .slick-list {
+        // padding:0 20% 0 0 !important;
+        .slick-track {
+          // width: 2600px !important;
+          .slick-slide {
+            // &:nth-child(1){
+            //   width: 900px !important;
+            //   display: flex;
+            //   justify-content: flex-end;
+            // }
+            div {
+              margin: 15px;
+              .equipCard {
+                // width: 680px !important;
+                // height: fit-content !important;
+                box-shadow: 1px 0 10px 1px rgb(0 0 0 / 25%);
+                padding: 10px 0 !important;
+                // border: 1px solid #e40051;
+                display: flex !important;
+                // align-items: center;
+                justify-content: space-between;
+                margin-left: 0;
+                outline: none;
+                background-color: white;
+                height: 500px;
+                @media (max-width: 1200px) {
+                  height: 450px;
+                }
+                @media (max-width: 1000px) {
+                  height: 450px;
+                }
+                @media (max-width: 800px) {
+                  height: 500px;
+                }
+                @media (max-width: 715px) {
+                  height: 800px;
+                }
+                @media (max-width: 455px) {
+                  height: 840px;
+                }
+                @media (max-width: 420px) {
+                  height: 860px;
+                }
+                @media (max-width: 400px) {
+                  height: 900px;
+                }
+                @media (max-width: 350px) {
+                  height: 950px;
+                }
+                .productImg {
+                  width: 35%;
+                  display: flex;
+                  align-items: center;
+                  margin: 0;
+                  img {
+                    width: 100%;
+                    // box-shadow: 1px 1px 0px 1px rgb(0 0 0 / 25%);
+                  }
+                }
+                // &.first{
+                //   margin-left: 150px;
+                // }
+                // &.second{
+                //   margin-left: 150px;
+                // }
+                // &.third{
+                //   margin-right: 250px;
+                // }
+                .right {
+                  width: 62%;
+                  margin: 0;
+                  display: flex;
+                  flex-flow: column;
+                  justify-content: center;
+                  // align-items: center;
+                  .heading {
+                    font-size: 26px;
+                    line-height: 34px;
+                    padding: 0 10px;
+                    margin-bottom: 5px;
+                  }
+                  .para {
+                    width: 95%;
+                    font-size: 16px;
+                    margin: 0;
+                    // color: #919eab;
+                    padding: 0 10px 0;
+                  }
+                  .bottom {
+                    padding: 0 0 10px;
+                    margin-right: 0;
+                    margin-left: 10px;
+                    display: block;
+                    // position: absolute;
+                    // bottom: 30px;
+                    h2 {
+                      color: #e40051;
+                      margin-bottom: 20px;
+                      font-size: 20px;
+                      line-height: 24px;
+                      span {
+                        font-size: 16px;
+                      }
+                    }
+                    .redBtn {
+                      margin: 0;
+                    }
+                    @media (max-width: 460px) {
+                      h2 {
+                        width: 240px;
+                      }
+                    }
+                  }
+                }
+                @media (max-width: 710px) {
+                  flex-flow: column;
+                  justify-content: flex-start;
+                  position: relative;
+                  .productImg {
+                    width: 100%;
+                    max-width: 270px;
+                    margin: 0 auto;
+                  }
+                  .right {
+                    width: 95%;
+                    margin: 0 auto;
+                    .para {
+                      width: 98%;
+                      padding: 0;
+                    }
+                    .heading {
+                      padding: 0;
+                    }
+                    .bottom {
+                      position: absolute;
+                      bottom: 15px;
+                      margin-left: 0;
+                      display: flex;
+                      flex-flow: column;
+                      width: 95%;
+                      margin-bottom: 0;
+                      .redBtn{
+                        text-align: center;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (min-width: 1200px) {
+    .container {
+      width: 85%;
+      .Slider {
+        .Slide {
+          .equipCard {
+            &:first-child {
+              margin-left: 5px !important;
+            }
+            img {
+              width: 330px;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 450px) {
+    .container {
+      .Slider {
+        .Slide {
+          .equipCard {
+            &:first-child {
+              margin-left: 5px !important;
+            }
+            img {
+              width: 330px;
+            }
+          }
+        }
+      }
     }
   }
 }

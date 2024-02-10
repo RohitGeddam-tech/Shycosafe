@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import address from "../images/map.png";
 import mail from "../images/mail.png";
 import call from "../images/call.png";
-import './Footer.scss'
+import "./Footer.scss";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Footer = () => {
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  });
   return (
     <div className="footer">
-      <div className="container">
+      <div className="container" data-aos="fade-up" data-aos-duration="1500">
         <div className="box">
           <img src={mail} alt="mail" />
           <div className="data">
@@ -18,20 +23,30 @@ const Footer = () => {
         <div className="box">
           <img src={call} alt="call" />
           <div className="data">
-            <p>You can call us on our toll free number :</p>
-            <a href="tel:1800 5678 3458">1800 5678 3458</a>
+            <p>You can call us on:</p>
+            <a href="tel:+918591131843">+91 85911 31843</a>
           </div>
         </div>
-        <div className="box">
+        {/* <div className="box">
           <img src={address} alt="address" />
           <div className="data">
             <p>Address</p>
-            <a href="/">
-              The woman now gave Dorothy a bed to sleep in, and Toto lay down
-              beside her, while the Lion guarded the door of her room
+            <a href="https://goo.gl/maps/cMDFYUvGfRDm8Pej7">
+              802, Corner View, 15th Road, Bandra ( West) Mumbai - 400 050.
             </a>
           </div>
-        </div>
+        </div> */}
+      </div>
+      <div
+        className="down"
+        style={{ backgroundColor: "#eaedf1", padding: "11px 0" }}
+      >
+        <p>
+          Website by{" "}
+          <a href="https://tech.sugarlogger.com/">
+            Sugarlogger Technologies Pvt. Ltd.
+          </a>
+        </p>
       </div>
     </div>
   );

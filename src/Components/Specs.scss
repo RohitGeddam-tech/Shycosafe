@@ -15,6 +15,7 @@
     width: 100%;
     background-color: white;
     .container {
+      width: 85% !important;
       padding-bottom: 10px;
       h2 {
         color: #667c8a;
@@ -62,8 +63,8 @@
               h2 {
                 font-size: 14px;
                 line-height: 16px;
-                // white-space: nowrap;
-                margin: 5px 0 0 5px;
+                margin: 0;
+                margin-left: 5px;
                 color: #e40055;
                 //   background: linear-gradient(135deg, #D83621 0%, #E40055 79.03%);
               }

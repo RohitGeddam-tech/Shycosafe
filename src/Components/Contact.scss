@@ -6,7 +6,6 @@
   .container {
     display: flex;
     justify-content: space-between;
-
     .modal {
       width: 100%;
       display: flex;
@@ -31,7 +30,7 @@
 
       input:-webkit-autofill {
         box-shadow: 0 0 0px 1000px #fff inset;
-        -webkit-text-fill-color: #919eab;
+        -webkit-text-fill-color: #667c8a;
         transition: background-color 5000s ease-in-out 0s;
       }
       input:-webkit-autofill:focus {
@@ -40,11 +39,17 @@
         -webkit-text-fill-color: #919eab;
       }
       .boxShadow {
-        width: 90%;
+        width: 85%;
         padding: 18px;
         background-color: white;
         padding-bottom: 40px;
         box-shadow: 1px 0 10px 1px rgb(0 0 0 / 25%);
+        @media (max-width: 800px) {
+          width: 98%;
+        }
+        @media (max-width: 540px) {
+          width: 90%;
+        }
         .error-text {
           text-align: center;
           color: red;
@@ -97,7 +102,7 @@
           .input {
             width: 100%;
             height: 40px;
-            border: 1px solid #919eab;
+            border: 1px solid #b7b7b7;
             outline: none;
             box-sizing: border-box;
             border-radius: 0;
@@ -108,13 +113,17 @@
             font-family: "Metropolis";
             font-style: normal;
             font-weight: 200;
-            color: #919eab;
+            color: #b7b7b7;
 
             &::-webkit-input-placeholder,
             &:-moz-placeholder,
             &:-ms-input-placeholder {
-              color: #919eab;
+              color: #667c8a;
               font-size: 14px;
+            }
+            &:not([value=""]){
+              border-color: #667c8a;
+              color: #667c8a;
             }
 
             &:focus ~ label,
@@ -126,18 +135,18 @@
               padding-left: 5px;
               padding-right: 5px;
               height: none;
-              color: #919eab;
+              color: #667c8a;
             }
 
             &:focus ~ label {
-              color: blue;
+              color: #e40055;
             }
 
             &:focus,
             &:valid ~ label,
             &:not([value=""]) ~ label {
               outline: none;
-              border-color: blue;
+              border-color: #e40055;
               box-shadow: none;
             }
           }
@@ -146,7 +155,7 @@
             height: 150px;
             width: 100%;
             outline: none;
-            border: 1px solid #919eab;
+            border: 1px solid #b7b7b7;
             box-sizing: border-box;
             border-radius: 0;
             margin: 8px 0;
@@ -157,14 +166,14 @@
             font-family: "Metropolis";
             font-style: normal;
             font-weight: 200;
-            color: #919eab;
+            color: #b7b7b7;
 
             &:focus ~ label {
-              color: blue !important;
+              color: #e40055 !important;
             }
 
             &:focus ~ label {
-              color: blue;
+              color: #e40055;
               top: 0px;
               left: 8px;
               font-size: 12px;
@@ -172,31 +181,41 @@
               padding-left: 5px;
               padding-right: 5px;
               height: none;
-              color: #919eab;
+              color: #667c8a;
             }
 
             &:focus,
             &:valid ~ label,
             &:not([value=""]) ~ label {
               outline: none;
-              border-color: blue;
+              border-color: #e40055;
               box-shadow: none;
+            }
+
+            &.has-value{
+              border-color: #667c8a;
+              color: #667c8a;
+            }
+            &.has-value:focus{
+              border-color: #e40055;
+              color: #667c8a;
             }
 
             &.has-value ~ label {
               top: 0px;
-              left: 20px;
+              left: 8px;
               font-size: 12px;
               background-color: white;
               padding-left: 5px;
               padding-right: 5px;
-              color: #919eab;
+              // color: #919eab;
               outline: none;
-              border-color: blue;
+              border-color: #e40055;
               box-shadow: none;
+              color: #667c8a;
             }
             &.has-value:focus ~ label {
-              color: blue;
+              color: #e40055;
             }
           }
         }
@@ -235,6 +254,43 @@
           display: flex;
           justify-content: center;
           padding-top: 12px;
+        }
+      }
+      @media (min-width: 1020px) {
+        .boxShadow {
+          margin: auto;
+        }
+        .alignHeading {
+          width: 93%;
+          margin: 0 auto;
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+  @media (min-width: 1200px) {
+    .container {
+      width: 85%;
+      .modal {
+        width: 100%;
+        .alignHeading {
+          width: 100% !important;
+        }
+        .boxShadow {
+          width: 80% !important;
+        }
+      }
+    }
+  }
+  @media (min-width: 1400px) {
+    .container {
+      width: 1161px;
+      .modal {
+        .alignHeading {
+          width: 100% !important;
+        }
+        .boxShadow {
+          width: 100%;
         }
       }
     }

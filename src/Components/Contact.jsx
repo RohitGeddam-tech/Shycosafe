@@ -1,6 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Contact.scss";
 import line from "../images/Rect2.png";
+import { getUtmSerializedString } from "../utils/common";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import axios from "axios";
+import { Modal } from "@material-ui/core";
+import { Snackbar } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 
 const defaultFormState = {
   fname: "",
@@ -14,6 +21,13 @@ const defaultFormState = {
 const Contact = ({ className = "" }) => {
   const [details, setDetails] = useState({ ...defaultFormState });
   const [error, setError] = useState({});
+  const [btnloading, setBtnloading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [alertState, setAlertState] = useState({
+    open: false,
+    message: "",
+    type: "success",
+  });
 
   const handleChange = (e) => {
     const tempDetails = { ...details },
@@ -57,21 +71,109 @@ const Contact = ({ className = "" }) => {
     setError({});
     const errorExist = validateForm();
     if (!errorExist) {
-      console.log(details);
-    } else {
-      console.log(error);
+      const data = {
+        // ...details,
+        name: `${details.fname} ${details.lname}`,
+        email: details.email,
+        mobile: details.mobile,
+        message: details.text,
+        city: details.city,
+        type: getUtmSerializedString(),
+        // type:"Shycocan",
+      };
+      setBtnloading(true);
+      // console.log(data);
+      try {
+        const res = await axios.post(
+          `${process.env.REACT_APP_PUBLIC_URL}contact-us`,
+          data
+        );
+        // .then((res) => {
+        if (res) {
+          // console.log("response msg", res.data);
+          setBtnloading(false);
+          setSuccess(res.data.success);
+        }
+      } catch (err) {
+        // console.log(err);
+        const {
+          message = "Sorry! We are unable to process your request.",
+          status_code,
+          errors = {},
+        } = (err.response && err.response.data) || {};
+
+        // setSuccess(false);
+        // console.log(success);
+        // setLoadBtn(false);
+
+        const errArr = Object.keys(errors);
+        if (status_code === 422 && errArr.length) {
+          const error = {};
+          errArr.forEach((key) => (error[key] = errors[key][0]));
+          setError(error);
+        } else {
+          setAlertState({ open: true, message, type: "error" });
+        }
+        setBtnloading(false);
+      }
     }
+    // else {
+    //   console.log(error);
+    // }
   };
+
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  });
+
+  // useEffect(async () => {
+  //   const errorExist = validateForm();
+  //   if (!errorExist) {
+  //     const data = {
+  //       // ...details,
+  //       name: `${details.fname} ${details.lname}`,
+  //       email: details.email,
+  //       mobile: details.mobile,
+  //       message: details.text,
+  //       city: details.city,
+  //       type: getUtmSerializedString(),
+  //       // type:"Shycocan",
+  //     };
+  //     console.log(data);
+  //     try {
+  //       const res = await axios.post(
+  //         `${process.env.REACT_APP_PUBLIC_URL}contact-us`,
+  //         data
+  //       );
+  //       // .then((res) => {
+  //       if (res) {
+  //         console.log("response msg", res);
+  //       }
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   } else {
+  //     console.log(error);
+  //   }
+  // }, [handleSubmit]);
 
   const [clicked, setClicked] = useState(false);
 
   className += ` textfield ${details.text ? "has-value" : ""}`;
 
+  const handleAlertClose = () => {
+    setAlertState({ open: false, message: "", type: "success" });
+  };
+
   return (
     <div className="contact">
       <div className="container">
         <form className="modal" onSubmit={handleSubmit}>
-          <div className="alignHeading">
+          <div
+            className="alignHeading"
+            data-aos="fade-up"
+            data-aos-duration="1500"
+          >
             <h1>
               Contact Us
               <img src={line} alt="line" />
@@ -81,7 +183,11 @@ const Contact = ({ className = "" }) => {
               with us
             </p>
           </div>
-          <div className="boxShadow">
+          <div
+            className="boxShadow"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
             <div className="inputFlex">
               <div className="text-input">
                 <input
@@ -166,13 +272,59 @@ const Contact = ({ className = "" }) => {
               </label>
             </div>
             <div className="bottom">
-              <button type="submit" className="redBtn">
-                GET A CALL BACK
+              <button type="submit" className="redBtn" disabled={btnloading}>
+                {btnloading ? `Sending...` : `GET A CALL BACK`}
               </button>
             </div>
           </div>
         </form>
       </div>
+      <Modal
+        className="modalThanks"
+        open={success}
+        onClose={() => {
+          setSuccess(false);
+        }}
+      >
+        <div className="box">
+          <h1>Thank you</h1>
+          <p>
+            Thank you for your interest. Our team will get in touch with you
+            soon.
+          </p>
+          <button
+            className="redBtn"
+            onClick={() => {
+              setSuccess(false);
+              setDetails({
+                fname: "",
+                lname: "",
+                mobile: "",
+                email: "",
+                text: "",
+                city: "",
+              });
+              window.location.href = "/#top";
+            }}
+          >
+            Close
+          </button>
+        </div>
+      </Modal>
+      <Snackbar
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+        open={alertState.open}
+        onClose={handleAlertClose}
+        autoHideDuration={5000}
+      >
+        <Alert
+          onClose={handleAlertClose}
+          severity={alertState.type}
+          variant="filled"
+        >
+          {alertState.message}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

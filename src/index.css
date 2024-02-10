@@ -166,11 +166,51 @@ img {
 p {
   font-family: "Metropolis" !important;
   font-style: normal;
-  font-weight: 200;
+  font-weight: normal;
   font-size: 18px;
-  line-height: 21px;
+  line-height: 27px;
   margin: 10px 0;
   color: #595959;
+}
+
+.slickNext {
+  position: absolute;
+  display: block !important;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  top: 45%;
+  transform: translate(0, -45%);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+  right: -56px;
+}
+
+.slickNext img{
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.slickPrev {
+  position: absolute;
+  display: block !important;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  top: 45%;
+  transform: translate(0, -45%);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+  left: -56px;
+}
+
+.slickPrev img{
+  width: 40px !important;
+  height: 40px !important;
 }
 
 .redBtn {
@@ -185,6 +225,7 @@ p {
   line-height: 20px;
   color: #ffffff;
   background: #e40061;
+  cursor: pointer;
 }
 
 .blueBtn {
@@ -213,6 +254,10 @@ p {
   cursor: pointer;
 }
 
+/* a:hover{
+  color: white !important;
+} */
+
 .container {
   width: 92%;
   margin: auto;
@@ -239,4 +284,16 @@ p {
   height: 0;
   width: 30px;
   border: 1px solid #fff;
+}
+
+@media (min-width: 1200px){
+  .container{
+    width: 85%;
+  }
+}
+
+@media (min-width: 1400px){
+  .container{
+    width: 1161px !important;
+  }
 }

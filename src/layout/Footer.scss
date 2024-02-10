@@ -1,8 +1,32 @@
 .footer {
   padding: 20px 0 50px;
+  overflow-y: hidden;
+  padding-bottom: 0;
+  .down {
+    width: 100%;
+    text-align: center;
+    p {
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 18px;
+      color: #7c7d7e;
+      a {
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 18px;
+        color: #7c7d7e;
+        text-decoration: underline;
+        &:hover {
+          color: #e40055 !important;
+          text-decoration-color: #e40055;
+        }
+      }
+    }
+  }
   .container {
     padding-top: 20px;
     padding: 0 20px;
+    padding-bottom: 30px;
     .box {
       display: flex;
       margin-top: 15px;
@@ -23,8 +47,29 @@
           font-size: 16px;
           line-height: 18px;
           color: #e40055;
+          // &:hover {
+          //   color: #e40055 !important;
+          // }
         }
       }
+    }
+  }
+  @media (min-width: 870px) {
+    .container {
+      width: 85%;
+      display: flex;
+      justify-content: center;
+      padding: 50px 0;
+      .box {
+        width: 45%;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  @media (min-width: 1500px) {
+    .container {
+      width: 1440px;
     }
   }
 }
